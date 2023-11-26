@@ -55,8 +55,8 @@
             treeView1.Dock = DockStyle.Fill;
             treeView1.Location = new Point(0, 0);
             treeView1.Name = "treeView1";
-            treeNode1.Name = "mainFormNode";
-            treeNode1.Tag = "MainForm";
+            treeNode1.Name = "homeNode";
+            treeNode1.Tag = new HomeForm();
             treeNode1.Text = "Home";
             treeNode2.Name = "searchFormNode";
             treeNode2.Tag = new SearchFrom();
