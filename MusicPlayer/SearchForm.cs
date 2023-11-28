@@ -7,9 +7,12 @@ namespace MusicPlayer
 {
     public partial class SearchForm : Form
     {
-        public SearchForm()
+        private MainForm mainForm;
+        public SearchForm(MainForm mainForm)
         {
             InitializeComponent();
+
+            this.mainForm = mainForm;
 
             searchResultPanel.HorizontalScroll.Enabled = false;
             searchResultPanel.AutoScroll = true;
@@ -66,9 +69,10 @@ namespace MusicPlayer
                         string trackPoster = TrackMetadata.trackPoster;
 
                         // Creates a new panel and label dynamically
-                        Panel newPanel = CreateResultPanel(trackId, trackName, artistName, trackPoster, panelIndex);
+                        Panel newPanel = CreateResultPanel(trackId, trackName, artistName, trackPoster, panelIndex, ResultPanel_Click);
 
-                        // Add the new panel to the main panel
+
+                        // Adds the new panel to the main panel
                         searchResultPanel.Controls.Add(newPanel);
 
                         panelIndex++;
@@ -83,30 +87,54 @@ namespace MusicPlayer
             }
         }
 
-        private static Panel CreateResultPanel(string trackId, string trackName, string artistName, string trackPoster, int index)
+        private void ResultPanel_Click(object sender, EventArgs e)
+        {
+            string trackId = "";
+
+            if (sender is Panel)
+            {
+                Panel clickedPanel = (Panel)sender;
+                trackId = (string)clickedPanel.Tag;
+            }
+            else if (sender is Label)
+            {
+                Label clickedLabel = (Label)sender;
+                trackId = (string)clickedLabel.Tag;
+            }
+            else if (sender is PictureBox)
+            {
+                PictureBox clickedPictureBox = (PictureBox)sender;
+                trackId = (string)clickedPictureBox.Tag;
+            }
+
+            mainForm.OpenMusicInfoForm(trackId);
+        }
+
+        private static Panel CreateResultPanel(string trackId, string trackName, string artistName, string trackPoster, int index, EventHandler panelClickEvent)
         {
             Panel newPanel = new Panel();
             Label trackLabel = new Label();
             Label artistLabel = new Label();
             PictureBox imageBox = new PictureBox();
-            //Panel overlayPanel = new Panel();
 
             newPanel.Name = $"panelResult{index}";
-            newPanel.Height = 100;  // Adjust as needed, considering padding
-            newPanel.Width = 535;   // Adjust as needed, considering padding
+            newPanel.Height = 100;
+            newPanel.Width = 535;
             newPanel.AutoSize = false;
             newPanel.BackColor = Color.FromArgb(13, 18, 47);
-            //newPanel.BorderStyle = BorderStyle.FixedSingle;
+            newPanel.Cursor = Cursors.Hand;
+            newPanel.Tag = trackId;
 
             int panelYPosition = (index - 1) * newPanel.Height;
             newPanel.Location = new Point(0, panelYPosition);
 
             // PictureBox for the image on the left
             imageBox.Name = $"pictureBoxResult{index}";
-            imageBox.ImageLocation = trackPoster;  // Set the image location
+            imageBox.ImageLocation = trackPoster;
             imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            imageBox.Width = 100;  // Adjust the width as needed
+            imageBox.Width = 100;
             imageBox.Height = newPanel.Height;
+            imageBox.Tag = trackId;
 
             // Label for the track name on the right top
             trackLabel.Name = $"labelTrack{index}";
@@ -115,10 +143,11 @@ namespace MusicPlayer
             trackLabel.Font = new Font("Calibre", trackName.Length > 25 ? 13 : 16);
             trackLabel.ForeColor = Color.White;
             trackLabel.Width = newPanel.Width - imageBox.Width;
-            trackLabel.Height = 40;  // Adjust the height as needed
+            trackLabel.Height = 40;
             trackLabel.Location = new Point(imageBox.Width, 0);
             trackLabel.TextAlign = ContentAlignment.BottomLeft;
             trackLabel.Location = new Point(120, 5);
+            trackLabel.Tag = trackId;
 
             // Label for the artist name on the right bottom
             artistLabel.Name = $"labelArtist{index}";
@@ -127,26 +156,26 @@ namespace MusicPlayer
             artistLabel.Font = new Font("Arial", 12);
             artistLabel.ForeColor = Color.White;
             artistLabel.Width = newPanel.Width - imageBox.Width;
-            artistLabel.Height = 40;  // Adjust the height as needed
+            artistLabel.Height = 40;
             artistLabel.Location = new Point(imageBox.Width, newPanel.Height - artistLabel.Height);
             artistLabel.TextAlign = ContentAlignment.TopLeft;
             artistLabel.Location = new Point(120, 60);
-
-
-            // Overlay Panel
-            //overlayPanel.Dock = DockStyle.Fill;
-            //overlayPanel.BackColor = Color.Transparent;
-            //overlayPanel.Tag = trackId;
-
+            artistLabel.Tag = trackId;
 
             // Add controls to the panel
             newPanel.Controls.Add(imageBox);
             newPanel.Controls.Add(trackLabel);
             newPanel.Controls.Add(artistLabel);
-            //newPanel.Controls.Add(overlayPanel);
+
+            // Attach the click event handler
+            newPanel.Click += panelClickEvent;
+            trackLabel.Click += panelClickEvent;
+            artistLabel.Click += panelClickEvent;
+            imageBox.Click += panelClickEvent;
 
             return newPanel;
         }
+
 
         // Clear existing panels
         private void ClearPanels()

@@ -12,24 +12,22 @@ namespace MusicPlayer
 {
     public partial class MainForm : Form
     {
-        private readonly SearchForm searchForm = new SearchForm();
-        private readonly HomeForm homeForm = new HomeForm();
         private Form activeForm;  // Tracks the active form
 
         public MainForm()
         {
             InitializeComponent();
-            activeForm = homeForm;  // Sets the default active form
+            activeForm = new HomeForm();  // Sets the default active form
         }
 
         private void searchFormSelectBtn_Click(object sender, EventArgs e)
         {
-            ActivateForm(searchForm, searchFormSelectBtn);
+            ActivateForm(new SearchForm(this), searchFormSelectBtn);
         }
 
         private void homeFromSelectBtn_Click(object sender, EventArgs e)
         {
-            ActivateForm(homeForm, homeFormSelectBtn);
+            ActivateForm(new HomeForm(), homeFormSelectBtn);
         }
 
         private void ActivateForm(Form form, Button button)
@@ -46,6 +44,19 @@ namespace MusicPlayer
             // Highlights the active button
             activeForm = form;
             HighlightActiveButton(button);
+        }
+
+        public void OpenMusicInfoForm(string trackId)
+        {
+            MusicInfoForm musicInfoForm = new MusicInfoForm(trackId);
+
+            musicInfoForm.TopLevel = false;
+            musicInfoForm.FormBorderStyle = FormBorderStyle.None;
+            musicInfoForm.Dock = DockStyle.Fill;
+            splitContainer2.Panel2.Controls.Clear();
+            splitContainer2.Panel2.Controls.Add(musicInfoForm);
+
+            musicInfoForm.Show();
         }
 
         private void HighlightActiveButton(Button activeButton)
