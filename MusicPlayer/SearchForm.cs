@@ -5,9 +5,9 @@ using SpotifyAPI.Web;
 
 namespace MusicPlayer
 {
-    public partial class SearchFrom : Form
+    public partial class SearchForm : Form
     {
-        public SearchFrom()
+        public SearchForm()
         {
             InitializeComponent();
 
@@ -60,12 +60,13 @@ namespace MusicPlayer
                         TrackMetadata trackInfo = new TrackMetadata(item.Id);
                         await trackInfo.SetMetadata();
 
+                        string trackId = item.Id;
                         string trackName = TrackMetadata.trackName;
                         string artistName = TrackMetadata.artistName;
                         string trackPoster = TrackMetadata.trackPoster;
 
                         // Creates a new panel and label dynamically
-                        Panel newPanel = CreateResultPanel(trackName, artistName, trackPoster, panelIndex);
+                        Panel newPanel = CreateResultPanel(trackId, trackName, artistName, trackPoster, panelIndex);
 
                         // Add the new panel to the main panel
                         searchResultPanel.Controls.Add(newPanel);
@@ -82,18 +83,19 @@ namespace MusicPlayer
             }
         }
 
-        private Panel CreateResultPanel(string trackName, string artistName, string trackPoster, int index)
+        private static Panel CreateResultPanel(string trackId, string trackName, string artistName, string trackPoster, int index)
         {
             Panel newPanel = new Panel();
             Label trackLabel = new Label();
             Label artistLabel = new Label();
             PictureBox imageBox = new PictureBox();
+            //Panel overlayPanel = new Panel();
 
             newPanel.Name = $"panelResult{index}";
             newPanel.Height = 100;  // Adjust as needed, considering padding
-            newPanel.Width = 470;   // Adjust as needed, considering padding
-            newPanel.AutoSize = true;
-            newPanel.BackColor = Color.FromArgb(240, 240, 240);
+            newPanel.Width = 535;   // Adjust as needed, considering padding
+            newPanel.AutoSize = false;
+            newPanel.BackColor = Color.FromArgb(13, 18, 47);
             //newPanel.BorderStyle = BorderStyle.FixedSingle;
 
             int panelYPosition = (index - 1) * newPanel.Height;
@@ -111,6 +113,7 @@ namespace MusicPlayer
             trackLabel.Text = trackName;
             trackLabel.AutoSize = false;
             trackLabel.Font = new Font("Calibre", trackName.Length > 25 ? 13 : 16);
+            trackLabel.ForeColor = Color.White;
             trackLabel.Width = newPanel.Width - imageBox.Width;
             trackLabel.Height = 40;  // Adjust the height as needed
             trackLabel.Location = new Point(imageBox.Width, 0);
@@ -122,16 +125,25 @@ namespace MusicPlayer
             artistLabel.Text = "Song - " + artistName;
             artistLabel.AutoSize = false;
             artistLabel.Font = new Font("Arial", 12);
+            artistLabel.ForeColor = Color.White;
             artistLabel.Width = newPanel.Width - imageBox.Width;
             artistLabel.Height = 40;  // Adjust the height as needed
             artistLabel.Location = new Point(imageBox.Width, newPanel.Height - artistLabel.Height);
             artistLabel.TextAlign = ContentAlignment.TopLeft;
             artistLabel.Location = new Point(120, 60);
 
+
+            // Overlay Panel
+            //overlayPanel.Dock = DockStyle.Fill;
+            //overlayPanel.BackColor = Color.Transparent;
+            //overlayPanel.Tag = trackId;
+
+
             // Add controls to the panel
             newPanel.Controls.Add(imageBox);
             newPanel.Controls.Add(trackLabel);
             newPanel.Controls.Add(artistLabel);
+            //newPanel.Controls.Add(overlayPanel);
 
             return newPanel;
         }

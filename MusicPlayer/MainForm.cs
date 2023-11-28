@@ -12,37 +12,56 @@ namespace MusicPlayer
 {
     public partial class MainForm : Form
     {
+        private readonly SearchForm searchForm = new SearchForm();
+        private readonly HomeForm homeForm = new HomeForm();
+        private Form activeForm;  // Tracks the active form
+
         public MainForm()
         {
             InitializeComponent();
+            activeForm = homeForm;  // Sets the default active form
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        private void searchFormSelectBtn_Click(object sender, EventArgs e)
         {
-            TreeNode selectedNode = e.Node;
+            ActivateForm(searchForm, searchFormSelectBtn);
+        }
 
-            if (selectedNode.Tag is Form SearchForm)
-            {
-                splitContainer1.Panel2.Controls.Clear();
+        private void homeFromSelectBtn_Click(object sender, EventArgs e)
+        {
+            ActivateForm(homeForm, homeFormSelectBtn);
+        }
 
-                SearchForm.TopLevel = false;
-                SearchForm.FormBorderStyle = FormBorderStyle.None;
-                SearchForm.Dock = DockStyle.Fill;
-                splitContainer1.Panel2.Controls.Add(SearchForm);
+        private void ActivateForm(Form form, Button button)
+        {
+            splitContainer2.Panel1.Controls.Clear();
 
-                SearchForm.Show();
-            }
-            else if (selectedNode.Tag is Form MainForm) 
-            {
-                splitContainer1.Panel2.Controls.Clear();
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            splitContainer2.Panel1.Controls.Add(form);
 
-                MainForm.TopLevel = false;
-                MainForm.FormBorderStyle = FormBorderStyle.None;
-                MainForm.Dock = DockStyle.Fill;
-                splitContainer1.Panel2.Controls.Add(MainForm);
+            form.Show();
 
-                MainForm.Show();
-            }
+            // Highlights the active button
+            activeForm = form;
+            HighlightActiveButton(button);
+        }
+
+        private void HighlightActiveButton(Button activeButton)
+        {
+            // Resets the appearance of all buttons
+            searchFormSelectBtn.BackColor = Color.FromArgb(13, 18, 47);
+            homeFormSelectBtn.BackColor = Color.FromArgb(13, 18, 47);
+
+            // Highlights the active button
+            activeButton.BackColor = Color.FromArgb(14, 24, 72);
+        }
+
+        private void splitContainer2_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
         }
     }
+
 }
