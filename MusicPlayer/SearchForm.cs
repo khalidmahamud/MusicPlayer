@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SpotifyAPI.Web;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MusicPlayer
 {
@@ -73,7 +74,7 @@ namespace MusicPlayer
                         // Creates a new panel and label dynamically
                         Panel newPanel = CreateResultPanel(trackId, trackName, artistName, trackPoster, panelIndex, ResultPanel_Click);
                         newPanel.AutoSize = false;
-                        
+
 
                         // Adds the new panel to the main panel
                         searchResultPanel.Controls.Add(newPanel);
@@ -200,6 +201,32 @@ namespace MusicPlayer
                 .WithAuthenticator(new ClientCredentialsAuthenticator("600ba51cf6464b29b90edc07050e54d9", "9a6802e6a09248808dce71025df7ae97"));
 
             return config;
+        }
+
+        private void SearchForm_Resize(object sender, EventArgs e)
+        {
+            // Always keeps the searchBox center vertically
+            int topMargin = (panel5.Height - searchBox.Height) / 2;
+            searchBox.Top = topMargin;
+
+            AdjustTextBoxFontSize(searchBox, this.Height);
+        }
+
+        private void AdjustTextBoxFontSize(System.Windows.Forms.TextBox textBox, int formHeight)
+        {
+            // Calculates the fontSize factor for min and max fontSize
+            float minFontSizeFactor = 14 / textBox.Font.Size;
+            float maxFontSizeFactor = 20 / textBox.Font.Size;
+
+            // Calculates a new font size based on the form's height
+            float fontSizeFactor = formHeight / 200.0f;
+
+            // Ensures the new font size stays within the specified range
+            fontSizeFactor = Math.Max(minFontSizeFactor, Math.Min(fontSizeFactor, maxFontSizeFactor));
+
+            // Sets the new font size
+            float newSize = textBox.Font.Size * fontSizeFactor;
+            textBox.Font = new Font(textBox.Font.FontFamily, newSize, textBox.Font.Style);
         }
     }
 }

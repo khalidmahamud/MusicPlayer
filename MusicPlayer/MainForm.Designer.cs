@@ -135,7 +135,7 @@
             searchFormSelectBtn.Location = new Point(0, 0);
             searchFormSelectBtn.Margin = new Padding(0);
             searchFormSelectBtn.Name = "searchFormSelectBtn";
-            searchFormSelectBtn.Padding = new Padding(20, 0, 0, 0);
+            searchFormSelectBtn.Padding = new Padding(30, 0, 0, 0);
             searchFormSelectBtn.Size = new Size(272, 77);
             searchFormSelectBtn.TabIndex = 0;
             searchFormSelectBtn.Text = "     Search";
@@ -167,7 +167,7 @@
             homeFormSelectBtn.Location = new Point(0, 0);
             homeFormSelectBtn.Margin = new Padding(0);
             homeFormSelectBtn.Name = "homeFormSelectBtn";
-            homeFormSelectBtn.Padding = new Padding(20, 0, 0, 0);
+            homeFormSelectBtn.Padding = new Padding(30, 0, 0, 0);
             homeFormSelectBtn.Size = new Size(272, 77);
             homeFormSelectBtn.TabIndex = 0;
             homeFormSelectBtn.Text = "     Home";
@@ -227,9 +227,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1382, 743);
             Controls.Add(splitContainer1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MinimumSize = new Size(950, 670);
             Name = "MainForm";
-            Text = "Main Form";
+            Text = "Spotify";
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();

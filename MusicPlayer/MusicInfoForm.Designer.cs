@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MusicInfoForm));
             splitContainer1 = new SplitContainer();
-            pictureBox1 = new PictureBox();
+            trackPosterBox = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)trackPosterBox).BeginInit();
             SuspendLayout();
             // 
             // splitContainer1
@@ -45,22 +46,23 @@
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.Controls.Add(pictureBox1);
+            splitContainer1.Panel1.Controls.Add(trackPosterBox);
             splitContainer1.Size = new Size(382, 608);
             splitContainer1.SplitterDistance = 310;
             splitContainer1.TabIndex = 0;
             // 
-            // pictureBox1
+            // trackPosterBox
             // 
-            pictureBox1.BackColor = Color.FromArgb(13, 18, 47);
-            pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.ImageLocation = "https://i.scdn.co/image/ab67616d0000b273e44963b8bb127552ac761873";
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(382, 310);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            trackPosterBox.BackColor = Color.FromArgb(13, 18, 47);
+            trackPosterBox.Dock = DockStyle.Fill;
+            trackPosterBox.Image = (Image)resources.GetObject("trackPosterBox.Image");
+            trackPosterBox.ImageLocation = "";
+            trackPosterBox.Location = new Point(0, 0);
+            trackPosterBox.Name = "trackPosterBox";
+            trackPosterBox.Size = new Size(382, 310);
+            trackPosterBox.SizeMode = PictureBoxSizeMode.Zoom;
+            trackPosterBox.TabIndex = 0;
+            trackPosterBox.TabStop = false;
             // 
             // MusicInfoForm
             // 
@@ -75,16 +77,17 @@
             Padding = new Padding(0, 20, 0, 0);
             ShowIcon = false;
             ShowInTaskbar = false;
+            Load += MusicInfoForm_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)trackPosterBox).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private SplitContainer splitContainer1;
-        private PictureBox pictureBox1;
+        private PictureBox trackPosterBox;
     }
 }

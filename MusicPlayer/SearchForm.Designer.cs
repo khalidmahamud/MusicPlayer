@@ -32,9 +32,10 @@
             splitContainer1 = new SplitContainer();
             panel2 = new Panel();
             panel3 = new Panel();
+            panel5 = new Panel();
+            searchBox = new TextBox();
             panel4 = new Panel();
             searchBtn = new Button();
-            searchBox = new TextBox();
             panel1 = new Panel();
             searchResultPanel = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -43,6 +44,7 @@
             splitContainer1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            panel5.SuspendLayout();
             panel4.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -69,6 +71,8 @@
             // 
             // panel2
             // 
+            panel2.AutoSize = true;
+            panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel2.BackColor = Color.FromArgb(14, 24, 72);
             panel2.Controls.Add(panel3);
             panel2.Dock = DockStyle.Fill;
@@ -79,7 +83,10 @@
             // 
             // panel3
             // 
+            panel3.AutoSize = true;
+            panel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel3.BackColor = Color.FromArgb(55, 65, 81);
+            panel3.Controls.Add(panel5);
             panel3.Controls.Add(panel4);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 0);
@@ -88,11 +95,41 @@
             panel3.Size = new Size(683, 58);
             panel3.TabIndex = 0;
             // 
+            // panel5
+            // 
+            panel5.AutoSize = true;
+            panel5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            panel5.BackColor = Color.FromArgb(13, 18, 47);
+            panel5.Controls.Add(searchBox);
+            panel5.Dock = DockStyle.Left;
+            panel5.Location = new Point(2, 2);
+            panel5.MinimumSize = new Size(350, 0);
+            panel5.Name = "panel5";
+            panel5.Padding = new Padding(10, 10, 0, 10);
+            panel5.Size = new Size(350, 54);
+            panel5.TabIndex = 2;
+            // 
+            // searchBox
+            // 
+            searchBox.BackColor = Color.FromArgb(13, 18, 47);
+            searchBox.BorderStyle = BorderStyle.None;
+            searchBox.Dock = DockStyle.Fill;
+            searchBox.Font = new Font("Segoe UI", 15F);
+            searchBox.ForeColor = Color.White;
+            searchBox.Location = new Point(10, 10);
+            searchBox.Margin = new Padding(0);
+            searchBox.Name = "searchBox";
+            searchBox.PlaceholderText = "What do you want to listen to?";
+            searchBox.Size = new Size(340, 34);
+            searchBox.TabIndex = 1;
+            searchBox.KeyDown += SearchBox_KeyDown;
+            // 
             // panel4
             // 
+            panel4.AutoSize = true;
+            panel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel4.BackColor = Color.FromArgb(13, 18, 47);
             panel4.Controls.Add(searchBtn);
-            panel4.Controls.Add(searchBox);
             panel4.Dock = DockStyle.Fill;
             panel4.Font = new Font("Segoe UI", 11F);
             panel4.ForeColor = Color.White;
@@ -116,22 +153,11 @@
             searchBtn.UseVisualStyleBackColor = false;
             searchBtn.Click += Search_Btn_Click;
             // 
-            // searchBox
-            // 
-            searchBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            searchBox.BackColor = Color.FromArgb(13, 18, 47);
-            searchBox.BorderStyle = BorderStyle.None;
-            searchBox.Font = new Font("Segoe UI", 15F);
-            searchBox.ForeColor = Color.White;
-            searchBox.Location = new Point(11, 8);
-            searchBox.Name = "searchBox";
-            searchBox.Size = new Size(594, 34);
-            searchBox.TabIndex = 0;
-            searchBox.KeyDown += SearchBox_KeyDown;
-            // 
             // panel1
             // 
             panel1.AutoScroll = true;
+            panel1.AutoSize = true;
+            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel1.BackColor = Color.FromArgb(14, 24, 72);
             panel1.Controls.Add(searchResultPanel);
             panel1.Dock = DockStyle.Fill;
@@ -167,14 +193,20 @@
             Padding = new Padding(20);
             ShowInTaskbar = false;
             Text = "Search";
+            Resize += SearchForm_Resize;
             splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
+            splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -189,6 +221,7 @@
         private Panel panel3;
         private Panel panel4;
         private Button searchBtn;
+        private Panel panel5;
         private TextBox searchBox;
     }
 }
