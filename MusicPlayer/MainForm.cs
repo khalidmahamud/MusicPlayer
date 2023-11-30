@@ -32,12 +32,12 @@ namespace MusicPlayer
 
         private void ActivateForm(Form form, Button button)
         {
-            splitContainer2.Panel1.Controls.Clear();
+            splitContainer3.Panel1.Controls.Clear();
 
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
-            splitContainer2.Panel1.Controls.Add(form);
+            splitContainer3.Panel1.Controls.Add(form);
 
             form.Show();
 
@@ -53,8 +53,8 @@ namespace MusicPlayer
             musicInfoForm.TopLevel = false;
             musicInfoForm.FormBorderStyle = FormBorderStyle.None;
             musicInfoForm.Dock = DockStyle.Fill;
-            splitContainer2.Panel2.Controls.Clear();
-            splitContainer2.Panel2.Controls.Add(musicInfoForm);
+            splitContainer3.Panel2.Controls.Clear();
+            splitContainer3.Panel2.Controls.Add(musicInfoForm);
 
             musicInfoForm.Show();
         }

@@ -14,7 +14,9 @@ namespace MusicPlayer
 
             this.mainForm = mainForm;
 
-            searchResultPanel.HorizontalScroll.Enabled = false;
+            searchResultPanel.HorizontalScroll.Maximum = 0;
+            searchResultPanel.AutoScroll = false;
+            searchResultPanel.VerticalScroll.Visible = false;
             searchResultPanel.AutoScroll = true;
         }
 
@@ -70,7 +72,8 @@ namespace MusicPlayer
 
                         // Creates a new panel and label dynamically
                         Panel newPanel = CreateResultPanel(trackId, trackName, artistName, trackPoster, panelIndex, ResultPanel_Click);
-
+                        newPanel.AutoSize = false;
+                        
 
                         // Adds the new panel to the main panel
                         searchResultPanel.Controls.Add(newPanel);
@@ -110,7 +113,7 @@ namespace MusicPlayer
             mainForm.OpenMusicInfoForm(trackId);
         }
 
-        private static Panel CreateResultPanel(string trackId, string trackName, string artistName, string trackPoster, int index, EventHandler panelClickEvent)
+        private Panel CreateResultPanel(string trackId, string trackName, string artistName, string trackPoster, int index, EventHandler panelClickEvent)
         {
             Panel newPanel = new Panel();
             Label trackLabel = new Label();
@@ -119,8 +122,9 @@ namespace MusicPlayer
 
             newPanel.Name = $"panelResult{index}";
             newPanel.Height = 100;
-            newPanel.Width = 535;
+            newPanel.Width = searchResultPanel.Width;
             newPanel.AutoSize = false;
+            newPanel.AutoScroll = false;
             newPanel.BackColor = Color.FromArgb(13, 18, 47);
             newPanel.Cursor = Cursors.Hand;
             newPanel.Tag = trackId;
