@@ -35,6 +35,7 @@ namespace MusicPlayer
 
             // Set the ImageLocation property after metadata has been retrieved
             trackPosterBox.ImageLocation = this.trackPoster;
+            trackPosterBox.SizeMode = PictureBoxSizeMode.Zoom;
         }
     }
 

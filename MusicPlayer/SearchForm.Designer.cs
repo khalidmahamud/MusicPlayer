@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchForm));
             splitContainer1 = new SplitContainer();
-            panel2 = new Panel();
-            panel3 = new Panel();
-            panel5 = new Panel();
+            customPanel1 = new CustomPanel.CustomPanel();
+            customPanel2 = new CustomPanel.CustomPanel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            tableLayoutPanel2 = new TableLayoutPanel();
             searchBox = new TextBox();
-            panel4 = new Panel();
             searchBtn = new Button();
             panel1 = new Panel();
             searchResultPanel = new FlowLayoutPanel();
@@ -42,10 +42,10 @@
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
-            panel5.SuspendLayout();
-            panel4.SuspendLayout();
+            customPanel1.SuspendLayout();
+            customPanel2.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,7 +59,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.Controls.Add(panel2);
+            splitContainer1.Panel1.Controls.Add(customPanel1);
             // 
             // splitContainer1.Panel2
             // 
@@ -69,45 +69,70 @@
             splitContainer1.SplitterWidth = 1;
             splitContainer1.TabIndex = 0;
             // 
-            // panel2
+            // customPanel1
             // 
-            panel2.AutoSize = true;
-            panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel2.BackColor = Color.FromArgb(14, 24, 72);
-            panel2.Controls.Add(panel3);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(683, 58);
-            panel2.TabIndex = 0;
+            customPanel1.BackColor = Color.FromArgb(55, 65, 81);
+            customPanel1.BorderRadius = 50;
+            customPanel1.Controls.Add(customPanel2);
+            customPanel1.Dock = DockStyle.Fill;
+            customPanel1.ForeColor = Color.Black;
+            customPanel1.GradientAngle = 0F;
+            customPanel1.GradientBottomColor = Color.FromArgb(55, 65, 81);
+            customPanel1.GradientTopColor = Color.FromArgb(55, 65, 81);
+            customPanel1.Location = new Point(0, 0);
+            customPanel1.Name = "customPanel1";
+            customPanel1.Padding = new Padding(2);
+            customPanel1.Size = new Size(683, 58);
+            customPanel1.TabIndex = 0;
             // 
-            // panel3
+            // customPanel2
             // 
-            panel3.AutoSize = true;
-            panel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel3.BackColor = Color.FromArgb(55, 65, 81);
-            panel3.Controls.Add(panel5);
-            panel3.Controls.Add(panel4);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 0);
-            panel3.Name = "panel3";
-            panel3.Padding = new Padding(2);
-            panel3.Size = new Size(683, 58);
-            panel3.TabIndex = 0;
+            customPanel2.BackColor = Color.FromArgb(13, 18, 47);
+            customPanel2.BorderRadius = 50;
+            customPanel2.Controls.Add(tableLayoutPanel1);
+            customPanel2.Dock = DockStyle.Fill;
+            customPanel2.ForeColor = Color.Black;
+            customPanel2.GradientAngle = 90F;
+            customPanel2.GradientBottomColor = Color.FromArgb(13, 18, 47);
+            customPanel2.GradientTopColor = Color.FromArgb(13, 18, 47);
+            customPanel2.Location = new Point(2, 2);
+            customPanel2.Name = "customPanel2";
+            customPanel2.Padding = new Padding(10, 5, 10, 5);
+            customPanel2.Size = new Size(679, 54);
+            customPanel2.TabIndex = 0;
             // 
-            // panel5
+            // tableLayoutPanel1
             // 
-            panel5.AutoSize = true;
-            panel5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel5.BackColor = Color.FromArgb(13, 18, 47);
-            panel5.Controls.Add(searchBox);
-            panel5.Dock = DockStyle.Left;
-            panel5.Location = new Point(2, 2);
-            panel5.MinimumSize = new Size(350, 0);
-            panel5.Name = "panel5";
-            panel5.Padding = new Padding(10, 10, 0, 10);
-            panel5.Size = new Size(350, 54);
-            panel5.TabIndex = 2;
+            tableLayoutPanel1.BackColor = Color.FromArgb(13, 18, 47);
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 87.5549F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.4450951F));
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 0);
+            tableLayoutPanel1.Controls.Add(searchBtn, 1, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(10, 5);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.Padding = new Padding(10, 0, 0, 0);
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(659, 44);
+            tableLayoutPanel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(searchBox, 0, 1);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(13, 3);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 3;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Size = new Size(562, 38);
+            tableLayoutPanel2.TabIndex = 2;
             // 
             // searchBox
             // 
@@ -116,41 +141,25 @@
             searchBox.Dock = DockStyle.Fill;
             searchBox.Font = new Font("Segoe UI", 15F);
             searchBox.ForeColor = Color.White;
-            searchBox.Location = new Point(10, 10);
-            searchBox.Margin = new Padding(0);
+            searchBox.Location = new Point(3, 2);
             searchBox.Name = "searchBox";
-            searchBox.PlaceholderText = "What do you want to listen to?";
-            searchBox.Size = new Size(340, 34);
+            searchBox.PlaceholderText = "Search...";
+            searchBox.Size = new Size(556, 34);
             searchBox.TabIndex = 1;
             searchBox.KeyDown += SearchBox_KeyDown;
             // 
-            // panel4
-            // 
-            panel4.AutoSize = true;
-            panel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel4.BackColor = Color.FromArgb(13, 18, 47);
-            panel4.Controls.Add(searchBtn);
-            panel4.Dock = DockStyle.Fill;
-            panel4.Font = new Font("Segoe UI", 11F);
-            panel4.ForeColor = Color.White;
-            panel4.Location = new Point(2, 2);
-            panel4.Name = "panel4";
-            panel4.Padding = new Padding(10, 5, 5, 5);
-            panel4.Size = new Size(679, 54);
-            panel4.TabIndex = 1;
-            // 
             // searchBtn
             // 
-            searchBtn.BackColor = Color.FromArgb(13, 18, 47);
-            searchBtn.Dock = DockStyle.Right;
+            searchBtn.Dock = DockStyle.Fill;
             searchBtn.FlatAppearance.BorderSize = 0;
             searchBtn.FlatStyle = FlatStyle.Flat;
             searchBtn.Image = (Image)resources.GetObject("searchBtn.Image");
-            searchBtn.Location = new Point(608, 5);
+            searchBtn.Location = new Point(578, 0);
+            searchBtn.Margin = new Padding(0);
             searchBtn.Name = "searchBtn";
-            searchBtn.Size = new Size(66, 44);
+            searchBtn.Size = new Size(81, 44);
             searchBtn.TabIndex = 1;
-            searchBtn.UseVisualStyleBackColor = false;
+            searchBtn.UseVisualStyleBackColor = true;
             searchBtn.Click += Search_Btn_Click;
             // 
             // panel1
@@ -193,20 +202,16 @@
             Padding = new Padding(20);
             ShowInTaskbar = false;
             Text = "Search";
-            Resize += SearchForm_Resize;
             splitContainer1.Panel1.ResumeLayout(false);
-            splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
             splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            panel4.ResumeLayout(false);
+            customPanel1.ResumeLayout(false);
+            customPanel2.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -216,12 +221,12 @@
 
         private SplitContainer splitContainer1;
         private Panel panel1;
-        private Panel panel2;
         private FlowLayoutPanel searchResultPanel;
-        private Panel panel3;
-        private Panel panel4;
+        private TableLayoutPanel tableLayoutPanel1;
         private Button searchBtn;
-        private Panel panel5;
+        private TableLayoutPanel tableLayoutPanel2;
         private TextBox searchBox;
+        private CustomPanel.CustomPanel customPanel1;
+        private CustomPanel.CustomPanel customPanel2;
     }
 }

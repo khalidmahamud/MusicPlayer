@@ -198,6 +198,7 @@
             flowLayoutPanel2.BackColor = Color.FromArgb(14, 24, 72);
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.Location = new Point(0, 0);
+            flowLayoutPanel2.MinimumSize = new Size(650, 600);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(723, 628);
             flowLayoutPanel2.TabIndex = 0;

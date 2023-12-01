@@ -57,10 +57,11 @@
             trackPosterBox.Dock = DockStyle.Fill;
             trackPosterBox.Image = (Image)resources.GetObject("trackPosterBox.Image");
             trackPosterBox.ImageLocation = "";
+            trackPosterBox.InitialImage = null;
             trackPosterBox.Location = new Point(0, 0);
             trackPosterBox.Name = "trackPosterBox";
             trackPosterBox.Size = new Size(382, 310);
-            trackPosterBox.SizeMode = PictureBoxSizeMode.Zoom;
+            trackPosterBox.SizeMode = PictureBoxSizeMode.CenterImage;
             trackPosterBox.TabIndex = 0;
             trackPosterBox.TabStop = false;
             // 
