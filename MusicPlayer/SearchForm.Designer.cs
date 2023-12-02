@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchForm));
             splitContainer1 = new SplitContainer();
+            roundedPanel1 = new CustomPanel.RoundedPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             searchBox = new TextBox();
             searchBtn = new Button();
             panel1 = new Panel();
             searchResultPanel = new FlowLayoutPanel();
-            roundedPanel1 = new CustomPanel.RoundedPanel();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
+            roundedPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
-            roundedPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -66,6 +66,20 @@
             splitContainer1.SplitterDistance = 80;
             splitContainer1.SplitterWidth = 1;
             splitContainer1.TabIndex = 0;
+            // 
+            // roundedPanel1
+            // 
+            roundedPanel1.BackgroundColor = Color.FromArgb(13, 18, 47);
+            roundedPanel1.BorderColor = Color.FromArgb(13, 18, 47);
+            roundedPanel1.BorderWidth = 2F;
+            roundedPanel1.Controls.Add(tableLayoutPanel1);
+            roundedPanel1.Dock = DockStyle.Fill;
+            roundedPanel1.Location = new Point(0, 0);
+            roundedPanel1.Name = "roundedPanel1";
+            roundedPanel1.Padding = new Padding(15);
+            roundedPanel1.Radius = 10;
+            roundedPanel1.Size = new Size(683, 80);
+            roundedPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -155,20 +169,6 @@
             searchResultPanel.TabIndex = 0;
             searchResultPanel.WrapContents = false;
             // 
-            // roundedPanel1
-            // 
-            roundedPanel1.BackgroundColor = Color.FromArgb(13, 18, 47);
-            roundedPanel1.BorderColor = Color.FromArgb(13, 18, 47);
-            roundedPanel1.BorderWidth = 2F;
-            roundedPanel1.Controls.Add(tableLayoutPanel1);
-            roundedPanel1.Dock = DockStyle.Fill;
-            roundedPanel1.Location = new Point(0, 0);
-            roundedPanel1.Name = "roundedPanel1";
-            roundedPanel1.Padding = new Padding(15);
-            roundedPanel1.Radius = 10;
-            roundedPanel1.Size = new Size(683, 80);
-            roundedPanel1.TabIndex = 0;
-            // 
             // SearchForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -187,12 +187,12 @@
             splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            roundedPanel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            roundedPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 

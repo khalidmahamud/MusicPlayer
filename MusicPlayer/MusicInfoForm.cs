@@ -13,9 +13,9 @@ namespace MusicPlayer
     public partial class MusicInfoForm : Form
     {
         private string trackId;
-        private string trackName;
-        private string artistName;
-        private string trackPoster;
+        private string trackName = "";
+        private string artistName = "";
+        private string trackPoster = "";
 
         public MusicInfoForm(string trackId)
         {

@@ -59,6 +59,19 @@ namespace MusicPlayer
             musicInfoForm.Show();
         }
 
+        //public void OpenMediaPlayerControlForm(string trackId)
+        //{
+        //    MediaPlayerControlForm mediaPlayerControl = new MediaPlayerControlForm(trackId);
+
+        //    mediaPlayerControl.TopLevel = false;
+        //    mediaPlayerControl.FormBorderStyle = FormBorderStyle.None;
+        //    mediaPlayerControl.Dock = DockStyle.Fill;
+        //    splitContainer1.Panel2.Controls.Clear();
+        //    splitContainer1.Panel2.Controls.Add(mediaPlayerControl);
+
+        //    mediaPlayerControl.Show();
+        //}
+
         private void HighlightActiveButton(Button activeButton)
         {
             // Resets the appearance of all buttons

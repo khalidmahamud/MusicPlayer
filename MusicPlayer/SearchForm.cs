@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SpotifyAPI.Web;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Button = System.Windows.Forms.Button;
 
 namespace MusicPlayer
 {
@@ -48,10 +49,7 @@ namespace MusicPlayer
                 var config = await StartAuthentication();
                 var spotify = new SpotifyClient(config);
 
-                var result = await spotify.Search.Item(new SearchRequest(SearchRequest.Types.Track, searchBox.Text)
-                {
-                    Market = "BD"
-                });
+                var result = await spotify.Search.Item(new SearchRequest(SearchRequest.Types.Track, searchBox.Text));
 
                 // Clears existing panels and labels
                 ClearPanels();
@@ -62,6 +60,10 @@ namespace MusicPlayer
 
                     await foreach (var item in spotify.Paginate(result.Tracks, (t) => t.Tracks))
                     {
+                        if (item.PreviewUrl == null)
+                        {
+                            continue; // Skips if track preview is nulll
+                        }
 
                         TrackMetadata trackInfo = new TrackMetadata(item.Id);
                         await trackInfo.SetMetadata();
@@ -110,20 +112,24 @@ namespace MusicPlayer
                 PictureBox clickedPictureBox = (PictureBox)sender;
                 trackId = (string)clickedPictureBox.Tag;
             }
+            else if (sender is Button)
+            {
+                Button clickedButton = (Button)sender;
+                trackId = (string)clickedButton.Tag;
+
+                //mainForm.OpenMediaPlayerControlForm(trackId);
+            }
 
             mainForm.OpenMusicInfoForm(trackId);
         }
 
         private Panel CreateResultPanel(string trackId, string trackName, string artistName, string trackPoster, int index, EventHandler panelClickEvent)
         {
+            // Create the main panel
             Panel newPanel = new Panel();
-            Label trackLabel = new Label();
-            Label artistLabel = new Label();
-            PictureBox imageBox = new PictureBox();
-
             newPanel.Name = $"panelResult{index}";
             newPanel.Height = 100;
-            newPanel.Width = searchResultPanel.Width;
+            newPanel.Width = searchResultPanel.Width - 20;
             newPanel.AutoSize = false;
             newPanel.AutoScroll = false;
             newPanel.BackColor = Color.FromArgb(13, 18, 47);
@@ -133,53 +139,86 @@ namespace MusicPlayer
             int panelYPosition = (index - 1) * newPanel.Height;
             newPanel.Location = new Point(0, panelYPosition);
 
+            // Create the table layout panel
+            TableLayoutPanel tableLayout = new TableLayoutPanel();
+            tableLayout.Dock = DockStyle.Fill;
+            tableLayout.ColumnCount = 3;
+            tableLayout.RowCount = 4;
+            tableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50)); 
+            tableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40)); 
+            tableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40)); 
+            tableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50)); 
+            tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100));
+            tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+            tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120));
+
             // PictureBox for the image on the left
+            PictureBox imageBox = new PictureBox();
             imageBox.Name = $"pictureBoxResult{index}";
             imageBox.ImageLocation = trackPoster;
             imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            imageBox.Width = 100;
-            imageBox.Height = newPanel.Height;
+            imageBox.Dock = DockStyle.Fill;
             imageBox.Tag = trackId;
+            // Adds controls to the table layout panel
+            tableLayout.Controls.Add(imageBox, 0, 0);
+            tableLayout.SetRowSpan(imageBox, 4);
 
-            // Label for the track name on the right top
+            // Label for the track name in the second column
+            Label trackLabel = new Label();
             trackLabel.Name = $"labelTrack{index}";
             trackLabel.Text = trackName;
             trackLabel.AutoSize = false;
             trackLabel.Font = new Font("Calibre", trackName.Length > 25 ? 13 : 16);
             trackLabel.ForeColor = Color.White;
-            trackLabel.Width = newPanel.Width - imageBox.Width;
-            trackLabel.Height = 40;
-            trackLabel.Location = new Point(imageBox.Width, 0);
+            trackLabel.Dock = DockStyle.Fill;
             trackLabel.TextAlign = ContentAlignment.BottomLeft;
-            trackLabel.Location = new Point(120, 5);
+            trackLabel.Padding = new Padding(5, 5, 5, 5);
             trackLabel.Tag = trackId;
+            // Adds controls to the table layout panel
+            tableLayout.Controls.Add(trackLabel, 1, 1);
 
-            // Label for the artist name on the right bottom
+            // Label for the artist name in the second column
+            Label artistLabel = new Label();
             artistLabel.Name = $"labelArtist{index}";
             artistLabel.Text = "Song - " + artistName;
             artistLabel.AutoSize = false;
             artistLabel.Font = new Font("Arial", 12);
             artistLabel.ForeColor = Color.White;
-            artistLabel.Width = newPanel.Width - imageBox.Width;
-            artistLabel.Height = 40;
-            artistLabel.Location = new Point(imageBox.Width, newPanel.Height - artistLabel.Height);
+            artistLabel.Dock = DockStyle.Fill;
             artistLabel.TextAlign = ContentAlignment.TopLeft;
-            artistLabel.Location = new Point(120, 60);
+            artistLabel.Padding = new Padding(7, 5, 5, 5);
             artistLabel.Tag = trackId;
+            // Adds controls to the table layout panel
+            tableLayout.Controls.Add(artistLabel, 1, 2);
 
-            // Add controls to the panel
-            newPanel.Controls.Add(imageBox);
-            newPanel.Controls.Add(trackLabel);
-            newPanel.Controls.Add(artistLabel);
+            // Button for play in the third column
+            Button playButton = new Button();
+            playButton.Name = $"buttonPlay{index}";
+            playButton.Image = Resource1.play;
+            playButton.ImageAlign = ContentAlignment.MiddleCenter;
+            playButton.Dock = DockStyle.Left;
+            playButton.FlatAppearance.BorderSize = 0;
+            playButton.FlatStyle = FlatStyle.Flat;
+            playButton.BackColor = Color.FromArgb(13, 18, 47);
+            playButton.ForeColor = Color.FromArgb(13, 18, 47);
+            playButton.Tag = trackId;
+            // Adda controls to the table layout panel
+            tableLayout.Controls.Add(playButton, 2, 1);
+            tableLayout.SetRowSpan(playButton, 2);
+
+            // Adds table layout panel to the main panel
+            newPanel.Controls.Add(tableLayout);
 
             // Attach the click event handler
             newPanel.Click += panelClickEvent;
             trackLabel.Click += panelClickEvent;
             artistLabel.Click += panelClickEvent;
             imageBox.Click += panelClickEvent;
+            playButton.Click += panelClickEvent;
 
             return newPanel;
         }
+
 
 
         // Clear existing panels
