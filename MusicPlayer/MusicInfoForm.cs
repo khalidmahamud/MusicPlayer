@@ -36,6 +36,21 @@ namespace MusicPlayer
             // Set the ImageLocation property after metadata has been retrieved
             trackPosterBox.ImageLocation = this.trackPoster;
             trackPosterBox.SizeMode = PictureBoxSizeMode.Zoom;
+
+            songNameLabel.Visible = true;
+            artistNameLabel.Visible = true;
+            songNameTextBox.Text = this.trackName;
+            artistNameTextBox.Text = this.artistName;
+        }
+
+        private void trackPosterBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void songNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

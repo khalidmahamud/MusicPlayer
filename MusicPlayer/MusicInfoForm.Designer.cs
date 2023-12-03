@@ -31,8 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MusicInfoForm));
             splitContainer1 = new SplitContainer();
             trackPosterBox = new PictureBox();
+            artistNameTextBox = new TextBox();
+            artistNameLabel = new Label();
+            songNameTextBox = new TextBox();
+            songNameLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackPosterBox).BeginInit();
             SuspendLayout();
@@ -51,6 +56,10 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = Color.FromArgb(18, 18, 18);
+            splitContainer1.Panel2.Controls.Add(artistNameTextBox);
+            splitContainer1.Panel2.Controls.Add(artistNameLabel);
+            splitContainer1.Panel2.Controls.Add(songNameTextBox);
+            splitContainer1.Panel2.Controls.Add(songNameLabel);
             splitContainer1.Size = new Size(382, 608);
             splitContainer1.SplitterDistance = 310;
             splitContainer1.TabIndex = 0;
@@ -68,6 +77,52 @@
             trackPosterBox.SizeMode = PictureBoxSizeMode.CenterImage;
             trackPosterBox.TabIndex = 1;
             trackPosterBox.TabStop = false;
+            trackPosterBox.Click += trackPosterBox_Click;
+            // 
+            // artistNameTextBox
+            // 
+            artistNameTextBox.BackColor = Color.FromArgb(18, 18, 18);
+            artistNameTextBox.BorderStyle = BorderStyle.None;
+            artistNameTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            artistNameTextBox.ForeColor = Color.Red;
+            artistNameTextBox.Location = new Point(92, 72);
+            artistNameTextBox.Name = "artistNameTextBox";
+            artistNameTextBox.Size = new Size(227, 27);
+            artistNameTextBox.TabIndex = 3;
+            // 
+            // artistNameLabel
+            // 
+            artistNameLabel.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            artistNameLabel.ForeColor = SystemColors.HighlightText;
+            artistNameLabel.Location = new Point(16, 70);
+            artistNameLabel.Name = "artistNameLabel";
+            artistNameLabel.Size = new Size(140, 36);
+            artistNameLabel.TabIndex = 2;
+            artistNameLabel.Text = "Artist:";
+            artistNameLabel.Visible = false;
+            // 
+            // songNameTextBox
+            // 
+            songNameTextBox.BackColor = Color.FromArgb(18, 18, 18);
+            songNameTextBox.BorderStyle = BorderStyle.None;
+            songNameTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            songNameTextBox.ForeColor = Color.Red;
+            songNameTextBox.Location = new Point(152, 32);
+            songNameTextBox.Name = "songNameTextBox";
+            songNameTextBox.Size = new Size(217, 27);
+            songNameTextBox.TabIndex = 1;
+            songNameTextBox.TextChanged += songNameTextBox_TextChanged;
+            // 
+            // songNameLabel
+            // 
+            songNameLabel.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            songNameLabel.ForeColor = SystemColors.HighlightText;
+            songNameLabel.Location = new Point(16, 32);
+            songNameLabel.Name = "songNameLabel";
+            songNameLabel.Size = new Size(140, 36);
+            songNameLabel.TabIndex = 0;
+            songNameLabel.Text = "Song name: ";
+            songNameLabel.Visible = false;
             // 
             // MusicInfoForm
             // 
@@ -84,6 +139,8 @@
             ShowInTaskbar = false;
             Load += MusicInfoForm_Load;
             splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel2.ResumeLayout(false);
+            splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)trackPosterBox).EndInit();
@@ -94,5 +151,9 @@
 
         private SplitContainer splitContainer1;
         private PictureBox trackPosterBox;
+        private Label songNameLabel;
+        private TextBox songNameTextBox;
+        private TextBox artistNameTextBox;
+        private Label artistNameLabel;
     }
 }
