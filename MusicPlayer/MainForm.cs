@@ -75,14 +75,24 @@ namespace MusicPlayer
         private void HighlightActiveButton(Button activeButton)
         {
             // Resets the appearance of all buttons
-            searchFormSelectBtn.BackColor = Color.FromArgb(13, 18, 47);
-            homeFormSelectBtn.BackColor = Color.FromArgb(13, 18, 47);
+            searchFormSelectBtn.BackColor = Color.FromArgb(18,18,18);
+            homeFormSelectBtn.BackColor = Color.FromArgb(18, 18, 18);
 
             // Highlights the active button
-            activeButton.BackColor = Color.FromArgb(14, 24, 72);
+            activeButton.BackColor = Color.FromArgb(40,40,40);
         }
 
         private void splitContainer2_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

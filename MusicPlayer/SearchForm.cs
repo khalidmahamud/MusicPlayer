@@ -132,7 +132,7 @@ namespace MusicPlayer
             newPanel.Width = searchResultPanel.Width - 20;
             newPanel.AutoSize = false;
             newPanel.AutoScroll = false;
-            newPanel.BackColor = Color.FromArgb(13, 18, 47);
+            newPanel.BackColor = Color.FromArgb(18, 18, 18);
             newPanel.Cursor = Cursors.Hand;
             newPanel.Tag = trackId;
 
@@ -144,10 +144,10 @@ namespace MusicPlayer
             tableLayout.Dock = DockStyle.Fill;
             tableLayout.ColumnCount = 3;
             tableLayout.RowCount = 4;
-            tableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50)); 
-            tableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40)); 
-            tableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40)); 
-            tableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50)); 
+            tableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
+            tableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40));
+            tableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40));
+            tableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
             tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100));
             tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
             tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120));
@@ -199,8 +199,8 @@ namespace MusicPlayer
             playButton.Dock = DockStyle.Left;
             playButton.FlatAppearance.BorderSize = 0;
             playButton.FlatStyle = FlatStyle.Flat;
-            playButton.BackColor = Color.FromArgb(13, 18, 47);
-            playButton.ForeColor = Color.FromArgb(13, 18, 47);
+            playButton.BackColor = Color.FromArgb(18, 18, 18);
+            playButton.ForeColor = Color.FromArgb(0,0,0);
             playButton.Tag = trackId;
             // Adda controls to the table layout panel
             tableLayout.Controls.Add(playButton, 2, 1);
@@ -240,6 +240,11 @@ namespace MusicPlayer
                 .WithAuthenticator(new ClientCredentialsAuthenticator("600ba51cf6464b29b90edc07050e54d9", "9a6802e6a09248808dce71025df7ae97"));
 
             return config;
+        }
+
+        private void searchResultPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

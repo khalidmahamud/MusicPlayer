@@ -31,11 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             splitContainer1 = new SplitContainer();
             splitContainer2 = new SplitContainer();
+            searchFormSelectBtn = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             searchPageSelectPanel = new Panel();
-            searchFormSelectBtn = new Button();
-            homePageSelectPanel = new Panel();
             homeFormSelectBtn = new Button();
+            homePageSelectPanel = new Panel();
+            pictureBox1 = new PictureBox();
             splitContainer3 = new SplitContainer();
             flowLayoutPanel2 = new FlowLayoutPanel();
             flowLayoutPanel3 = new FlowLayoutPanel();
@@ -54,6 +55,7 @@
             tableLayoutPanel1.SuspendLayout();
             searchPageSelectPanel.SuspendLayout();
             homePageSelectPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer3).BeginInit();
             splitContainer3.Panel1.SuspendLayout();
             splitContainer3.Panel2.SuspendLayout();
@@ -63,7 +65,7 @@
             // 
             // splitContainer1
             // 
-            splitContainer1.BackColor = Color.FromArgb(14, 24, 72);
+            splitContainer1.BackColor = SystemColors.ActiveCaptionText;
             splitContainer1.Dock = DockStyle.Fill;
             splitContainer1.Location = new Point(0, 0);
             splitContainer1.Name = "splitContainer1";
@@ -89,7 +91,8 @@
             // 
             // splitContainer2.Panel1
             // 
-            splitContainer2.Panel1.BackColor = Color.FromArgb(13, 18, 47);
+            splitContainer2.Panel1.BackColor = Color.FromArgb(18, 18, 18);
+            splitContainer2.Panel1.Controls.Add(searchFormSelectBtn);
             splitContainer2.Panel1.Controls.Add(tableLayoutPanel1);
             // 
             // splitContainer2.Panel2
@@ -98,6 +101,28 @@
             splitContainer2.Size = new Size(1382, 628);
             splitContainer2.SplitterDistance = 272;
             splitContainer2.TabIndex = 0;
+            // 
+            // searchFormSelectBtn
+            // 
+            searchFormSelectBtn.BackColor = Color.FromArgb(18, 18, 18);
+            searchFormSelectBtn.Cursor = Cursors.Hand;
+            searchFormSelectBtn.Dock = DockStyle.Top;
+            searchFormSelectBtn.FlatAppearance.BorderSize = 0;
+            searchFormSelectBtn.FlatStyle = FlatStyle.Flat;
+            searchFormSelectBtn.Font = new Font("Segoe UI", 15F);
+            searchFormSelectBtn.ForeColor = Color.White;
+            searchFormSelectBtn.Image = (Image)resources.GetObject("searchFormSelectBtn.Image");
+            searchFormSelectBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            searchFormSelectBtn.Location = new Point(0, 154);
+            searchFormSelectBtn.Margin = new Padding(0);
+            searchFormSelectBtn.Name = "searchFormSelectBtn";
+            searchFormSelectBtn.Padding = new Padding(30, 0, 0, 0);
+            searchFormSelectBtn.Size = new Size(272, 77);
+            searchFormSelectBtn.TabIndex = 0;
+            searchFormSelectBtn.Text = "     Search";
+            searchFormSelectBtn.TextAlign = ContentAlignment.MiddleLeft;
+            searchFormSelectBtn.UseVisualStyleBackColor = false;
+            searchFormSelectBtn.Click += searchFormSelectBtn_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -117,7 +142,7 @@
             // 
             // searchPageSelectPanel
             // 
-            searchPageSelectPanel.Controls.Add(searchFormSelectBtn);
+            searchPageSelectPanel.Controls.Add(homeFormSelectBtn);
             searchPageSelectPanel.Dock = DockStyle.Fill;
             searchPageSelectPanel.Location = new Point(0, 77);
             searchPageSelectPanel.Margin = new Padding(0);
@@ -125,47 +150,15 @@
             searchPageSelectPanel.Size = new Size(272, 77);
             searchPageSelectPanel.TabIndex = 1;
             // 
-            // searchFormSelectBtn
-            // 
-            searchFormSelectBtn.BackColor = Color.FromArgb(13, 18, 47);
-            searchFormSelectBtn.Cursor = Cursors.Hand;
-            searchFormSelectBtn.Dock = DockStyle.Fill;
-            searchFormSelectBtn.FlatAppearance.BorderSize = 0;
-            searchFormSelectBtn.FlatStyle = FlatStyle.Flat;
-            searchFormSelectBtn.Font = new Font("Segoe UI", 15F);
-            searchFormSelectBtn.ForeColor = Color.White;
-            searchFormSelectBtn.Image = (Image)resources.GetObject("searchFormSelectBtn.Image");
-            searchFormSelectBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            searchFormSelectBtn.Location = new Point(0, 0);
-            searchFormSelectBtn.Margin = new Padding(0);
-            searchFormSelectBtn.Name = "searchFormSelectBtn";
-            searchFormSelectBtn.Padding = new Padding(30, 0, 0, 0);
-            searchFormSelectBtn.Size = new Size(272, 77);
-            searchFormSelectBtn.TabIndex = 0;
-            searchFormSelectBtn.Text = "     Search";
-            searchFormSelectBtn.TextAlign = ContentAlignment.MiddleLeft;
-            searchFormSelectBtn.UseVisualStyleBackColor = false;
-            searchFormSelectBtn.Click += searchFormSelectBtn_Click;
-            // 
-            // homePageSelectPanel
-            // 
-            homePageSelectPanel.Controls.Add(homeFormSelectBtn);
-            homePageSelectPanel.Dock = DockStyle.Fill;
-            homePageSelectPanel.Location = new Point(0, 0);
-            homePageSelectPanel.Margin = new Padding(0);
-            homePageSelectPanel.Name = "homePageSelectPanel";
-            homePageSelectPanel.Size = new Size(272, 77);
-            homePageSelectPanel.TabIndex = 0;
-            // 
             // homeFormSelectBtn
             // 
-            homeFormSelectBtn.BackColor = Color.FromArgb(13, 18, 47);
+            homeFormSelectBtn.BackColor = Color.FromArgb(18, 18, 18);
             homeFormSelectBtn.Cursor = Cursors.Hand;
             homeFormSelectBtn.Dock = DockStyle.Fill;
             homeFormSelectBtn.FlatAppearance.BorderSize = 0;
             homeFormSelectBtn.FlatStyle = FlatStyle.Flat;
             homeFormSelectBtn.Font = new Font("Segoe UI", 15F);
-            homeFormSelectBtn.ForeColor = Color.White;
+            homeFormSelectBtn.ForeColor = Color.Transparent;
             homeFormSelectBtn.Image = (Image)resources.GetObject("homeFormSelectBtn.Image");
             homeFormSelectBtn.ImageAlign = ContentAlignment.MiddleLeft;
             homeFormSelectBtn.Location = new Point(0, 0);
@@ -178,6 +171,32 @@
             homeFormSelectBtn.TextAlign = ContentAlignment.MiddleLeft;
             homeFormSelectBtn.UseVisualStyleBackColor = false;
             homeFormSelectBtn.Click += homeFromSelectBtn_Click;
+            // 
+            // homePageSelectPanel
+            // 
+            homePageSelectPanel.Controls.Add(pictureBox1);
+            homePageSelectPanel.Dock = DockStyle.Fill;
+            homePageSelectPanel.Location = new Point(0, 0);
+            homePageSelectPanel.Margin = new Padding(0);
+            homePageSelectPanel.Name = "homePageSelectPanel";
+            homePageSelectPanel.Size = new Size(272, 77);
+            homePageSelectPanel.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.MaximumSize = new Size(272, 77);
+            pictureBox1.MinimumSize = new Size(272, 77);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Padding = new Padding(30, 0, 0, 0);
+            pictureBox1.Size = new Size(272, 77);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            pictureBox1.Tag = "Logo1";
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // splitContainer3
             // 
@@ -199,17 +218,18 @@
             // 
             // flowLayoutPanel2
             // 
-            flowLayoutPanel2.BackColor = Color.FromArgb(14, 24, 72);
+            flowLayoutPanel2.BackColor = SystemColors.AppWorkspace;
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.Location = new Point(0, 0);
             flowLayoutPanel2.MinimumSize = new Size(650, 600);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(723, 628);
             flowLayoutPanel2.TabIndex = 0;
+            flowLayoutPanel2.Paint += flowLayoutPanel2_Paint;
             // 
             // flowLayoutPanel3
             // 
-            flowLayoutPanel3.BackColor = Color.Wheat;
+            flowLayoutPanel3.BackColor = Color.FromArgb(18, 18, 18);
             flowLayoutPanel3.Dock = DockStyle.Fill;
             flowLayoutPanel3.Location = new Point(0, 0);
             flowLayoutPanel3.Margin = new Padding(0);
@@ -238,7 +258,7 @@
             // 
             // panel3
             // 
-            panel3.BackColor = Color.Turquoise;
+            panel3.BackColor = SystemColors.ActiveCaptionText;
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(920, 0);
             panel3.Margin = new Padding(0);
@@ -248,7 +268,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.Teal;
+            panel2.BackColor = SystemColors.ActiveCaptionText;
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(0);
@@ -258,7 +278,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.Aquamarine;
+            panel1.BackColor = SystemColors.ActiveCaptionText;
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(460, 0);
             panel1.Margin = new Padding(0);
@@ -286,6 +306,7 @@
             tableLayoutPanel1.ResumeLayout(false);
             searchPageSelectPanel.ResumeLayout(false);
             homePageSelectPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             splitContainer3.Panel1.ResumeLayout(false);
             splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer3).EndInit();
@@ -305,10 +326,11 @@
         private Panel homePageSelectPanel;
         private Button homeFormSelectBtn;
         private Panel searchPageSelectPanel;
-        private Button searchFormSelectBtn;
         private TableLayoutPanel tableLayoutPanel2;
         private Panel panel1;
         private Panel panel3;
         private Panel panel2;
+        private PictureBox pictureBox1;
+        private Button searchFormSelectBtn;
     }
 }
