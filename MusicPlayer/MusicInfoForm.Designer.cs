@@ -47,13 +47,17 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.Controls.Add(trackPosterBox);
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.BackColor = Color.FromArgb(18, 18, 18);
             splitContainer1.Size = new Size(382, 608);
             splitContainer1.SplitterDistance = 310;
             splitContainer1.TabIndex = 0;
             // 
             // trackPosterBox
             // 
-            trackPosterBox.BackColor = Color.FromArgb(13, 18, 47);
+            trackPosterBox.BackColor = Color.FromArgb(18, 18, 18);
             trackPosterBox.Dock = DockStyle.Fill;
             trackPosterBox.Image = (Image)resources.GetObject("trackPosterBox.Image");
             trackPosterBox.ImageLocation = "";
@@ -62,14 +66,14 @@
             trackPosterBox.Name = "trackPosterBox";
             trackPosterBox.Size = new Size(382, 310);
             trackPosterBox.SizeMode = PictureBoxSizeMode.CenterImage;
-            trackPosterBox.TabIndex = 0;
+            trackPosterBox.TabIndex = 1;
             trackPosterBox.TabStop = false;
             // 
             // MusicInfoForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(13, 18, 47);
+            BackColor = Color.FromArgb(18, 18, 18);
             ClientSize = new Size(382, 628);
             ControlBox = false;
             Controls.Add(splitContainer1);
