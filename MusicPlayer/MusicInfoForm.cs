@@ -16,6 +16,7 @@ namespace MusicPlayer
         private string trackName = "";
         private string artistName = "";
         private string trackPoster = "";
+        private int trackDuration; 
 
         public MusicInfoForm(string trackId)
         {
@@ -28,27 +29,29 @@ namespace MusicPlayer
             TrackMetadata trackInfo = new TrackMetadata(this.trackId);
             await trackInfo.SetMetadata();
 
-            // Assign metadata values
+            // Assigns metadata values
             this.trackName = TrackMetadata.trackName;
             this.artistName = TrackMetadata.artistName;
             this.trackPoster = TrackMetadata.trackPoster;
+            int totalMilliseconds = TrackMetadata.trackDuration;
+            
+            // Formats track duration into minutes:seconds format
+            int trackDuration = totalMilliseconds / 1000;
+            int minutes = trackDuration / 60;
+            int seconds = trackDuration % 60;
+            string formattedTime = $"{minutes}:{seconds:D2}";
 
-            // Set the ImageLocation property after metadata has been retrieved
+            // Sets the ImageLocation property after metadata has been retrieved
             trackPosterBox.ImageLocation = this.trackPoster;
             trackPosterBox.SizeMode = PictureBoxSizeMode.Zoom;
+            trackNameLabel.Text = this.trackName;
+            artistNameLabel.Text = this.artistName;
+            trackDurationLabel.Text = formattedTime;
 
-            songNameLabel.Visible = true;
-            artistNameLabel.Visible = true;
-            songNameTextBox.Text = this.trackName;
-            artistNameTextBox.Text = this.artistName;
+            trackNameLabel.Font = new Font("Segoe UI", this.trackName.Length > 25 ? 13 : 16 );
         }
 
-        private void trackPosterBox_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void songNameTextBox_TextChanged(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
