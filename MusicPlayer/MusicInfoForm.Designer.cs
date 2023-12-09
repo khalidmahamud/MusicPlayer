@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MusicInfoForm));
             splitContainer1 = new SplitContainer();
-            customPanel1 = new CustomPanel.CustomPanel();
+            customPanel1 = new CustomComponents.CustomPanel();
             trackPosterBox = new PictureBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             trackDurationLabel = new Label();
@@ -174,7 +174,7 @@
         #endregion
 
         private SplitContainer splitContainer1;
-        private CustomPanel.CustomPanel customPanel1;
+        private CustomComponents.CustomPanel customPanel1;
         private PictureBox trackPosterBox;
         private TableLayoutPanel tableLayoutPanel1;
         private Label trackNameLabel;

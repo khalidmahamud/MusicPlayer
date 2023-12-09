@@ -13,11 +13,19 @@ namespace MusicPlayer
     public partial class MainForm : Form
     {
         private Form activeForm;  // Tracks the active form
-
+        MediaPlayerControlForm mediaPlayerControlForm = new MediaPlayerControlForm("");
         public MainForm()
         {
             InitializeComponent();
             activeForm = new HomeForm();  // Sets the default active form
+            ActivateForm(activeForm, homeFormSelectBtn);
+
+            // Adds the medialPlayerControlForm
+            mediaPlayerControlForm.TopLevel = false;
+            mediaPlayerControlForm.FormBorderStyle = FormBorderStyle.None;
+            mediaPlayerControlForm.Dock = DockStyle.Fill;
+            splitContainer1.Panel2.Controls.Add(mediaPlayerControlForm);
+            mediaPlayerControlForm.Show();
         }
 
         private void searchFormSelectBtn_Click(object sender, EventArgs e)
@@ -81,21 +89,5 @@ namespace MusicPlayer
             // Highlights the active button
             activeButton.BackColor = Color.FromArgb(40,40,40);
         }
-
-        private void splitContainer2_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
-
 }

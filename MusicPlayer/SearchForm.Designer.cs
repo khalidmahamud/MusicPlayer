@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchForm));
             splitContainer1 = new SplitContainer();
-            roundedPanel1 = new CustomPanel.RoundedPanel();
+            roundedPanel1 = new CustomComponents.RoundedPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             searchBox = new TextBox();
@@ -207,7 +207,7 @@
         private Button searchBtn;
         private TableLayoutPanel tableLayoutPanel2;
         private TextBox searchBox;
-        private CustomPanel.RoundedPanel roundedPanel1;
+        private CustomComponents.RoundedPanel roundedPanel1;
         private FlowLayoutPanel searchResultPanel;
     }
 }

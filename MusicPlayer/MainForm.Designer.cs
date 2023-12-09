@@ -40,13 +40,8 @@
             splitContainer3 = new SplitContainer();
             flowLayoutPanel2 = new FlowLayoutPanel();
             flowLayoutPanel3 = new FlowLayoutPanel();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            panel3 = new Panel();
-            panel2 = new Panel();
-            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
-            splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
             splitContainer2.Panel1.SuspendLayout();
@@ -60,7 +55,6 @@
             splitContainer3.Panel1.SuspendLayout();
             splitContainer3.Panel2.SuspendLayout();
             splitContainer3.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -74,10 +68,6 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.Controls.Add(splitContainer2);
-            // 
-            // splitContainer1.Panel2
-            // 
-            splitContainer1.Panel2.Controls.Add(tableLayoutPanel2);
             splitContainer1.Size = new Size(1382, 743);
             splitContainer1.SplitterDistance = 628;
             splitContainer1.SplitterWidth = 1;
@@ -196,7 +186,6 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             pictureBox1.Tag = "Logo1";
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // splitContainer3
             // 
@@ -213,7 +202,6 @@
             splitContainer3.Panel2.Controls.Add(flowLayoutPanel3);
             splitContainer3.Size = new Size(1106, 628);
             splitContainer3.SplitterDistance = 723;
-            splitContainer3.SplitterWidth = 1;
             splitContainer3.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -225,7 +213,6 @@
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(723, 628);
             flowLayoutPanel2.TabIndex = 0;
-            flowLayoutPanel2.Paint += flowLayoutPanel2_Paint;
             // 
             // flowLayoutPanel3
             // 
@@ -234,57 +221,8 @@
             flowLayoutPanel3.Location = new Point(0, 0);
             flowLayoutPanel3.Margin = new Padding(0);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(382, 628);
+            flowLayoutPanel3.Size = new Size(379, 628);
             flowLayoutPanel3.TabIndex = 0;
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.BackColor = Color.White;
-            tableLayoutPanel2.ColumnCount = 3;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel2.Controls.Add(panel3, 2, 0);
-            tableLayoutPanel2.Controls.Add(panel2, 0, 0);
-            tableLayoutPanel2.Controls.Add(panel1, 1, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(0, 0);
-            tableLayoutPanel2.Margin = new Padding(0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(1382, 114);
-            tableLayoutPanel2.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = SystemColors.ActiveCaptionText;
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(920, 0);
-            panel3.Margin = new Padding(0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(462, 114);
-            panel3.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = SystemColors.ActiveCaptionText;
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(460, 114);
-            panel2.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = SystemColors.ActiveCaptionText;
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(460, 0);
-            panel1.Margin = new Padding(0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(460, 114);
-            panel1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -292,11 +230,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1382, 743);
             Controls.Add(splitContainer1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             MinimumSize = new Size(950, 670);
             Name = "MainForm";
-            Text = "Spotify";
+            SizeGripStyle = SizeGripStyle.Hide;
+            Text = "Vibe";
             splitContainer1.Panel1.ResumeLayout(false);
-            splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             splitContainer2.Panel1.ResumeLayout(false);
@@ -311,7 +251,6 @@
             splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer3).EndInit();
             splitContainer3.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -326,10 +265,6 @@
         private Panel homePageSelectPanel;
         private Button homeFormSelectBtn;
         private Panel searchPageSelectPanel;
-        private TableLayoutPanel tableLayoutPanel2;
-        private Panel panel1;
-        private Panel panel3;
-        private Panel panel2;
         private PictureBox pictureBox1;
         private Button searchFormSelectBtn;
     }

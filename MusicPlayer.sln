@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicPlayer", "MusicPlayer\MusicPlayer.csproj", "{053D9337-8811-4C06-AEBD-EF6A449C7EA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomPanel", "CustomPanel\CustomPanel.csproj", "{0700BCF7-1E47-40DC-8B84-1C106FE5A7E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomComponents", "CustomPanel\CustomComponents.csproj", "{0700BCF7-1E47-40DC-8B84-1C106FE5A7E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

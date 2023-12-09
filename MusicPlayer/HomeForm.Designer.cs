@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
-            customPanel1 = new CustomPanel.CustomPanel();
+            customPanel1 = new CustomComponents.CustomPanel();
             label2 = new Label();
             homeFormSelectBtn = new Button();
             label1 = new Label();
-            customPanel2 = new CustomPanel.CustomPanel();
+            customPanel2 = new CustomComponents.CustomPanel();
             label3 = new Label();
             customPanel1.SuspendLayout();
             customPanel2.SuspendLayout();
@@ -144,9 +144,9 @@
 
         #endregion
 
-        private CustomPanel.CustomPanel customPanel1;
+        private CustomComponents.CustomPanel customPanel1;
         private Label label1;
-        private CustomPanel.CustomPanel customPanel2;
+        private CustomComponents.CustomPanel customPanel2;
         private Button homeFormSelectBtn;
         private Label label2;
         private Label label3;
