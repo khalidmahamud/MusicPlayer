@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MusicPlayer
 {
     public partial class MusicInfoForm : Form
     {
-        private string trackId;
+        private readonly string trackId;
         private string trackName = "";
         private string artistName = "";
         private string trackPoster = "";
@@ -25,35 +19,34 @@ namespace MusicPlayer
 
         private async void MusicInfoForm_Load(object sender, EventArgs e)
         {
-            TrackMetadata trackInfo = new TrackMetadata(this.trackId);
-            await trackInfo.SetMetadata();
+            await SetMetadata();
 
-            // Assigns metadata values
-            this.trackName = TrackMetadata.trackName;
-            this.artistName = TrackMetadata.artistName;
-            this.trackPoster = TrackMetadata.trackPoster;
-            int totalMilliseconds = TrackMetadata.trackDuration;
-            
             // Formats track duration into minutes:seconds format
+            int totalMilliseconds = TrackMetadata.trackDuration;
             int trackDuration = totalMilliseconds / 1000;
             int minutes = trackDuration / 60;
             int seconds = trackDuration % 60;
             string formattedTime = $"{minutes}:{seconds:D2}";
 
             // Sets the ImageLocation property after metadata has been retrieved
-            trackPosterBox.ImageLocation = this.trackPoster;
+            trackPosterBox.ImageLocation = trackPoster;
             trackPosterBox.SizeMode = PictureBoxSizeMode.Zoom;
-            trackNameLabel.Text = this.trackName;
-            artistNameLabel.Text = this.artistName;
+            trackNameLabel.Text = trackName;
+            artistNameLabel.Text = artistName;
             trackDurationLabel.Text = formattedTime;
 
-            trackNameLabel.Font = new Font("Segoe UI", this.trackName.Length > 25 ? 13 : 16 );
+            trackNameLabel.Font = new Font("Segoe UI", trackName.Length > 25 ? 13 : 16);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private async Task SetMetadata()
         {
+            TrackMetadata trackInfo = new TrackMetadata(trackId);
+            await trackInfo.SetMetadata();
 
+            // Assigns metadata values
+            trackName = TrackMetadata.trackName;
+            artistName = TrackMetadata.artistName;
+            trackPoster = TrackMetadata.trackPoster;
         }
     }
-
 }

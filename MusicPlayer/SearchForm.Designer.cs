@@ -170,7 +170,6 @@
             searchResultPanel.Size = new Size(683, 487);
             searchResultPanel.TabIndex = 0;
             searchResultPanel.WrapContents = false;
-            searchResultPanel.Paint += searchResultPanel_Paint;
             // 
             // SearchForm
             // 

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MusicPlayer
@@ -17,38 +11,46 @@ namespace MusicPlayer
         private string artistName;
         private string trackPoster;
 
+        // Constructor for MediaPlayerControlForm
         public MediaPlayerControlForm(string trackId)
         {
             InitializeComponent();
-
             this.trackId = trackId;
         }
 
+        // Event handler for the form load event
         private async void MediaPlayerControlForm_Load(object sender, EventArgs e)
         {
-            TrackMetadata trackInfo = new TrackMetadata(this.trackId);
-            await trackInfo.SetMetadata();
+            if (string.IsNullOrEmpty(trackId))
+                return;
 
-            // Assigns metadata values
-            this.trackName = TrackMetadata.trackName;
-            this.artistName = TrackMetadata.artistName;
-            this.trackPoster = TrackMetadata.trackPoster;
-            //int totalMilliseconds = TrackMetadata.trackDuration;
+            // Display a loading image while fetching metadata
+            trackPosterBox.Image = Resource1.loading;
 
-            // Formats track duration into minutes:seconds format
-            //int trackDuration = totalMilliseconds / 1000;
-            //int minutes = trackDuration / 60;
-            //int seconds = trackDuration % 60;
-            //string formattedTime = $"{minutes}:{seconds:D2}";
+            try
+            {
+                // Instantiate and asynchronously set track metadata
+                TrackMetadata trackInfo = new TrackMetadata(trackId);
+                await trackInfo.SetMetadata();
 
-            // Sets the ImageLocation property after metadata has been retrieved
-            trackPosterBox.ImageLocation = this.trackPoster;
-            trackPosterBox.SizeMode = PictureBoxSizeMode.Zoom;
-            trackNameLabel.Text = this.trackName;
-            artistNameLabel.Text = this.artistName;
-            //trackDurationLabel.Text = formattedTime;
+                // Assign metadata values
+                trackName = TrackMetadata.trackName;
+                artistName = TrackMetadata.artistName;
+                trackPoster = TrackMetadata.trackPoster;
 
-            trackNameLabel.Font = new Font("Segoe UI", this.trackName.Length > 25 ? 11 : 14);
+                // Set the ImageLocation property after metadata has been retrieved
+                trackPosterBox.ImageLocation = trackPoster;
+                trackPosterBox.SizeMode = PictureBoxSizeMode.Zoom;
+                trackNameLabel.Text = trackName;
+                artistNameLabel.Text = artistName;
+
+                // Adjust font size based on track name length
+                trackNameLabel.Font = new Font("Segoe UI", trackName.Length > 25 ? 11 : 14);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

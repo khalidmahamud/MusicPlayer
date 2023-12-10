@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MediaPlayerControlForm));
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             artistNameLabel = new Label();
@@ -94,7 +93,6 @@
             // 
             trackPosterBox.BackColor = Color.FromArgb(18, 18, 18);
             trackPosterBox.Dock = DockStyle.Fill;
-            trackPosterBox.Image = (Image)resources.GetObject("trackPosterBox.Image");
             trackPosterBox.Location = new Point(3, 3);
             trackPosterBox.Name = "trackPosterBox";
             tableLayoutPanel2.SetRowSpan(trackPosterBox, 2);
