@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MediaPlayerControlForm));
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
-            artistLabel = new Label();
-            pictureBox1 = new PictureBox();
+            artistNameLabel = new Label();
+            trackPosterBox = new PictureBox();
             trackNameLabel = new Label();
             tableLayoutPanel3 = new TableLayoutPanel();
             forwardBtn = new Button();
@@ -40,7 +41,7 @@
             trackProgress = new CustomComponents.CustomProgressBar();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)trackPosterBox).BeginInit();
             tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -66,8 +67,8 @@
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 21.9211826F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 78.07882F));
-            tableLayoutPanel2.Controls.Add(artistLabel, 1, 1);
-            tableLayoutPanel2.Controls.Add(pictureBox1, 0, 0);
+            tableLayoutPanel2.Controls.Add(artistNameLabel, 1, 1);
+            tableLayoutPanel2.Controls.Add(trackPosterBox, 0, 0);
             tableLayoutPanel2.Controls.Add(trackNameLabel, 1, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(3, 3);
@@ -78,28 +79,29 @@
             tableLayoutPanel2.Size = new Size(406, 88);
             tableLayoutPanel2.TabIndex = 0;
             // 
-            // artistLabel
+            // artistNameLabel
             // 
-            artistLabel.AutoSize = true;
-            artistLabel.Dock = DockStyle.Fill;
-            artistLabel.Font = new Font("Segoe UI", 11F);
-            artistLabel.ForeColor = SystemColors.ScrollBar;
-            artistLabel.Location = new Point(92, 44);
-            artistLabel.Name = "artistLabel";
-            artistLabel.Size = new Size(311, 44);
-            artistLabel.TabIndex = 3;
-            artistLabel.Text = "label2";
+            artistNameLabel.AutoSize = true;
+            artistNameLabel.Dock = DockStyle.Fill;
+            artistNameLabel.Font = new Font("Segoe UI", 11F);
+            artistNameLabel.ForeColor = SystemColors.ScrollBar;
+            artistNameLabel.Location = new Point(92, 44);
+            artistNameLabel.Name = "artistNameLabel";
+            artistNameLabel.Size = new Size(311, 44);
+            artistNameLabel.TabIndex = 3;
             // 
-            // pictureBox1
+            // trackPosterBox
             // 
-            pictureBox1.BackColor = Color.White;
-            pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Location = new Point(3, 3);
-            pictureBox1.Name = "pictureBox1";
-            tableLayoutPanel2.SetRowSpan(pictureBox1, 2);
-            pictureBox1.Size = new Size(83, 82);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            trackPosterBox.BackColor = Color.FromArgb(18, 18, 18);
+            trackPosterBox.Dock = DockStyle.Fill;
+            trackPosterBox.Image = (Image)resources.GetObject("trackPosterBox.Image");
+            trackPosterBox.Location = new Point(3, 3);
+            trackPosterBox.Name = "trackPosterBox";
+            tableLayoutPanel2.SetRowSpan(trackPosterBox, 2);
+            trackPosterBox.Size = new Size(83, 82);
+            trackPosterBox.SizeMode = PictureBoxSizeMode.Zoom;
+            trackPosterBox.TabIndex = 1;
+            trackPosterBox.TabStop = false;
             // 
             // trackNameLabel
             // 
@@ -111,7 +113,6 @@
             trackNameLabel.Name = "trackNameLabel";
             trackNameLabel.Size = new Size(311, 44);
             trackNameLabel.TabIndex = 2;
-            trackNameLabel.Text = "label1";
             trackNameLabel.TextAlign = ContentAlignment.BottomLeft;
             // 
             // tableLayoutPanel3
@@ -207,10 +208,11 @@
             Name = "MediaPlayerControlForm";
             Padding = new Padding(20, 10, 20, 10);
             Text = "Form1";
+            Load += MediaPlayerControlForm_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)trackPosterBox).EndInit();
             tableLayoutPanel3.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -219,8 +221,8 @@
 
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
-        private Label artistLabel;
-        private PictureBox pictureBox1;
+        private Label artistNameLabel;
+        private PictureBox trackPosterBox;
         private Label trackNameLabel;
         private TableLayoutPanel tableLayoutPanel3;
         private Button backwardBtn;

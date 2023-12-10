@@ -20,12 +20,12 @@ namespace MusicPlayer
             activeForm = new HomeForm();  // Sets the default active form
             ActivateForm(activeForm, homeFormSelectBtn);
 
-            // Adds the medialPlayerControlForm
-            mediaPlayerControlForm.TopLevel = false;
-            mediaPlayerControlForm.FormBorderStyle = FormBorderStyle.None;
-            mediaPlayerControlForm.Dock = DockStyle.Fill;
-            splitContainer1.Panel2.Controls.Add(mediaPlayerControlForm);
-            mediaPlayerControlForm.Show();
+            //// Adds the medialPlayerControlForm
+            //mediaPlayerControlForm.TopLevel = false;
+            //mediaPlayerControlForm.FormBorderStyle = FormBorderStyle.None;
+            //mediaPlayerControlForm.Dock = DockStyle.Fill;
+            //splitContainer1.Panel2.Controls.Add(mediaPlayerControlForm);
+            //mediaPlayerControlForm.Show();
         }
 
         private void searchFormSelectBtn_Click(object sender, EventArgs e)
@@ -67,18 +67,18 @@ namespace MusicPlayer
             musicInfoForm.Show();
         }
 
-        //public void OpenMediaPlayerControlForm(string trackId)
-        //{
-        //    MediaPlayerControlForm mediaPlayerControl = new MediaPlayerControlForm(trackId);
+        public void OpenMediaPlayerControlForm(string trackId)
+        {
+            MediaPlayerControlForm mediaPlayerControl = new MediaPlayerControlForm(trackId);
 
-        //    mediaPlayerControl.TopLevel = false;
-        //    mediaPlayerControl.FormBorderStyle = FormBorderStyle.None;
-        //    mediaPlayerControl.Dock = DockStyle.Fill;
-        //    splitContainer1.Panel2.Controls.Clear();
-        //    splitContainer1.Panel2.Controls.Add(mediaPlayerControl);
+            mediaPlayerControl.TopLevel = false;
+            mediaPlayerControl.FormBorderStyle = FormBorderStyle.None;
+            mediaPlayerControl.Dock = DockStyle.Fill;
+            splitContainer1.Panel2.Controls.Clear();
+            splitContainer1.Panel2.Controls.Add(mediaPlayerControl);
 
-        //    mediaPlayerControl.Show();
-        //}
+            mediaPlayerControl.Show();
+        }
 
         private void HighlightActiveButton(Button activeButton)
         {

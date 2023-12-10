@@ -16,7 +16,6 @@ namespace MusicPlayer
         private string trackName = "";
         private string artistName = "";
         private string trackPoster = "";
-        private int trackDuration; 
 
         public MusicInfoForm(string trackId)
         {

@@ -121,6 +121,7 @@ namespace MusicPlayer
             }
 
             mainForm.OpenMusicInfoForm(trackId);
+            mainForm.OpenMediaPlayerControlForm(trackId);
         }
 
         private Panel CreateResultPanel(string trackId, string trackName, string artistName, string trackPoster, int index, EventHandler panelClickEvent)
