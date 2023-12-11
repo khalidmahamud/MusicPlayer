@@ -62,14 +62,15 @@
             splitContainer1.BackColor = SystemColors.ActiveCaptionText;
             splitContainer1.Dock = DockStyle.Fill;
             splitContainer1.Location = new Point(0, 0);
+            splitContainer1.Margin = new Padding(3, 2, 3, 2);
             splitContainer1.Name = "splitContainer1";
             splitContainer1.Orientation = Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.Controls.Add(splitContainer2);
-            splitContainer1.Size = new Size(1382, 743);
-            splitContainer1.SplitterDistance = 628;
+            splitContainer1.Size = new Size(1199, 557);
+            splitContainer1.SplitterDistance = 470;
             splitContainer1.SplitterWidth = 1;
             splitContainer1.TabIndex = 0;
             // 
@@ -77,6 +78,7 @@
             // 
             splitContainer2.Dock = DockStyle.Fill;
             splitContainer2.Location = new Point(0, 0);
+            splitContainer2.Margin = new Padding(3, 2, 3, 2);
             splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
@@ -88,8 +90,8 @@
             // splitContainer2.Panel2
             // 
             splitContainer2.Panel2.Controls.Add(splitContainer3);
-            splitContainer2.Size = new Size(1382, 628);
-            splitContainer2.SplitterDistance = 272;
+            splitContainer2.Size = new Size(1199, 470);
+            splitContainer2.SplitterDistance = 235;
             splitContainer2.TabIndex = 0;
             // 
             // searchFormSelectBtn
@@ -103,11 +105,11 @@
             searchFormSelectBtn.ForeColor = Color.White;
             searchFormSelectBtn.Image = (Image)resources.GetObject("searchFormSelectBtn.Image");
             searchFormSelectBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            searchFormSelectBtn.Location = new Point(0, 154);
+            searchFormSelectBtn.Location = new Point(0, 116);
             searchFormSelectBtn.Margin = new Padding(0);
             searchFormSelectBtn.Name = "searchFormSelectBtn";
-            searchFormSelectBtn.Padding = new Padding(30, 0, 0, 0);
-            searchFormSelectBtn.Size = new Size(272, 77);
+            searchFormSelectBtn.Padding = new Padding(26, 0, 0, 0);
+            searchFormSelectBtn.Size = new Size(235, 58);
             searchFormSelectBtn.TabIndex = 0;
             searchFormSelectBtn.Text = "     Search";
             searchFormSelectBtn.TextAlign = ContentAlignment.MiddleLeft;
@@ -123,21 +125,22 @@
             tableLayoutPanel1.Controls.Add(homePageSelectPanel, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(272, 154);
+            tableLayoutPanel1.Size = new Size(235, 116);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // searchPageSelectPanel
             // 
             searchPageSelectPanel.Controls.Add(homeFormSelectBtn);
             searchPageSelectPanel.Dock = DockStyle.Fill;
-            searchPageSelectPanel.Location = new Point(0, 77);
+            searchPageSelectPanel.Location = new Point(0, 58);
             searchPageSelectPanel.Margin = new Padding(0);
             searchPageSelectPanel.Name = "searchPageSelectPanel";
-            searchPageSelectPanel.Size = new Size(272, 77);
+            searchPageSelectPanel.Size = new Size(235, 58);
             searchPageSelectPanel.TabIndex = 1;
             // 
             // homeFormSelectBtn
@@ -154,8 +157,8 @@
             homeFormSelectBtn.Location = new Point(0, 0);
             homeFormSelectBtn.Margin = new Padding(0);
             homeFormSelectBtn.Name = "homeFormSelectBtn";
-            homeFormSelectBtn.Padding = new Padding(30, 0, 0, 0);
-            homeFormSelectBtn.Size = new Size(272, 77);
+            homeFormSelectBtn.Padding = new Padding(26, 0, 0, 0);
+            homeFormSelectBtn.Size = new Size(235, 58);
             homeFormSelectBtn.TabIndex = 0;
             homeFormSelectBtn.Text = "     Home";
             homeFormSelectBtn.TextAlign = ContentAlignment.MiddleLeft;
@@ -169,7 +172,7 @@
             homePageSelectPanel.Location = new Point(0, 0);
             homePageSelectPanel.Margin = new Padding(0);
             homePageSelectPanel.Name = "homePageSelectPanel";
-            homePageSelectPanel.Size = new Size(272, 77);
+            homePageSelectPanel.Size = new Size(235, 58);
             homePageSelectPanel.TabIndex = 0;
             // 
             // pictureBox1
@@ -178,11 +181,12 @@
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Location = new Point(0, 0);
-            pictureBox1.MaximumSize = new Size(272, 77);
-            pictureBox1.MinimumSize = new Size(272, 77);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.MaximumSize = new Size(238, 58);
+            pictureBox1.MinimumSize = new Size(238, 58);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Padding = new Padding(30, 0, 0, 0);
-            pictureBox1.Size = new Size(272, 77);
+            pictureBox1.Padding = new Padding(26, 0, 0, 0);
+            pictureBox1.Size = new Size(238, 58);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             pictureBox1.Tag = "Logo1";
@@ -191,6 +195,7 @@
             // 
             splitContainer3.Dock = DockStyle.Fill;
             splitContainer3.Location = new Point(0, 0);
+            splitContainer3.Margin = new Padding(3, 2, 3, 2);
             splitContainer3.Name = "splitContainer3";
             // 
             // splitContainer3.Panel1
@@ -200,8 +205,8 @@
             // splitContainer3.Panel2
             // 
             splitContainer3.Panel2.Controls.Add(flowLayoutPanel3);
-            splitContainer3.Size = new Size(1106, 628);
-            splitContainer3.SplitterDistance = 723;
+            splitContainer3.Size = new Size(960, 470);
+            splitContainer3.SplitterDistance = 627;
             splitContainer3.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -209,9 +214,10 @@
             flowLayoutPanel2.BackColor = SystemColors.AppWorkspace;
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.Location = new Point(0, 0);
-            flowLayoutPanel2.MinimumSize = new Size(650, 600);
+            flowLayoutPanel2.Margin = new Padding(3, 2, 3, 2);
+            flowLayoutPanel2.MinimumSize = new Size(569, 450);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(723, 628);
+            flowLayoutPanel2.Size = new Size(627, 470);
             flowLayoutPanel2.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -221,18 +227,19 @@
             flowLayoutPanel3.Location = new Point(0, 0);
             flowLayoutPanel3.Margin = new Padding(0);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(379, 628);
+            flowLayoutPanel3.Size = new Size(329, 470);
             flowLayoutPanel3.TabIndex = 0;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1382, 743);
+            ClientSize = new Size(1199, 557);
             Controls.Add(splitContainer1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
-            MinimumSize = new Size(950, 670);
+            MinimumSize = new Size(833, 512);
             Name = "MainForm";
             SizeGripStyle = SizeGripStyle.Hide;
             Text = "Vibe";

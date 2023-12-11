@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            customPanel1 = new CustomPanel.CustomPanel();
+            customPanel1 = new CustomComponents.CustomPanel();
             userNameTextBox = new TextBox();
             userNameLabel = new Label();
             createAccountLabel = new Label();
@@ -194,7 +194,7 @@
 
         #endregion
 
-        private CustomPanel.CustomPanel customPanel1;
+        private CustomComponents.CustomPanel customPanel1;
         private TextBox userNameTextBox;
         private Label userNameLabel;
         private Label createAccountLabel;

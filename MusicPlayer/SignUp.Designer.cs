@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            customPanel1 = new CustomPanel.CustomPanel();
+            customPanel1 = new CustomComponents.CustomPanel();
             createLabel = new Label();
             label2 = new Label();
             label7 = new Label();
@@ -287,7 +287,7 @@
 
         #endregion
 
-        private CustomPanel.CustomPanel customPanel1;
+        private CustomComponents.CustomPanel customPanel1;
         private Label label1;
         private TextBox gmailTextBox;
         private Label genderLabel;
