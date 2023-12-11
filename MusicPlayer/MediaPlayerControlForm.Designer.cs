@@ -37,7 +37,7 @@
             forwardBtn = new Button();
             playPauseBtn = new Button();
             backwardBtn = new Button();
-            trackProgress = new CustomComponents.CustomProgressBar();
+            trackProgressBar = new CustomComponents.CustomProgressBar();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackPosterBox).BeginInit();
@@ -124,7 +124,7 @@
             tableLayoutPanel3.Controls.Add(forwardBtn, 3, 1);
             tableLayoutPanel3.Controls.Add(playPauseBtn, 2, 1);
             tableLayoutPanel3.Controls.Add(backwardBtn, 1, 1);
-            tableLayoutPanel3.Controls.Add(trackProgress, 0, 2);
+            tableLayoutPanel3.Controls.Add(trackProgressBar, 0, 2);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(415, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -160,6 +160,7 @@
             playPauseBtn.Size = new Size(54, 44);
             playPauseBtn.TabIndex = 2;
             playPauseBtn.UseVisualStyleBackColor = true;
+            playPauseBtn.Click += playPauseBtn_Click;
             // 
             // backwardBtn
             // 
@@ -174,25 +175,24 @@
             backwardBtn.TabIndex = 1;
             backwardBtn.UseVisualStyleBackColor = true;
             // 
-            // trackProgress
+            // trackProgressBar
             // 
-            trackProgress.ChannelColor = Color.White;
-            trackProgress.ChannelHeight = 6;
-            tableLayoutPanel3.SetColumnSpan(trackProgress, 5);
-            trackProgress.Dock = DockStyle.Top;
-            trackProgress.ForeBackColor = Color.RoyalBlue;
-            trackProgress.ForeColor = Color.White;
-            trackProgress.Location = new Point(3, 57);
-            trackProgress.Name = "trackProgress";
-            trackProgress.ShowMaximun = false;
-            trackProgress.ShowValue = CustomComponents.TextPosition.None;
-            trackProgress.Size = new Size(575, 14);
-            trackProgress.SliderColor = Color.FromArgb(247, 40, 51);
-            trackProgress.SliderHeight = 10;
-            trackProgress.SymbolAfter = "";
-            trackProgress.SymbolBefore = "";
-            trackProgress.TabIndex = 4;
-            trackProgress.Value = 10;
+            trackProgressBar.ChannelColor = Color.White;
+            trackProgressBar.ChannelHeight = 6;
+            tableLayoutPanel3.SetColumnSpan(trackProgressBar, 5);
+            trackProgressBar.Dock = DockStyle.Top;
+            trackProgressBar.ForeBackColor = Color.RoyalBlue;
+            trackProgressBar.ForeColor = Color.White;
+            trackProgressBar.Location = new Point(3, 57);
+            trackProgressBar.Name = "trackProgressBar";
+            trackProgressBar.ShowMaximun = false;
+            trackProgressBar.ShowValue = CustomComponents.TextPosition.None;
+            trackProgressBar.Size = new Size(575, 14);
+            trackProgressBar.SliderColor = Color.FromArgb(247, 40, 51);
+            trackProgressBar.SliderHeight = 10;
+            trackProgressBar.SymbolAfter = "";
+            trackProgressBar.SymbolBefore = "";
+            trackProgressBar.TabIndex = 4;
             // 
             // MediaPlayerControlForm
             // 
@@ -226,6 +226,6 @@
         private Button backwardBtn;
         private Button forwardBtn;
         private Button playPauseBtn;
-        private CustomComponents.CustomProgressBar trackProgress;
+        private CustomComponents.CustomProgressBar trackProgressBar;
     }
 }

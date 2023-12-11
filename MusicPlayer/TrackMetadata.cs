@@ -15,7 +15,7 @@ namespace MusicPlayer
         public static string artistName { get; set; }
         public static int trackDuration { get; set; }
         public static string trackPoster { get; set; }
-
+        public static string trackPreviewURL { get; set; }
         public TrackMetadata()
         {
             
@@ -44,6 +44,7 @@ namespace MusicPlayer
                     artistName = track.Artists[0].Name;
                     trackPoster = track.Album.Images[0].Url;
                     trackDuration = track.DurationMs;
+                    trackPreviewURL = track.PreviewUrl;
                 }
             } catch (Exception ex)
             {
