@@ -10,7 +10,8 @@ namespace MusicPlayer
         private Form activeForm;
 
         // Represents the MediaPlayerControlForm instance used in the application
-        private MediaPlayerControlForm mediaPlayerControlForm;
+        private static MediaPlayerControlForm mediaPlayerControlForm;
+        private static MusicInfoForm musicInfoForm;
 
         // Constructor for the MainForm class
         public MainForm()
@@ -42,6 +43,7 @@ namespace MusicPlayer
             mediaPlayerControl.TopLevel = false;
             mediaPlayerControl.FormBorderStyle = FormBorderStyle.None;
             mediaPlayerControl.Dock = DockStyle.Fill;
+            mediaPlayerControl.Show();
             splitContainer1.Panel2.Controls.Add(mediaPlayerControl);
 
             return mediaPlayerControl;
@@ -63,15 +65,29 @@ namespace MusicPlayer
         // Opens the MusicInfoForm for a specified trackId
         public void OpenMusicInfoForm(string trackId)
         {
-            var musicInfoForm = new MusicInfoForm(trackId);
-            ActivateForm(musicInfoForm, null, splitContainer3.Panel2);
+            if (musicInfoForm == null)
+            {
+                musicInfoForm = new MusicInfoForm(trackId);
+                ActivateForm(musicInfoForm, null, splitContainer3.Panel2);
+            } 
+            else
+            {
+                musicInfoForm.UpdateMusicInfo(trackId) ;
+            }
         }
 
         // Opens the MediaPlayerControlForm for a specified trackId
         public void OpenMediaPlayerControlForm(string trackId)
         {
-            // Activates the MediaPlayerControlForm, clears the panel, and sets up the form
-            ActivateForm(new MediaPlayerControlForm(trackId), null, splitContainer1.Panel2);
+            if (mediaPlayerControlForm == null)
+            {
+                mediaPlayerControlForm = new MediaPlayerControlForm(trackId);
+                ActivateForm(mediaPlayerControlForm, null, splitContainer1.Panel2);
+            }
+            else
+            {
+                mediaPlayerControlForm.LoadNewTrack(trackId);
+            }
         }
 
         // Highlights the active button and resets the appearance of other buttons

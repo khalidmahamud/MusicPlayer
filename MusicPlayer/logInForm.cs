@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MusicPlayer
 {
-    public partial class logIn : Form
+    public partial class logInForm : Form
     {
-        public logIn()
+        public logInForm()
         {
             InitializeComponent();
         }
@@ -41,7 +41,7 @@ namespace MusicPlayer
 
         private void createAccountLabel_Click(object sender, EventArgs e)
         {
-            SignUp s1 = new SignUp();
+            SignUpForm s1 = new SignUpForm();
             s1.Show();
             this.Hide();
         }

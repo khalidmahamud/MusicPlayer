@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace MusicPlayer
 {
-    public partial class SignUp : Form
+    public partial class SignUpForm : Form
     {
-        public SignUp()
+        public SignUpForm()
         {
             InitializeComponent();
         }
@@ -47,7 +47,7 @@ namespace MusicPlayer
             else
             {
                 MessageBox.Show("Successfully Signed in.");
-                logIn l1 = new logIn();
+                logInForm l1 = new logInForm();
                 l1.Show();
                 this.Hide();
             }
@@ -87,7 +87,7 @@ namespace MusicPlayer
 
         private void createLabel_Click_1(object sender, EventArgs e)
         {
-            logIn l2 = new logIn();
+            logInForm l2 = new logInForm();
             l2.Show();
             this.Hide();
         }

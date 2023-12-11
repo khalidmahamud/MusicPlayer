@@ -19,7 +19,20 @@ namespace MusicPlayer
 
         private async void MusicInfoForm_Load(object sender, EventArgs e)
         {
-            await SetMetadata();
+            UpdateMusicInfo(trackId);
+        }
+
+        public async void UpdateMusicInfo(string trackId)
+        {
+            trackPosterBox.Image = Resource1.loading;
+
+            TrackMetadata trackInfo = new TrackMetadata(trackId);
+            await trackInfo.SetMetadata();
+
+            // Assigns metadata values
+            trackName = TrackMetadata.trackName;
+            artistName = TrackMetadata.artistName;
+            trackPoster = TrackMetadata.trackPoster;
 
             // Formats track duration into minutes:seconds format
             int totalMilliseconds = TrackMetadata.trackDuration;
@@ -36,17 +49,6 @@ namespace MusicPlayer
             trackDurationLabel.Text = formattedTime;
 
             trackNameLabel.Font = new Font("Segoe UI", trackName.Length > 25 ? 13 : 16);
-        }
-
-        private async Task SetMetadata()
-        {
-            TrackMetadata trackInfo = new TrackMetadata(trackId);
-            await trackInfo.SetMetadata();
-
-            // Assigns metadata values
-            trackName = TrackMetadata.trackName;
-            artistName = TrackMetadata.artistName;
-            trackPoster = TrackMetadata.trackPoster;
-        }
+        } 
     }
 }

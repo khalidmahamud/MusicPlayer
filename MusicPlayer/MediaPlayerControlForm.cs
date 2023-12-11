@@ -18,7 +18,6 @@ namespace MusicPlayer
         private WaveOutEvent waveOutEvent;
         private AudioFileReader audioFileReader;
 
-        private Timer updateTimer; // Timer for updating the progress bar
 
         // Constructor for MediaPlayerControlForm
         public MediaPlayerControlForm(string trackId)
@@ -26,26 +25,46 @@ namespace MusicPlayer
             InitializeComponent();
             this.trackId = trackId;
 
+
             // Initialize NAudio components
             waveOutEvent = new WaveOutEvent();
-
-            // Initialize the timer
-            updateTimer = new Timer();
-            updateTimer.Interval = 100; // Set the interval for updating the progress bar
-            updateTimer.Tick += UpdateTimer_Tick;
         }
 
         // Event handler for the form load event
         private async void MediaPlayerControlForm_Load(object sender, EventArgs e)
         {
+            LoadNewTrack(trackId); 
+        }
+
+        public async void LoadNewTrack(string trackId)
+        {
+            DisposeAudioResources();
+            
+            // Update trackId
+            this.trackId = trackId;
+
+            playPauseBtn.Image = Resource1.play;
+
             if (string.IsNullOrEmpty(trackId))
                 return;
+
+            if (waveOutEvent.PlaybackState == PlaybackState.Playing)
+            {
+                waveOutEvent.Stop();
+            }
+
+            if (audioFileReader != null)
+            {
+                audioFileReader.Dispose();
+                audioFileReader = null; // Set audioFileReader to null
+            }
 
             // Display a loading image while fetching metadata
             trackPosterBox.Image = Resource1.loading;
 
             try
             {
+
                 // Instantiate and asynchronously set track metadata
                 TrackMetadata trackInfo = new TrackMetadata(trackId);
                 await trackInfo.SetMetadata();
@@ -78,47 +97,59 @@ namespace MusicPlayer
         // Event handler for the playPauseBtn click event
         private void playPauseBtn_Click(object sender, EventArgs e)
         {
-            // Toggle play/pause
-            if (waveOutEvent.PlaybackState == PlaybackState.Playing)
-            {
-                waveOutEvent.Pause();
-                updateTimer.Stop(); // Stop the timer when paused
-            }
-            else
-            {
-                if (audioFileReader == null)
-                {
-                    // Create an AudioFileReader from the track preview URL
-                    audioFileReader = new AudioFileReader(trackPreviewUrl);
-                    waveOutEvent.Init(audioFileReader);
-                    trackProgressBar.Value = 0; // Reset progress bar value
-                }
+            if (string.IsNullOrEmpty(trackPreviewUrl))
+                return;
 
-                waveOutEvent.Play();
-                updateTimer.Start(); // Start the timer when playing
-            }
-        }
-
-        // Event handler for the update timer tick
-        private void UpdateTimer_Tick(object sender, EventArgs e)
-        {
-            // Update the progress bar based on the current position of the audio
             if (audioFileReader != null)
             {
-                trackProgressBar.Value = (int)audioFileReader.CurrentTime.TotalSeconds;
-            }
+                if (waveOutEvent.PlaybackState == PlaybackState.Playing)
+                {
+                    waveOutEvent.Pause();
+
+                    playPauseBtn.Image = Resource1.play;
+                }
+                else
+                {
+                    waveOutEvent.Play();
+
+                    playPauseBtn.Image = Resource1.pause;
+                }
+            } 
+            else
+            {
+                audioFileReader = new AudioFileReader(trackPreviewUrl);
+                waveOutEvent.Init(audioFileReader);
+                trackProgressBar.Value = 0;
+
+                waveOutEvent.Play();
+
+                playPauseBtn.Image = Resource1.pause;
+;            }
         }
 
         // Cleanup resources when the form is closed
         private void MediaPlayerControlForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // Dispose of NAudio components
-            waveOutEvent.Dispose();
-            audioFileReader?.Dispose();
-
-            // Stop and dispose of the timer
-            updateTimer.Stop();
-            updateTimer.Dispose();
+            DisposeAudioResources();
         }
+
+        public void DisposeAudioResources()
+        {
+            if (waveOutEvent != null)
+            {
+                if (waveOutEvent.PlaybackState == PlaybackState.Playing || waveOutEvent.PlaybackState == PlaybackState.Paused)
+                {
+                    waveOutEvent.Stop();
+                }
+
+                waveOutEvent.Dispose();
+            }
+
+            if (audioFileReader != null)
+            {
+                audioFileReader.Dispose();
+            }
+        }
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace MusicPlayer
 {
-    partial class logIn
+    partial class logInForm
     {
         /// <summary>
         /// Required designer variable.
