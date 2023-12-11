@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CustomPanel\CustomPanel.csproj" />
+    <ProjectReference Include="..\CustomPanel\CustomComponents.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SpotifyAPI.Web;
@@ -9,36 +12,34 @@ namespace MusicPlayer
 {
     public partial class SearchForm : Form
     {
-        private MainForm mainForm;
+        private readonly MainForm mainForm;
+
         public SearchForm(MainForm mainForm)
         {
             InitializeComponent();
-
             this.mainForm = mainForm;
 
+            ConfigureSearchResultPanel();
+        }
+
+        private void ConfigureSearchResultPanel()
+        {
             searchResultPanel.HorizontalScroll.Maximum = 0;
             searchResultPanel.AutoScroll = false;
             searchResultPanel.VerticalScroll.Visible = false;
             searchResultPanel.AutoScroll = true;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private async void SearchBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                // Calls search method
                 await PerformSearch();
             }
         }
 
         private async void Search_Btn_Click(object sender, EventArgs e)
         {
-            // Calls search method
             await PerformSearch();
         }
 
@@ -51,7 +52,6 @@ namespace MusicPlayer
 
                 var result = await spotify.Search.Item(new SearchRequest(SearchRequest.Types.Track, searchBox.Text));
 
-                // Clears existing panels and labels
                 ClearPanels();
 
                 if (result != null)
@@ -61,9 +61,7 @@ namespace MusicPlayer
                     await foreach (var item in spotify.Paginate(result.Tracks, (t) => t.Tracks))
                     {
                         if (item.PreviewUrl == null)
-                        {
-                            continue; // Skips if track preview is nulll
-                        }
+                            continue;
 
                         TrackMetadata trackInfo = new TrackMetadata(item.Id);
                         await trackInfo.SetMetadata();
@@ -73,12 +71,7 @@ namespace MusicPlayer
                         string artistName = TrackMetadata.artistName;
                         string trackPoster = TrackMetadata.trackPoster;
 
-                        // Creates a new panel and label dynamically
                         Panel newPanel = CreateResultPanel(trackId, trackName, artistName, trackPoster, panelIndex, ResultPanel_Click);
-                        newPanel.AutoSize = false;
-
-
-                        // Adds the new panel to the main panel
                         searchResultPanel.Controls.Add(newPanel);
 
                         panelIndex++;
@@ -90,64 +83,56 @@ namespace MusicPlayer
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                // Handle exception as needed (e.g., show an error message)
             }
         }
 
         private void ResultPanel_Click(object sender, EventArgs e)
         {
-            string trackId = "";
-
-            if (sender is Panel)
-            {
-                Panel clickedPanel = (Panel)sender;
-                trackId = (string)clickedPanel.Tag;
-            }
-            else if (sender is Label)
-            {
-                Label clickedLabel = (Label)sender;
-                trackId = (string)clickedLabel.Tag;
-            }
-            else if (sender is PictureBox)
-            {
-                PictureBox clickedPictureBox = (PictureBox)sender;
-                trackId = (string)clickedPictureBox.Tag;
-            }
-            else if (sender is Button)
-            {
-                Button clickedButton = (Button)sender;
-                trackId = (string)clickedButton.Tag;
-
-                //mainForm.OpenMediaPlayerControlForm(trackId);
-            }
-
+            string trackId = GetTrackIdFromSender(sender);
             mainForm.OpenMusicInfoForm(trackId);
+            mainForm.OpenMediaPlayerControlForm(trackId);
         }
+
+        private string GetTrackIdFromSender(object sender)
+        {
+            return sender switch
+            {
+                Panel clickedPanel => (string)clickedPanel?.Tag ?? string.Empty,
+                Label clickedLabel => (string)clickedLabel?.Tag ?? string.Empty,
+                PictureBox clickedPictureBox => (string)clickedPictureBox?.Tag ?? string.Empty,
+                Button clickedButton => (string)clickedButton?.Tag ?? string.Empty,
+                _ => string.Empty,
+            };
+        }
+
 
         private Panel CreateResultPanel(string trackId, string trackName, string artistName, string trackPoster, int index, EventHandler panelClickEvent)
         {
-            // Create the main panel
-            Panel newPanel = new Panel();
-            newPanel.Name = $"panelResult{index}";
-            newPanel.Height = 100;
-            newPanel.Width = searchResultPanel.Width - 20;
-            newPanel.AutoSize = false;
-            newPanel.AutoScroll = false;
-            newPanel.BackColor = Color.FromArgb(13, 18, 47);
-            newPanel.Cursor = Cursors.Hand;
-            newPanel.Tag = trackId;
+            Panel newPanel = new Panel
+            {
+                Name = $"panelResult{index}",
+                Height = 100,
+                Width = searchResultPanel.Width - 20,
+                AutoSize = false,
+                AutoScroll = false,
+                BackColor = Color.FromArgb(18, 18, 18),
+                Cursor = Cursors.Hand,
+                Tag = trackId,
+                Location = new Point(0, (index - 1) * 100)
+            };
 
-            int panelYPosition = (index - 1) * newPanel.Height;
-            newPanel.Location = new Point(0, panelYPosition);
+            TableLayoutPanel tableLayout = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 3,
+                RowCount = 4
+            };
 
-            // Create the table layout panel
-            TableLayoutPanel tableLayout = new TableLayoutPanel();
-            tableLayout.Dock = DockStyle.Fill;
-            tableLayout.ColumnCount = 3;
-            tableLayout.RowCount = 4;
-            tableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50)); 
-            tableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40)); 
-            tableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40)); 
-            tableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50)); 
+            tableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
+            tableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40));
+            tableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40));
+            tableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
             tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100));
             tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
             tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120));
@@ -199,29 +184,28 @@ namespace MusicPlayer
             playButton.Dock = DockStyle.Left;
             playButton.FlatAppearance.BorderSize = 0;
             playButton.FlatStyle = FlatStyle.Flat;
-            playButton.BackColor = Color.FromArgb(13, 18, 47);
-            playButton.ForeColor = Color.FromArgb(13, 18, 47);
+            playButton.BackColor = Color.FromArgb(18, 18, 18);
+            playButton.ForeColor = Color.FromArgb(0, 0, 0);
             playButton.Tag = trackId;
-            // Adda controls to the table layout panel
+            // Adds controls to the table layout panel
             tableLayout.Controls.Add(playButton, 2, 1);
             tableLayout.SetRowSpan(playButton, 2);
 
             // Adds table layout panel to the main panel
             newPanel.Controls.Add(tableLayout);
 
-            // Attach the click event handler
+            newPanel.Controls.Add(tableLayout);
+            
+            // Attaches the click event handler
             newPanel.Click += panelClickEvent;
             trackLabel.Click += panelClickEvent;
             artistLabel.Click += panelClickEvent;
             imageBox.Click += panelClickEvent;
             playButton.Click += panelClickEvent;
-
+            
             return newPanel;
         }
 
-
-
-        // Clear existing panels
         private void ClearPanels()
         {
             var panelsToRemove = searchResultPanel.Controls.OfType<Panel>().Where(p => p.Name.StartsWith("panelResult")).ToList();
@@ -232,14 +216,11 @@ namespace MusicPlayer
             }
         }
 
-
         public static async Task<SpotifyClientConfig> StartAuthentication()
         {
-            var config = SpotifyClientConfig
+            return SpotifyClientConfig
                 .CreateDefault()
                 .WithAuthenticator(new ClientCredentialsAuthenticator("600ba51cf6464b29b90edc07050e54d9", "9a6802e6a09248808dce71025df7ae97"));
-
-            return config;
         }
     }
 }

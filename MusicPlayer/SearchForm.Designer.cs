@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchForm));
             splitContainer1 = new SplitContainer();
-            roundedPanel1 = new CustomPanel.RoundedPanel();
+            roundedPanel1 = new CustomComponents.RoundedPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             searchBox = new TextBox();
@@ -49,7 +49,7 @@
             // 
             // splitContainer1
             // 
-            splitContainer1.BackColor = Color.FromArgb(14, 24, 72);
+            splitContainer1.BackColor = Color.FromArgb(247, 40, 57);
             splitContainer1.Dock = DockStyle.Fill;
             splitContainer1.Location = new Point(20, 20);
             splitContainer1.Name = "splitContainer1";
@@ -69,8 +69,9 @@
             // 
             // roundedPanel1
             // 
-            roundedPanel1.BackgroundColor = Color.FromArgb(13, 18, 47);
-            roundedPanel1.BorderColor = Color.FromArgb(13, 18, 47);
+            roundedPanel1.BackColor = SystemColors.ActiveCaptionText;
+            roundedPanel1.BackgroundColor = Color.FromArgb(18, 18, 18);
+            roundedPanel1.BorderColor = SystemColors.ActiveCaptionText;
             roundedPanel1.BorderWidth = 2F;
             roundedPanel1.Controls.Add(tableLayoutPanel1);
             roundedPanel1.Dock = DockStyle.Fill;
@@ -83,7 +84,7 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.BackColor = Color.FromArgb(13, 18, 47);
+            tableLayoutPanel1.BackColor = Color.FromArgb(18, 18, 18);
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 87.5549F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.4450951F));
@@ -116,7 +117,7 @@
             // 
             // searchBox
             // 
-            searchBox.BackColor = Color.FromArgb(13, 18, 47);
+            searchBox.BackColor = Color.FromArgb(18, 18, 18);
             searchBox.BorderStyle = BorderStyle.None;
             searchBox.Dock = DockStyle.Fill;
             searchBox.Font = new Font("Segoe UI", 15F);
@@ -130,6 +131,7 @@
             // 
             // searchBtn
             // 
+            searchBtn.BackColor = Color.FromArgb(18, 18, 18);
             searchBtn.Dock = DockStyle.Fill;
             searchBtn.FlatAppearance.BorderSize = 0;
             searchBtn.FlatStyle = FlatStyle.Flat;
@@ -139,7 +141,7 @@
             searchBtn.Name = "searchBtn";
             searchBtn.Size = new Size(81, 50);
             searchBtn.TabIndex = 1;
-            searchBtn.UseVisualStyleBackColor = true;
+            searchBtn.UseVisualStyleBackColor = false;
             searchBtn.Click += Search_Btn_Click;
             // 
             // panel1
@@ -147,7 +149,7 @@
             panel1.AutoScroll = true;
             panel1.AutoSize = true;
             panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel1.BackColor = Color.FromArgb(14, 24, 72);
+            panel1.BackColor = SystemColors.ActiveCaptionText;
             panel1.Controls.Add(searchResultPanel);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
@@ -160,7 +162,7 @@
             // 
             searchResultPanel.AutoSize = true;
             searchResultPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            searchResultPanel.BackColor = Color.FromArgb(14, 24, 72);
+            searchResultPanel.BackColor = SystemColors.ActiveCaptionText;
             searchResultPanel.Dock = DockStyle.Fill;
             searchResultPanel.FlowDirection = FlowDirection.TopDown;
             searchResultPanel.Location = new Point(0, 20);
@@ -173,7 +175,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(14, 24, 72);
+            BackColor = SystemColors.ActiveCaptionText;
             ClientSize = new Size(723, 628);
             ControlBox = false;
             Controls.Add(splitContainer1);
@@ -200,11 +202,11 @@
 
         private SplitContainer splitContainer1;
         private Panel panel1;
-        private FlowLayoutPanel searchResultPanel;
         private TableLayoutPanel tableLayoutPanel1;
         private Button searchBtn;
         private TableLayoutPanel tableLayoutPanel2;
         private TextBox searchBox;
-        private CustomPanel.RoundedPanel roundedPanel1;
+        private CustomComponents.RoundedPanel roundedPanel1;
+        private FlowLayoutPanel searchResultPanel;
     }
 }
