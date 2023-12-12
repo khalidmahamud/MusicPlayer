@@ -16,7 +16,15 @@ namespace MusicPlayer
         {
             InitializeComponent();
         }
+        private void userNameTextBox_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            userNameTextBox.Text = "";
+            passwordTextBox.Text = "";
+        }
         private void logInButton_Click(object sender, EventArgs e)
         {
             if (userNameTextBox.Text == "" && passwordTextBox.Text == "")
@@ -26,36 +34,50 @@ namespace MusicPlayer
             }
             else
             {
-               MainForm m1 = new MainForm();
+                MainForm m1 = new MainForm();
                 m1.Show();
                 this.Hide();
 
             }
         }
 
-        private void clearButton_Click(object sender, EventArgs e)
+      
+
+
+        private void showPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            userNameTextBox.Text = "";
-            passwordTextBox.Text = "";
+            if (showPasswordCheckBox.Checked)
+            {
+                passwordTextBox.PasswordChar = '\0';
+            }
+            else
+            {
+                passwordTextBox.PasswordChar = '*';
+            }
         }
 
-        private void createAccountLabel_Click(object sender, EventArgs e)
+       
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             SignUpForm s1 = new SignUpForm();
             s1.Show();
             this.Hide();
         }
 
-        private void showPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
         {
-            if(showPasswordCheckBox.Checked)
-            {
-                passwordTextBox.PasswordChar = '\0';
-            }
-            else
-            { 
-                passwordTextBox.PasswordChar = '*';
-            }
+
         }
     }
 }
