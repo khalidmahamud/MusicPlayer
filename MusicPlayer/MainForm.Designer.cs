@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             splitContainer1 = new SplitContainer();
             splitContainer2 = new SplitContainer();
+            button1 = new Button();
             searchFormSelectBtn = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             searchPageSelectPanel = new Panel();
@@ -82,6 +83,7 @@
             // splitContainer2.Panel1
             // 
             splitContainer2.Panel1.BackColor = Color.FromArgb(18, 18, 18);
+            splitContainer2.Panel1.Controls.Add(button1);
             splitContainer2.Panel1.Controls.Add(searchFormSelectBtn);
             splitContainer2.Panel1.Controls.Add(tableLayoutPanel1);
             // 
@@ -92,6 +94,28 @@
             splitContainer2.SplitterDistance = 268;
             splitContainer2.SplitterWidth = 5;
             splitContainer2.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(18, 18, 18);
+            button1.Cursor = Cursors.Hand;
+            button1.Dock = DockStyle.Bottom;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 15F);
+            button1.ForeColor = Color.White;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(0, 549);
+            button1.Margin = new Padding(0);
+            button1.Name = "button1";
+            button1.Padding = new Padding(30, 0, 0, 0);
+            button1.Size = new Size(268, 77);
+            button1.TabIndex = 1;
+            button1.Text = "     Exit";
+            button1.TextAlign = ContentAlignment.MiddleLeft;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // searchFormSelectBtn
             // 
@@ -233,11 +257,13 @@
             ClientSize = new Size(1370, 743);
             Controls.Add(splitContainer1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimumSize = new Size(949, 667);
             Name = "MainForm";
             SizeGripStyle = SizeGripStyle.Hide;
             Text = "Vibe";
+            FormClosing += MainForm_FormClosing;
             splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
@@ -269,5 +295,6 @@
         private Panel searchPageSelectPanel;
         private PictureBox pictureBox1;
         private Button searchFormSelectBtn;
+        private Button button1;
     }
 }

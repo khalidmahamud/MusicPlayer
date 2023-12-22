@@ -20,7 +20,6 @@ namespace MusicPlayer
         {
             InitializeComponent();
             this.userEmail = userEmail; 
-           
 
             // Set the default active form to HomeForm and initialize it
             activeForm = InitializeForm(new HomeForm(this,userEmail), homeFormSelectBtn, splitContainer3.Panel1);
@@ -115,7 +114,7 @@ namespace MusicPlayer
 
         private void ViewProfileButton_Click(object sender, EventArgs e)
         {
-           // ActivateForm(new UserProfileForm(), ViewProfileButton, splitContainer3.Panel2);
+            ActivateForm(new UserProfileForm(), ViewProfileButton, splitContainer3.Panel2);
         }
 
         // Opens the MusicInfoForm for a specified trackId
@@ -128,7 +127,7 @@ namespace MusicPlayer
             }
             else
             {
-                //musicInfoForm.UpdateMusicInfo(trackId);
+                musicInfoForm.UpdateMusicInfo(trackId);
             }
         }
     }
