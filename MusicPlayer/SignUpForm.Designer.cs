@@ -30,12 +30,29 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpForm));
             customPanel1 = new CustomComponents.CustomPanel();
+            customPanel3 = new CustomComponents.CustomPanel();
+            label3 = new Label();
+            dateTimePicker2 = new DateTimePicker();
+            button3 = new Button();
+            label6 = new Label();
+            button4 = new Button();
+            comboBox1 = new ComboBox();
+            label8 = new Label();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            label9 = new Label();
+            textBox3 = new TextBox();
+            textBox4 = new TextBox();
+            checkBox1 = new CheckBox();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
             label2 = new Label();
             dateTimePicker1 = new DateTimePicker();
             clearButton = new Button();
             gmailLabel = new Label();
             signUpButton = new Button();
-            comboBox1 = new ComboBox();
+            genderComboBox = new ComboBox();
             confirmPasswordLabel = new Label();
             gmailTextBox = new TextBox();
             passwordTextBox = new TextBox();
@@ -52,7 +69,9 @@
             label5 = new Label();
             label4 = new Label();
             button1 = new Button();
+            button2 = new Button();
             customPanel1.SuspendLayout();
+            customPanel3.SuspendLayout();
             customPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -61,12 +80,13 @@
             // 
             customPanel1.BackColor = Color.White;
             customPanel1.BorderRadius = 30;
+            customPanel1.Controls.Add(customPanel3);
             customPanel1.Controls.Add(label2);
             customPanel1.Controls.Add(dateTimePicker1);
             customPanel1.Controls.Add(clearButton);
             customPanel1.Controls.Add(gmailLabel);
             customPanel1.Controls.Add(signUpButton);
-            customPanel1.Controls.Add(comboBox1);
+            customPanel1.Controls.Add(genderComboBox);
             customPanel1.Controls.Add(confirmPasswordLabel);
             customPanel1.Controls.Add(gmailTextBox);
             customPanel1.Controls.Add(passwordTextBox);
@@ -88,6 +108,234 @@
             customPanel1.Name = "customPanel1";
             customPanel1.Size = new Size(330, 500);
             customPanel1.TabIndex = 1;
+            // 
+            // customPanel3
+            // 
+            customPanel3.BackColor = Color.White;
+            customPanel3.BorderRadius = 30;
+            customPanel3.Controls.Add(label3);
+            customPanel3.Controls.Add(dateTimePicker2);
+            customPanel3.Controls.Add(button3);
+            customPanel3.Controls.Add(label6);
+            customPanel3.Controls.Add(button4);
+            customPanel3.Controls.Add(comboBox1);
+            customPanel3.Controls.Add(label8);
+            customPanel3.Controls.Add(textBox1);
+            customPanel3.Controls.Add(textBox2);
+            customPanel3.Controls.Add(label9);
+            customPanel3.Controls.Add(textBox3);
+            customPanel3.Controls.Add(textBox4);
+            customPanel3.Controls.Add(checkBox1);
+            customPanel3.Controls.Add(label10);
+            customPanel3.Controls.Add(label11);
+            customPanel3.Controls.Add(label12);
+            customPanel3.Dock = DockStyle.Right;
+            customPanel3.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            customPanel3.ForeColor = Color.FromArgb(164, 165, 169);
+            customPanel3.GradientAngle = 90F;
+            customPanel3.GradientBottomColor = Color.White;
+            customPanel3.GradientTopColor = Color.White;
+            customPanel3.Location = new Point(0, 0);
+            customPanel3.Margin = new Padding(3, 4, 3, 4);
+            customPanel3.Name = "customPanel3";
+            customPanel3.Size = new Size(330, 500);
+            customPanel3.TabIndex = 64;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.White;
+            label3.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(178, 209);
+            label3.Name = "label3";
+            label3.Size = new Size(115, 23);
+            label3.TabIndex = 53;
+            label3.Text = "Date of Birth";
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.CalendarMonthBackground = Color.FromArgb(230, 231, 233);
+            dateTimePicker2.Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dateTimePicker2.Format = DateTimePickerFormat.Short;
+            dateTimePicker2.Location = new Point(178, 236);
+            dateTimePicker2.Margin = new Padding(3, 4, 3, 4);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(114, 30);
+            dateTimePicker2.TabIndex = 50;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.White;
+            button3.Cursor = Cursors.Hand;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Popup;
+            button3.ForeColor = Color.FromArgb(247, 40, 57);
+            button3.Location = new Point(45, 424);
+            button3.Margin = new Padding(3, 4, 3, 4);
+            button3.Name = "button3";
+            button3.Size = new Size(114, 40);
+            button3.TabIndex = 63;
+            button3.Text = "CLEAR";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.White;
+            label6.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold);
+            label6.ForeColor = Color.Black;
+            label6.Location = new Point(42, 148);
+            label6.Name = "label6";
+            label6.Size = new Size(54, 23);
+            label6.TabIndex = 49;
+            label6.Text = "Email";
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.FromArgb(247, 40, 57);
+            button4.Cursor = Cursors.Hand;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.ForeColor = Color.FromArgb(230, 231, 233);
+            button4.Location = new Point(178, 424);
+            button4.Margin = new Padding(3, 4, 3, 4);
+            button4.Name = "button4";
+            button4.Size = new Size(114, 40);
+            button4.TabIndex = 62;
+            button4.Text = "SIGN UP";
+            button4.UseVisualStyleBackColor = false;
+            // 
+            // comboBox1
+            // 
+            comboBox1.BackColor = Color.White;
+            comboBox1.Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Male", "Female", "Others" });
+            comboBox1.Location = new Point(45, 235);
+            comboBox1.Margin = new Padding(3, 4, 3, 4);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(114, 31);
+            comboBox1.TabIndex = 48;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.White;
+            label8.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold);
+            label8.ForeColor = Color.Black;
+            label8.Location = new Point(45, 331);
+            label8.Name = "label8";
+            label8.Size = new Size(155, 23);
+            label8.TabIndex = 59;
+            label8.Text = "Confirm Password";
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.White;
+            textBox1.Font = new Font("Nirmala UI", 10.2F);
+            textBox1.Location = new Point(45, 175);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(247, 30);
+            textBox1.TabIndex = 47;
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = Color.White;
+            textBox2.Font = new Font("Nirmala UI", 10.2F);
+            textBox2.Location = new Point(45, 297);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.PasswordChar = '*';
+            textBox2.Size = new Size(247, 30);
+            textBox2.TabIndex = 58;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.White;
+            label9.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold);
+            label9.ForeColor = Color.Black;
+            label9.Location = new Point(45, 209);
+            label9.Name = "label9";
+            label9.Size = new Size(68, 23);
+            label9.TabIndex = 46;
+            label9.Text = "Gender";
+            // 
+            // textBox3
+            // 
+            textBox3.BackColor = Color.White;
+            textBox3.Font = new Font("Nirmala UI", 10.2F);
+            textBox3.Location = new Point(45, 362);
+            textBox3.Margin = new Padding(3, 4, 3, 4);
+            textBox3.Multiline = true;
+            textBox3.Name = "textBox3";
+            textBox3.PasswordChar = '*';
+            textBox3.Size = new Size(247, 30);
+            textBox3.TabIndex = 60;
+            // 
+            // textBox4
+            // 
+            textBox4.BackColor = Color.White;
+            textBox4.Font = new Font("Nirmala UI", 10.2F);
+            textBox4.Location = new Point(45, 114);
+            textBox4.Margin = new Padding(3, 4, 3, 4);
+            textBox4.Multiline = true;
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(247, 30);
+            textBox4.TabIndex = 45;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.BackColor = Color.White;
+            checkBox1.Font = new Font("Nirmala UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBox1.Location = new Point(167, 395);
+            checkBox1.Margin = new Padding(3, 4, 3, 4);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(125, 21);
+            checkBox1.TabIndex = 61;
+            checkBox1.Text = "Show Password";
+            checkBox1.UseVisualStyleBackColor = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BackColor = Color.White;
+            label10.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold);
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(42, 87);
+            label10.Name = "label10";
+            label10.Size = new Size(57, 23);
+            label10.TabIndex = 44;
+            label10.Text = "Name";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.BackColor = Color.White;
+            label11.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold);
+            label11.ForeColor = Color.Black;
+            label11.Location = new Point(45, 270);
+            label11.Name = "label11";
+            label11.Size = new Size(84, 23);
+            label11.TabIndex = 57;
+            label11.Text = "Password";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.BackColor = Color.White;
+            label12.Font = new Font("Nirmala UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.ForeColor = Color.FromArgb(247, 40, 57);
+            label12.Location = new Point(42, 31);
+            label12.Name = "label12";
+            label12.Size = new Size(210, 38);
+            label12.TabIndex = 34;
+            label12.Text = "SIGNUP FORM";
             // 
             // label2
             // 
@@ -156,17 +404,17 @@
             signUpButton.UseVisualStyleBackColor = false;
             signUpButton.Click += signUpButton_Click_1;
             // 
-            // comboBox1
+            // genderComboBox
             // 
-            comboBox1.BackColor = Color.White;
-            comboBox1.Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Male", "Female", "Others" });
-            comboBox1.Location = new Point(42, 220);
-            comboBox1.Margin = new Padding(3, 4, 3, 4);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(114, 31);
-            comboBox1.TabIndex = 48;
+            genderComboBox.BackColor = Color.White;
+            genderComboBox.Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            genderComboBox.FormattingEnabled = true;
+            genderComboBox.Items.AddRange(new object[] { "Male", "Female", "Others" });
+            genderComboBox.Location = new Point(45, 235);
+            genderComboBox.Margin = new Padding(3, 4, 3, 4);
+            genderComboBox.Name = "genderComboBox";
+            genderComboBox.Size = new Size(114, 31);
+            genderComboBox.TabIndex = 48;
             // 
             // confirmPasswordLabel
             // 
@@ -190,6 +438,7 @@
             gmailTextBox.Name = "gmailTextBox";
             gmailTextBox.Size = new Size(247, 30);
             gmailTextBox.TabIndex = 47;
+            gmailTextBox.TextChanged += gmailTextBox_TextChanged;
             // 
             // passwordTextBox
             // 
@@ -372,6 +621,16 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // button2
+            // 
+            button2.Location = new Point(1006, 40);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 67;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // SignUpForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -379,13 +638,17 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1101, 674);
+            Controls.Add(button2);
             Controls.Add(customPanel2);
             DoubleBuffered = true;
             Margin = new Padding(3, 4, 3, 4);
             Name = "SignUpForm";
-            Text = "SignUp";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "'';.;/'";
             customPanel1.ResumeLayout(false);
             customPanel1.PerformLayout();
+            customPanel3.ResumeLayout(false);
+            customPanel3.PerformLayout();
             customPanel2.ResumeLayout(false);
             customPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -401,7 +664,7 @@
         private TextBox userNameTextBox;
         private Label userNameLabel;
         private Label gmailLabel;
-        private ComboBox comboBox1;
+        private ComboBox genderComboBox;
         private DateTimePicker dateTimePicker1;
         private Label label2;
         private Label label7;
@@ -416,6 +679,23 @@
         private Button button1;
         private Label label4;
         private Label label5;
-        private PictureBox pictureBox1;
+        private Button button2;
+        private CustomComponents.CustomPanel customPanel3;
+        private Label label3;
+        private DateTimePicker dateTimePicker2;
+        private Button button3;
+        private Label label6;
+        private Button button4;
+        private ComboBox comboBox1;
+        private Label label8;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private Label label9;
+        private TextBox textBox3;
+        private TextBox textBox4;
+        private CheckBox checkBox1;
+        private Label label10;
+        private Label label11;
+        private Label label12;
     }
 }

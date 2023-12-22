@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             customPanel1 = new CustomComponents.CustomPanel();
-            label2 = new Label();
+            userNameTextBox = new TextBox();
             homeFormSelectBtn = new Button();
             label1 = new Label();
             customPanel2 = new CustomComponents.CustomPanel();
@@ -43,7 +43,7 @@
             // 
             customPanel1.BackColor = Color.Black;
             customPanel1.BorderRadius = 30;
-            customPanel1.Controls.Add(label2);
+            customPanel1.Controls.Add(userNameTextBox);
             customPanel1.Controls.Add(homeFormSelectBtn);
             customPanel1.Controls.Add(label1);
             customPanel1.Dock = DockStyle.Top;
@@ -56,17 +56,19 @@
             customPanel1.Size = new Size(705, 106);
             customPanel1.TabIndex = 0;
             // 
-            // label2
+            // userNameTextBox
             // 
-            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.Transparent;
-            label2.Location = new Point(552, 27);
-            label2.Name = "label2";
-            label2.Size = new Size(69, 31);
-            label2.TabIndex = 5;
-            label2.Text = "Sakib";
+            userNameTextBox.BackColor = SystemColors.ActiveCaptionText;
+            userNameTextBox.BorderStyle = BorderStyle.None;
+            userNameTextBox.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            userNameTextBox.ForeColor = SystemColors.Window;
+            userNameTextBox.Location = new Point(507, 28);
+            userNameTextBox.Name = "userNameTextBox";
+            userNameTextBox.Size = new Size(114, 31);
+            userNameTextBox.TabIndex = 5;
+            userNameTextBox.Text = "user";
+            userNameTextBox.TextAlign = HorizontalAlignment.Right;
+            userNameTextBox.TextChanged += textBox1_TextChanged;
             // 
             // homeFormSelectBtn
             // 
@@ -85,6 +87,7 @@
             homeFormSelectBtn.TabIndex = 4;
             homeFormSelectBtn.TextAlign = ContentAlignment.MiddleLeft;
             homeFormSelectBtn.UseVisualStyleBackColor = false;
+            homeFormSelectBtn.Click += homeFormSelectBtn_Click;
             // 
             // label1
             // 
@@ -148,7 +151,7 @@
         private Label label1;
         private CustomComponents.CustomPanel customPanel2;
         private Button homeFormSelectBtn;
-        private Label label2;
         private Label label3;
+        private TextBox userNameTextBox;
     }
 }
