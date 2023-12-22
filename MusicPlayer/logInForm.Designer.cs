@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(logInForm));
             customPanel1 = new CustomComponents.CustomPanel();
-            label3 = new Label();
+            resetPasswordLabel = new Label();
             label2 = new Label();
-            userNameTextBox = new TextBox();
+            emailTextBox = new TextBox();
             userNameLabel = new Label();
             label1 = new Label();
             clearButton = new Button();
@@ -53,9 +53,9 @@
             // 
             customPanel1.BackColor = Color.White;
             customPanel1.BorderRadius = 30;
-            customPanel1.Controls.Add(label3);
+            customPanel1.Controls.Add(resetPasswordLabel);
             customPanel1.Controls.Add(label2);
-            customPanel1.Controls.Add(userNameTextBox);
+            customPanel1.Controls.Add(emailTextBox);
             customPanel1.Controls.Add(userNameLabel);
             customPanel1.Controls.Add(label1);
             customPanel1.Controls.Add(clearButton);
@@ -75,17 +75,19 @@
             customPanel1.Size = new Size(330, 500);
             customPanel1.TabIndex = 2;
             // 
-            // label3
+            // resetPasswordLabel
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.White;
-            label3.Font = new Font("Nirmala UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.FromArgb(247, 40, 57);
-            label3.Location = new Point(113, 405);
-            label3.Name = "label3";
-            label3.Size = new Size(103, 17);
-            label3.TabIndex = 44;
-            label3.Text = "Reset Password";
+            resetPasswordLabel.AutoSize = true;
+            resetPasswordLabel.BackColor = Color.White;
+            resetPasswordLabel.Cursor = Cursors.Hand;
+            resetPasswordLabel.Font = new Font("Nirmala UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            resetPasswordLabel.ForeColor = Color.FromArgb(247, 40, 57);
+            resetPasswordLabel.Location = new Point(113, 405);
+            resetPasswordLabel.Name = "resetPasswordLabel";
+            resetPasswordLabel.Size = new Size(103, 17);
+            resetPasswordLabel.TabIndex = 44;
+            resetPasswordLabel.Text = "Reset Password";
+            resetPasswordLabel.Click += label3_Click;
             // 
             // label2
             // 
@@ -99,18 +101,18 @@
             label2.Text = "Forgot your password?";
             label2.Click += label2_Click;
             // 
-            // userNameTextBox
+            // emailTextBox
             // 
-            userNameTextBox.BackColor = Color.White;
-            userNameTextBox.Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            userNameTextBox.ForeColor = SystemColors.ActiveCaptionText;
-            userNameTextBox.Location = new Point(41, 152);
-            userNameTextBox.Margin = new Padding(3, 4, 3, 4);
-            userNameTextBox.Multiline = true;
-            userNameTextBox.Name = "userNameTextBox";
-            userNameTextBox.Size = new Size(247, 30);
-            userNameTextBox.TabIndex = 45;
-            userNameTextBox.TextChanged += userNameTextBox_TextChanged;
+            emailTextBox.BackColor = Color.White;
+            emailTextBox.Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            emailTextBox.ForeColor = SystemColors.ActiveCaptionText;
+            emailTextBox.Location = new Point(41, 152);
+            emailTextBox.Margin = new Padding(3, 4, 3, 4);
+            emailTextBox.Multiline = true;
+            emailTextBox.Name = "emailTextBox";
+            emailTextBox.Size = new Size(247, 30);
+            emailTextBox.TabIndex = 45;
+            emailTextBox.TextChanged += userNameTextBox_TextChanged;
             // 
             // userNameLabel
             // 
@@ -290,9 +292,12 @@
             ClientSize = new Size(1080, 684);
             Controls.Add(customPanel2);
             DoubleBuffered = true;
+            HelpButton = true;
             Margin = new Padding(3, 4, 3, 4);
             Name = "logInForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "logIn";
+            Load += logInForm_Load;
             customPanel1.ResumeLayout(false);
             customPanel1.PerformLayout();
             customPanel2.ResumeLayout(false);
@@ -303,7 +308,7 @@
         #endregion
 
         private CustomComponents.CustomPanel customPanel1;
-        private TextBox userNameTextBox;
+        private TextBox emailTextBox;
         private Label userNameLabel;
         private Label label1;
         private Label label7;
@@ -314,7 +319,7 @@
         private Label passwordLabel;
         private CustomComponents.CustomPanel customPanel2;
         private Label label2;
-        private Label label3;
+        private Label resetPasswordLabel;
         private Button button1;
         private Label label5;
         private Label label4;
