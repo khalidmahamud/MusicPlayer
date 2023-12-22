@@ -65,7 +65,6 @@
             label1 = new Label();
             label7 = new Label();
             customPanel2 = new CustomComponents.CustomPanel();
-            pictureBox1 = new PictureBox();
             label5 = new Label();
             label4 = new Label();
             button1 = new Button();
@@ -73,7 +72,6 @@
             customPanel1.SuspendLayout();
             customPanel3.SuspendLayout();
             customPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // customPanel1
@@ -438,7 +436,6 @@
             gmailTextBox.Name = "gmailTextBox";
             gmailTextBox.Size = new Size(247, 30);
             gmailTextBox.TabIndex = 47;
-            gmailTextBox.TextChanged += gmailTextBox_TextChanged;
             // 
             // passwordTextBox
             // 
@@ -555,7 +552,6 @@
             customPanel2.BackColor = Color.FromArgb(247, 40, 57);
             customPanel2.BackgroundImageLayout = ImageLayout.Stretch;
             customPanel2.BorderRadius = 30;
-            customPanel2.Controls.Add(pictureBox1);
             customPanel2.Controls.Add(label5);
             customPanel2.Controls.Add(label4);
             customPanel2.Controls.Add(button1);
@@ -571,17 +567,7 @@
             customPanel2.Name = "customPanel2";
             customPanel2.Size = new Size(640, 500);
             customPanel2.TabIndex = 66;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
-            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(109, 87);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(92, 69);
-            pictureBox1.TabIndex = 67;
-            pictureBox1.TabStop = false;
-            // 
+            //  
             // label5
             // 
             label5.AutoSize = true;
@@ -620,17 +606,7 @@
             button1.Text = "SIGN IN";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(1006, 40);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 67;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
+            //  
             // SignUpForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -651,7 +627,6 @@
             customPanel3.PerformLayout();
             customPanel2.ResumeLayout(false);
             customPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 

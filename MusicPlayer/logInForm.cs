@@ -43,18 +43,11 @@ namespace MusicPlayer
                 MessageBox.Show("Username and Password are empty, login failed!");
                 passwordTextBox.Focus();
             }
-            // else
-            // {
-            // MainForm m1 = new MainForm();
-            // m1.Show();
-            // this.Hide();
-
-            // }
 
             //verify admin login
             else
             {
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C#\New folder\MusicPlayer\MusicPlayerUserDB.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C# Projects\Music Player\MusicPlayer\Data\MusicPlayerUserDB.mdf;Integrated Security=True;Connect Timeout=30");
                 con.Open();
                 SqlCommand sql = new SqlCommand("select COUNT(*) from adminTable where email=@email AND password=@password", con);
 
@@ -75,7 +68,7 @@ namespace MusicPlayer
                 //verify user login
                 else
                 {
-                    SqlConnection con1 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C#\New folder\MusicPlayer\MusicPlayerUserDB.mdf;Integrated Security=True;Connect Timeout=30");
+                    SqlConnection con1 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C# Projects\Music Player\MusicPlayer\Data\MusicPlayerUserDB.mdf;Integrated Security=True;Connect Timeout=30");
                     con1.Open();
                     SqlCommand sql1 = new SqlCommand("select COUNT(*) from MusicPlayerUserTable where email=@email AND password=@password", con1);
 
@@ -143,7 +136,7 @@ namespace MusicPlayer
         private void logInForm_Load(object sender, EventArgs e)
         {
             //insert admin information in adminTable
-            /*SqlConnection con1 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C#\New folder\MusicPlayer\MusicPlayerUserDB.mdf;Integrated Security=True;Connect Timeout=30");
+            /*SqlConnection con1 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C# Projects\Music Player\MusicPlayer\Data\MusicPlayerUserDB.mdf;Integrated Security=True;Connect Timeout=30");
             con1.Open();
 
             SqlCommand sql1 = new SqlCommand("insert into adminTable(email,password) values (@email,@password)", con1);

@@ -109,12 +109,7 @@ namespace MusicPlayer
         // Event handler for the homeFromSelectBtn button click event
         private void homeFromSelectBtn_Click(object sender, EventArgs e)
         {
-            ActivateForm(new HomeForm(this,userEmail), homeFormSelectBtn, splitContainer3.Panel1);
-        }
-
-        private void ViewProfileButton_Click(object sender, EventArgs e)
-        {
-            ActivateForm(new UserProfileForm(), ViewProfileButton, splitContainer3.Panel2);
+            ActivateForm(new HomeForm(this, userEmail), homeFormSelectBtn, splitContainer3.Panel1);
         }
 
         // Opens the MusicInfoForm for a specified trackId
@@ -124,10 +119,6 @@ namespace MusicPlayer
             {
                 userProfileForm = new UserProfileForm(userEmail);
                 ActivateForm(userProfileForm, null, splitContainer3.Panel2);
-            }
-            else
-            {
-                musicInfoForm.UpdateMusicInfo(trackId);
             }
         }
     }

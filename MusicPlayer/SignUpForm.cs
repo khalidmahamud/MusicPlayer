@@ -48,7 +48,7 @@ namespace MusicPlayer
             else
             {
                 //insert data into database
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C#\New folder\MusicPlayer\MusicPlayerUserDB.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C# Projects\Music Player\MusicPlayer\Data\MusicPlayerUserDB.mdf;Integrated Security=True;Connect Timeout=30");
                 con.Open();
 
                 SqlCommand sql = new SqlCommand("insert into MusicPlayerUserTable(name,email,gender,dateOfBirth,password) values (@name,@email,@gender,@dateOfBirth,@password)", con);
