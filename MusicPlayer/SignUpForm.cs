@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,7 +28,7 @@ namespace MusicPlayer
         {
             if (userNameTextBox.Text == "" || gmailTextBox.Text == "" || passwordTextBox.Text == "" || confirmPasswordTextBox.Text == "")
             {
-                MessageBox.Show("Username or Password or gmail  is empty, signin failed!");
+                MessageBox.Show("Username or Password or gmail  is empty, sign in failed!");
             }
             else if (!IsGmailAddress(gmailTextBox.Text))
             {
@@ -46,14 +47,32 @@ namespace MusicPlayer
             }
             else
             {
+                //insert data into database
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C#\New folder\MusicPlayer\MusicPlayerUserDB.mdf;Integrated Security=True;Connect Timeout=30");
+                con.Open();
+
+                SqlCommand sql = new SqlCommand("insert into MusicPlayerUserTable(name,email,gender,dateOfBirth,password) values (@name,@email,@gender,@dateOfBirth,@password)", con);
+
+                sql.Parameters.AddWithValue("@name", userNameTextBox.Text);
+                sql.Parameters.AddWithValue("@email", gmailTextBox.Text);
+                sql.Parameters.AddWithValue("@gender", genderComboBox.Text);
+                sql.Parameters.Add("@dateOfBirth", SqlDbType.Date).Value = dateTimePicker1.Value.Date;
+                sql.Parameters.AddWithValue("@password", passwordTextBox.Text);
+                sql.ExecuteNonQuery();
+                con.Close();
+                //open mainform
                 MessageBox.Show("Successfully Signed in.");
-                logInForm l1 = new logInForm();
-                l1.Show();
+                MainForm obj = new MainForm(gmailTextBox.Text);
+                obj.Show();
                 this.Hide();
             }
+            
+
+
         }
         static bool IsGmailAddress(string email)
         {
+
             // Gmail address pattern
             string gmailPattern = @"^[a-zA-Z0-9._%+-]+@([Gg][Mm][Aa][Ii][Ll]\.[Cc][Oo][Mm])$";
 
@@ -81,7 +100,7 @@ namespace MusicPlayer
             gmailTextBox.Text = "";
             passwordTextBox.Text = "";
             confirmPasswordTextBox.Text = "";
-            comboBox1.Text = "";
+            genderComboBox.Text = "";
 
         }
 
@@ -119,6 +138,18 @@ namespace MusicPlayer
             logInForm l2 = new logInForm();
             l2.Show();
             this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AdminForm s1 = new AdminForm();
+            s1.Show();
+            this.Hide();
+        }
+
+        private void gmailTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -8,18 +8,22 @@ namespace MusicPlayer
     {
         // Tracks the currently active form in the main split container
         private Form activeForm;
+        private string userEmail;
 
         // Represents the MediaPlayerControlForm instance used in the application
         private static MediaPlayerControlForm mediaPlayerControlForm;
         private static MusicInfoForm musicInfoForm;
+        private static UserProfileForm userProfileForm;
 
         // Constructor for the MainForm class
-        public MainForm()
+        public MainForm(string userEmail)
         {
             InitializeComponent();
+            this.userEmail = userEmail; 
+           
 
             // Set the default active form to HomeForm and initialize it
-            activeForm = InitializeForm(new HomeForm(), homeFormSelectBtn, splitContainer3.Panel1);
+            activeForm = InitializeForm(new HomeForm(this,userEmail), homeFormSelectBtn, splitContainer3.Panel1);
 
             // Initialize the MediaPlayerControlForm and set it up
             mediaPlayerControlForm = InitializeMediaPlayerControlForm();
@@ -69,10 +73,10 @@ namespace MusicPlayer
             {
                 musicInfoForm = new MusicInfoForm(trackId);
                 ActivateForm(musicInfoForm, null, splitContainer3.Panel2);
-            } 
+            }
             else
             {
-                musicInfoForm.UpdateMusicInfo(trackId) ;
+                musicInfoForm.UpdateMusicInfo(trackId);
             }
         }
 
@@ -105,8 +109,27 @@ namespace MusicPlayer
 
         // Event handler for the homeFromSelectBtn button click event
         private void homeFromSelectBtn_Click(object sender, EventArgs e)
-        {    
-            ActivateForm(new HomeForm(), homeFormSelectBtn, splitContainer3.Panel1);
-        }    
+        {
+            ActivateForm(new HomeForm(this,userEmail), homeFormSelectBtn, splitContainer3.Panel1);
+        }
+
+        private void ViewProfileButton_Click(object sender, EventArgs e)
+        {
+           // ActivateForm(new UserProfileForm(), ViewProfileButton, splitContainer3.Panel2);
+        }
+
+        // Opens the MusicInfoForm for a specified trackId
+        public void OpenUserProfileForm()
+        {
+            if (userProfileForm == null)
+            {
+                userProfileForm = new UserProfileForm(userEmail);
+                ActivateForm(userProfileForm, null, splitContainer3.Panel2);
+            }
+            else
+            {
+                //musicInfoForm.UpdateMusicInfo(trackId);
+            }
+        }
     }
 }
