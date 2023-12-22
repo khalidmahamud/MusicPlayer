@@ -69,10 +69,10 @@ namespace MusicPlayer
             {
                 musicInfoForm = new MusicInfoForm(trackId);
                 ActivateForm(musicInfoForm, null, splitContainer3.Panel2);
-            } 
+            }
             else
             {
-                musicInfoForm.UpdateMusicInfo(trackId) ;
+                musicInfoForm.UpdateMusicInfo(trackId);
             }
         }
 
@@ -105,8 +105,21 @@ namespace MusicPlayer
 
         // Event handler for the homeFromSelectBtn button click event
         private void homeFromSelectBtn_Click(object sender, EventArgs e)
-        {    
+        {
             ActivateForm(new HomeForm(), homeFormSelectBtn, splitContainer3.Panel1);
-        }    
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+                Application.Exit();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("You're exiting the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

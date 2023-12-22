@@ -48,11 +48,13 @@
             label1 = new Label();
             label7 = new Label();
             customPanel2 = new CustomComponents.CustomPanel();
+            pictureBox1 = new PictureBox();
             label5 = new Label();
             label4 = new Label();
             button1 = new Button();
             customPanel1.SuspendLayout();
             customPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // customPanel1
@@ -93,7 +95,7 @@
             label2.BackColor = Color.White;
             label2.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(178, 209);
+            label2.Location = new Point(178, 193);
             label2.Name = "label2";
             label2.Size = new Size(115, 23);
             label2.TabIndex = 53;
@@ -104,7 +106,7 @@
             dateTimePicker1.CalendarMonthBackground = Color.FromArgb(230, 231, 233);
             dateTimePicker1.Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(178, 236);
+            dateTimePicker1.Location = new Point(175, 220);
             dateTimePicker1.Margin = new Padding(3, 4, 3, 4);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(114, 30);
@@ -117,7 +119,7 @@
             clearButton.FlatAppearance.BorderSize = 0;
             clearButton.FlatStyle = FlatStyle.Popup;
             clearButton.ForeColor = Color.FromArgb(247, 40, 57);
-            clearButton.Location = new Point(45, 424);
+            clearButton.Location = new Point(42, 410);
             clearButton.Margin = new Padding(3, 4, 3, 4);
             clearButton.Name = "clearButton";
             clearButton.Size = new Size(114, 40);
@@ -132,7 +134,7 @@
             gmailLabel.BackColor = Color.White;
             gmailLabel.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold);
             gmailLabel.ForeColor = Color.Black;
-            gmailLabel.Location = new Point(42, 148);
+            gmailLabel.Location = new Point(42, 132);
             gmailLabel.Name = "gmailLabel";
             gmailLabel.Size = new Size(54, 23);
             gmailLabel.TabIndex = 49;
@@ -145,7 +147,7 @@
             signUpButton.FlatAppearance.BorderSize = 0;
             signUpButton.FlatStyle = FlatStyle.Flat;
             signUpButton.ForeColor = Color.FromArgb(230, 231, 233);
-            signUpButton.Location = new Point(178, 424);
+            signUpButton.Location = new Point(179, 410);
             signUpButton.Margin = new Padding(3, 4, 3, 4);
             signUpButton.Name = "signUpButton";
             signUpButton.Size = new Size(114, 40);
@@ -160,7 +162,7 @@
             comboBox1.Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Male", "Female", "Others" });
-            comboBox1.Location = new Point(45, 235);
+            comboBox1.Location = new Point(42, 220);
             comboBox1.Margin = new Padding(3, 4, 3, 4);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(114, 31);
@@ -172,7 +174,7 @@
             confirmPasswordLabel.BackColor = Color.White;
             confirmPasswordLabel.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold);
             confirmPasswordLabel.ForeColor = Color.Black;
-            confirmPasswordLabel.Location = new Point(45, 331);
+            confirmPasswordLabel.Location = new Point(42, 316);
             confirmPasswordLabel.Name = "confirmPasswordLabel";
             confirmPasswordLabel.Size = new Size(155, 23);
             confirmPasswordLabel.TabIndex = 59;
@@ -182,7 +184,7 @@
             // 
             gmailTextBox.BackColor = Color.White;
             gmailTextBox.Font = new Font("Nirmala UI", 10.2F);
-            gmailTextBox.Location = new Point(45, 175);
+            gmailTextBox.Location = new Point(42, 159);
             gmailTextBox.Margin = new Padding(3, 4, 3, 4);
             gmailTextBox.Multiline = true;
             gmailTextBox.Name = "gmailTextBox";
@@ -193,7 +195,7 @@
             // 
             passwordTextBox.BackColor = Color.White;
             passwordTextBox.Font = new Font("Nirmala UI", 10.2F);
-            passwordTextBox.Location = new Point(45, 297);
+            passwordTextBox.Location = new Point(42, 282);
             passwordTextBox.Margin = new Padding(3, 4, 3, 4);
             passwordTextBox.Multiline = true;
             passwordTextBox.Name = "passwordTextBox";
@@ -207,7 +209,7 @@
             genderLabel.BackColor = Color.White;
             genderLabel.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold);
             genderLabel.ForeColor = Color.Black;
-            genderLabel.Location = new Point(45, 209);
+            genderLabel.Location = new Point(42, 193);
             genderLabel.Name = "genderLabel";
             genderLabel.Size = new Size(68, 23);
             genderLabel.TabIndex = 46;
@@ -217,7 +219,7 @@
             // 
             confirmPasswordTextBox.BackColor = Color.White;
             confirmPasswordTextBox.Font = new Font("Nirmala UI", 10.2F);
-            confirmPasswordTextBox.Location = new Point(45, 362);
+            confirmPasswordTextBox.Location = new Point(42, 343);
             confirmPasswordTextBox.Margin = new Padding(3, 4, 3, 4);
             confirmPasswordTextBox.Multiline = true;
             confirmPasswordTextBox.Name = "confirmPasswordTextBox";
@@ -229,7 +231,7 @@
             // 
             userNameTextBox.BackColor = Color.White;
             userNameTextBox.Font = new Font("Nirmala UI", 10.2F);
-            userNameTextBox.Location = new Point(45, 114);
+            userNameTextBox.Location = new Point(42, 98);
             userNameTextBox.Margin = new Padding(3, 4, 3, 4);
             userNameTextBox.Multiline = true;
             userNameTextBox.Name = "userNameTextBox";
@@ -242,7 +244,7 @@
             showPasswordCheckBox.AutoSize = true;
             showPasswordCheckBox.BackColor = Color.White;
             showPasswordCheckBox.Font = new Font("Nirmala UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            showPasswordCheckBox.Location = new Point(167, 395);
+            showPasswordCheckBox.Location = new Point(164, 381);
             showPasswordCheckBox.Margin = new Padding(3, 4, 3, 4);
             showPasswordCheckBox.Name = "showPasswordCheckBox";
             showPasswordCheckBox.Size = new Size(125, 21);
@@ -257,7 +259,7 @@
             userNameLabel.BackColor = Color.White;
             userNameLabel.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold);
             userNameLabel.ForeColor = Color.Black;
-            userNameLabel.Location = new Point(42, 87);
+            userNameLabel.Location = new Point(42, 71);
             userNameLabel.Name = "userNameLabel";
             userNameLabel.Size = new Size(57, 23);
             userNameLabel.TabIndex = 44;
@@ -269,7 +271,7 @@
             passwordLabel.BackColor = Color.White;
             passwordLabel.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold);
             passwordLabel.ForeColor = Color.Black;
-            passwordLabel.Location = new Point(45, 270);
+            passwordLabel.Location = new Point(42, 255);
             passwordLabel.Name = "passwordLabel";
             passwordLabel.Size = new Size(84, 23);
             passwordLabel.TabIndex = 57;
@@ -281,7 +283,7 @@
             label1.BackColor = Color.White;
             label1.Font = new Font("Nirmala UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(247, 40, 57);
-            label1.Location = new Point(42, 31);
+            label1.Location = new Point(42, 20);
             label1.Name = "label1";
             label1.Size = new Size(210, 38);
             label1.TabIndex = 34;
@@ -304,6 +306,7 @@
             customPanel2.BackColor = Color.FromArgb(247, 40, 57);
             customPanel2.BackgroundImageLayout = ImageLayout.Stretch;
             customPanel2.BorderRadius = 30;
+            customPanel2.Controls.Add(pictureBox1);
             customPanel2.Controls.Add(label5);
             customPanel2.Controls.Add(label4);
             customPanel2.Controls.Add(button1);
@@ -320,13 +323,23 @@
             customPanel2.Size = new Size(640, 500);
             customPanel2.TabIndex = 66;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(109, 87);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(92, 69);
+            pictureBox1.TabIndex = 67;
+            pictureBox1.TabStop = false;
+            // 
             // label5
             // 
             label5.AutoSize = true;
             label5.BackColor = Color.FromArgb(247, 40, 57);
             label5.Font = new Font("Nirmala UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.WhiteSmoke;
-            label5.Location = new Point(60, 121);
+            label5.Location = new Point(70, 152);
             label5.Name = "label5";
             label5.Size = new Size(175, 38);
             label5.TabIndex = 66;
@@ -338,7 +351,7 @@
             label4.BackColor = Color.FromArgb(247, 40, 57);
             label4.Font = new Font("Monotype Corsiva", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.WhiteSmoke;
-            label4.Location = new Point(28, 217);
+            label4.Location = new Point(35, 239);
             label4.Name = "label4";
             label4.Size = new Size(249, 27);
             label4.TabIndex = 65;
@@ -350,7 +363,7 @@
             button1.Cursor = Cursors.Hand;
             button1.FlatAppearance.BorderSize = 0;
             button1.ForeColor = Color.FromArgb(247, 40, 57);
-            button1.Location = new Point(88, 362);
+            button1.Location = new Point(100, 362);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
             button1.Size = new Size(114, 40);
@@ -375,6 +388,7 @@
             customPanel1.PerformLayout();
             customPanel2.ResumeLayout(false);
             customPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -402,5 +416,6 @@
         private Button button1;
         private Label label4;
         private Label label5;
+        private PictureBox pictureBox1;
     }
 }

@@ -45,8 +45,10 @@
             label5 = new Label();
             label4 = new Label();
             button1 = new Button();
+            pictureBox1 = new PictureBox();
             customPanel1.SuspendLayout();
             customPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // customPanel1
@@ -225,6 +227,7 @@
             // 
             customPanel2.BackColor = Color.Transparent;
             customPanel2.BorderRadius = 30;
+            customPanel2.Controls.Add(pictureBox1);
             customPanel2.Controls.Add(label5);
             customPanel2.Controls.Add(label4);
             customPanel2.Controls.Add(button1);
@@ -247,7 +250,7 @@
             label5.BackColor = Color.FromArgb(247, 40, 57);
             label5.Font = new Font("Nirmala UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.WhiteSmoke;
-            label5.Location = new Point(384, 144);
+            label5.Location = new Point(393, 152);
             label5.Name = "label5";
             label5.Size = new Size(175, 38);
             label5.TabIndex = 48;
@@ -281,6 +284,16 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(407, 90);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(134, 71);
+            pictureBox1.TabIndex = 49;
+            pictureBox1.TabStop = false;
+            // 
             // logInForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -297,6 +310,7 @@
             customPanel1.PerformLayout();
             customPanel2.ResumeLayout(false);
             customPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -318,5 +332,6 @@
         private Button button1;
         private Label label5;
         private Label label4;
+        private PictureBox pictureBox1;
     }
 }
