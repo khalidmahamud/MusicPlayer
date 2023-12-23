@@ -10,7 +10,7 @@ namespace MusicPlayer
             ApplicationConfiguration.Initialize();
 
             // Opens MainForm at Start UP
-            Application.Run(new logInForm());
+            Application.Run(new MainForm(""));
         }
     }
 }

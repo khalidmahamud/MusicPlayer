@@ -226,6 +226,6 @@
         private Button backwardBtn;
         private Button forwardBtn;
         private Button playPauseBtn;
-        private CustomComponents.CustomProgressBar trackProgressBar;
+        public CustomComponents.CustomProgressBar trackProgressBar;
     }
 }
