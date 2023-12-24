@@ -23,6 +23,7 @@ namespace MusicPlayer
 
             // Set the default active form to HomeForm and initialize it
             activeForm = InitializeForm(new HomeForm(this,userEmail), homeFormSelectBtn, splitContainer3.Panel1);
+            ActivateForm(activeForm, homeFormSelectBtn, splitContainer3.Panel1);
 
             // Initialize the MediaPlayerControlForm and set it up
             mediaPlayerControlForm = InitializeMediaPlayerControlForm();
