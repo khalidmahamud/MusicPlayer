@@ -63,13 +63,13 @@ namespace MusicPlayer
                         if (item.PreviewUrl == null)
                             continue;
 
-                        TrackMetadata trackInfo = new TrackMetadata(item.Id);
-                        await trackInfo.SetMetadata();
+                        TrackMetadata trackInfo = new TrackMetadata(item.Id, false);
+                        await trackInfo.SetOnlineTrackMetadata();
 
                         string trackId = item.Id;
                         string trackName = TrackMetadata.trackName;
                         string artistName = TrackMetadata.artistName;
-                        string trackPoster = TrackMetadata.trackPoster;
+                        object trackPoster = TrackMetadata.trackPoster;
 
                         Panel newPanel = CreateResultPanel(trackId, trackName, artistName, trackPoster, panelIndex, ResultPanel_Click);
                         searchResultPanel.Controls.Add(newPanel);
@@ -90,7 +90,7 @@ namespace MusicPlayer
         private void ResultPanel_Click(object sender, EventArgs e)
         {
             string trackId = GetTrackIdFromSender(sender);
-            mainForm.OpenMusicInfoForm(trackId);
+            mainForm.OpenMusicInfoForm(trackId, false);
             mainForm.OpenMediaPlayerControlForm(trackId);
         }
 
@@ -107,7 +107,7 @@ namespace MusicPlayer
         }
 
 
-        private Panel CreateResultPanel(string trackId, string trackName, string artistName, string trackPoster, int index, EventHandler panelClickEvent)
+        private Panel CreateResultPanel(string trackId, string trackName, string artistName, object trackPoster, int index, EventHandler panelClickEvent)
         {
             Panel newPanel = new Panel
             {
@@ -140,7 +140,7 @@ namespace MusicPlayer
             // PictureBox for the image on the left
             PictureBox imageBox = new PictureBox();
             imageBox.Name = $"pictureBoxResult{index}";
-            imageBox.ImageLocation = trackPoster;
+            imageBox.ImageLocation = trackPoster.ToString();
             imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
             imageBox.Dock = DockStyle.Fill;
             imageBox.Tag = trackId;

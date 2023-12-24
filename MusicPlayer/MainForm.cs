@@ -43,7 +43,7 @@ namespace MusicPlayer
         // Initializes the MediaPlayerControlForm and sets up its properties
         private MediaPlayerControlForm InitializeMediaPlayerControlForm()
         {
-            var mediaPlayerControl = new MediaPlayerControlForm("");
+            var mediaPlayerControl = new MediaPlayerControlForm(this);
             mediaPlayerControl.TopLevel = false;
             mediaPlayerControl.FormBorderStyle = FormBorderStyle.None;
             mediaPlayerControl.Dock = DockStyle.Fill;
@@ -67,16 +67,16 @@ namespace MusicPlayer
         }
 
         // Opens the MusicInfoForm for a specified trackId
-        public void OpenMusicInfoForm(string trackId)
+        public void OpenMusicInfoForm(string trackId, bool isLocal)
         {
             if (musicInfoForm == null)
             {
-                musicInfoForm = new MusicInfoForm(trackId);
+                musicInfoForm = new MusicInfoForm(trackId, isLocal);
                 ActivateForm(musicInfoForm, null, splitContainer3.Panel2);
             }
             else
             {
-                musicInfoForm.UpdateMusicInfo(trackId);
+                musicInfoForm.UpdateMusicInfo(trackId, isLocal);
             }
         }
 
@@ -85,7 +85,7 @@ namespace MusicPlayer
         {
             if (mediaPlayerControlForm == null)
             {
-                mediaPlayerControlForm = new MediaPlayerControlForm(trackId);
+                mediaPlayerControlForm = new MediaPlayerControlForm(this);
                 ActivateForm(mediaPlayerControlForm, null, splitContainer1.Panel2);
             }
             else

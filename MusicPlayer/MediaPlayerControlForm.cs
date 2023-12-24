@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using NAudio.Wave;
+using TagLib;
 using Timer = System.Windows.Forms.Timer;
 
 namespace MusicPlayer
@@ -9,13 +10,15 @@ namespace MusicPlayer
     // Represents the main form of the music player application
     public partial class MediaPlayerControlForm : Form
     {
+        private readonly MainForm mainForm;
+
         // Fields for track information
         private string trackId;
         private string trackName;
         private string artistName;
-        private string trackPoster;
+        private object trackPoster;
         private string trackPreviewUrl;
-        private int trackDuration;
+        private int totalMilliSeconds;
 
         // Timer for updating the progress bar
         private Timer updateTimer;
@@ -25,12 +28,18 @@ namespace MusicPlayer
         private AudioFileReader audioFileReader;
 
         // Constructor for MediaPlayerControlForm
-        public MediaPlayerControlForm(string trackId)
+        public MediaPlayerControlForm(MainForm mainForm)
         {
             InitializeComponent();
-            this.trackId = trackId;
+            this.mainForm = mainForm;
 
             // Initialize NAudio components
+            InitializeAudioComponents();
+        }
+
+        // Initializes NAudio components
+        private void InitializeAudioComponents()
+        {
             waveOutEvent = new WaveOutEvent();
             waveOutEvent.PlaybackStopped += WaveOutEvent_PlaybackStopped;
 
@@ -44,15 +53,14 @@ namespace MusicPlayer
         private async void MediaPlayerControlForm_Load(object sender, EventArgs e)
         {
             // Load the track information when the form is loaded
-            LoadNewTrack(trackId);
+            await LoadNewTrack(trackId);
         }
 
         // Load new track information based on the provided track ID
-        public async void LoadNewTrack(string trackId)
+        public async Task LoadNewTrack(string trackId)
         {
             // Dispose of existing audio resources
             DisposeAudioResources();
-            updateTimer.Start();
 
             // Update the track ID
             this.trackId = trackId;
@@ -66,14 +74,11 @@ namespace MusicPlayer
             if (waveOutEvent.PlaybackState == PlaybackState.Playing)
             {
                 waveOutEvent.Stop();
+                updateTimer.Stop();
             }
 
             // Dispose of existing audio file reader
-            if (audioFileReader != null)
-            {
-                audioFileReader.Dispose();
-                audioFileReader = null;
-            }
+            audioFileReader?.Dispose();
 
             // Display a loading image while fetching metadata
             trackPosterBox.Image = Resource1.loading;
@@ -81,27 +86,14 @@ namespace MusicPlayer
             try
             {
                 // Instantiate and asynchronously set track metadata
-                TrackMetadata trackInfo = new TrackMetadata(trackId);
-                await trackInfo.SetMetadata();
+                TrackMetadata trackInfo = new TrackMetadata(trackId, false);
+                await trackInfo.SetOnlineTrackMetadata();
 
                 // Assign metadata values
-                trackName = TrackMetadata.trackName;
-                artistName = TrackMetadata.artistName;
-                trackPoster = TrackMetadata.trackPoster;
-                trackDuration = TrackMetadata.trackDuration;
-                trackPreviewUrl = TrackMetadata.trackPreviewURL;
+                AssignMetadataValues();
 
                 // Set the ImageLocation property after metadata has been retrieved
-                trackPosterBox.ImageLocation = trackPoster;
-                trackPosterBox.SizeMode = PictureBoxSizeMode.Zoom;
-                trackNameLabel.Text = trackName;
-                artistNameLabel.Text = artistName;
-
-                // Set the maximum value of the progress bar based on the track duration
-                trackProgressBar.Maximum = trackDuration;
-
-                // Adjust font size based on track name length
-                trackNameLabel.Font = new Font("Segoe UI", trackName.Length > 25 ? 11 : 14);
+                SetMetadataUI();
             }
             catch (Exception ex)
             {
@@ -109,41 +101,37 @@ namespace MusicPlayer
             }
         }
 
-        // Event handler for the playPauseBtn click event
-        private void playPauseBtn_Click(object sender, EventArgs e)
+        // Assigns metadata values from the TrackMetadata instance
+        private void AssignMetadataValues()
         {
-            // Check if the track preview URL is empty
-            if (string.IsNullOrEmpty(trackPreviewUrl))
-                return;
+            // Assign metadata values
+            trackName = TrackMetadata.trackName;
+            artistName = TrackMetadata.artistName;
+            trackPoster = TrackMetadata.trackPoster;
+            totalMilliSeconds = TrackMetadata.totalMilliSeconds;
+            trackPreviewUrl = TrackMetadata.trackPreviewURL;
+        }
 
-            // If an audio file reader exists
-            if (audioFileReader != null)
+        // Sets UI elements based on metadata values
+        private void SetMetadataUI()
+        {
+            if (trackPoster is string imageUrl)
             {
-                // If currently playing, pause; otherwise, play
-                if (waveOutEvent.PlaybackState == PlaybackState.Playing)
-                {
-                    waveOutEvent.Pause();
-                    playPauseBtn.Image = Resource1.play;
-                }
-                else
-                {
-                    waveOutEvent.Play();
-                    playPauseBtn.Image = Resource1.pause;
-                }
+                trackPosterBox.ImageLocation = trackPoster.ToString();
             }
-            // If no audio file reader exists, create one and start playback
-            else
+            else if (trackPoster is object image)
             {
-                audioFileReader = new AudioFileReader(trackPreviewUrl);
-                waveOutEvent.Init(audioFileReader);
-
-                waveOutEvent.Play();
-
-                playPauseBtn.Image = Resource1.pause;
-
-                int totalDuration = (int)audioFileReader.TotalTime.TotalSeconds;
-                trackProgressBar.Maximum = totalDuration;
+                trackPosterBox.Image = (Image)trackPoster;
             }
+            trackPosterBox.SizeMode = PictureBoxSizeMode.Zoom;
+            trackNameLabel.Text = trackName;
+            artistNameLabel.Text = artistName;
+
+            // Set the maximum value of the progress bar based on the track duration
+            trackProgressBar.Maximum = totalMilliSeconds;
+
+            // Adjust font size based on track name length
+            trackNameLabel.Font = new Font("Segoe UI", trackName.Length > 25 ? 11 : 14);
         }
 
         // Event handler for the playback stopped event
@@ -180,6 +168,102 @@ namespace MusicPlayer
             }
         }
 
+        // Event handler for the playPauseBtn click event
+        private void playPauseBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(trackPreviewUrl) && (audioFileReader == null || waveOutEvent.PlaybackState == PlaybackState.Stopped))
+            {
+                // If no URL is provided, open a dialog to choose a local music file
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Audio Files|*.mp3;*.wav|All Files|*.*";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // User selected a local file
+                    string selectedFilePath = openFileDialog.FileName;
+
+                    // Update MusicInfoForm
+                    mainForm.OpenMusicInfoForm(selectedFilePath, true);
+
+                    // Retrieve metadata for the local file
+                    TrackMetadata trackInfo = new TrackMetadata(selectedFilePath, true);
+                    trackInfo.SetLocalTrackMetadata();
+
+                    AssignMetadataValues();
+
+                    // Set UI elements based on metadata values
+                    SetMetadataUI();
+
+                    // Initialize and play the local file
+                    PlayLocalTrack(selectedFilePath);
+                }
+
+                return;
+            }
+
+            // If an audio file reader exists
+            if (audioFileReader != null)
+            {
+                // If currently playing, pause; otherwise, play
+                TogglePlayback();
+            }
+            // If no audio file reader exists, create one and start playback
+            else
+            {
+                // Initialize and play the Spotify preview URL
+                PlayOnlineTrack(trackPreviewUrl);
+            }
+        }
+
+        // Toggles playback between play and pause
+        private void TogglePlayback()
+        {
+            if (waveOutEvent.PlaybackState == PlaybackState.Playing)
+            {
+                waveOutEvent.Pause();
+                playPauseBtn.Image = Resource1.play;
+            }
+            else if (waveOutEvent.PlaybackState == PlaybackState.Stopped)
+            {
+                PlayOnlineTrack(trackPreviewUrl);
+            }
+            else
+            {
+                waveOutEvent.Play();
+                playPauseBtn.Image = Resource1.pause;
+            }
+        }
+
+        // Play a local track
+        private void PlayLocalTrack(string filePath)
+        {
+            audioFileReader = new AudioFileReader(filePath);
+            waveOutEvent.Init(audioFileReader);
+
+            waveOutEvent.Play();
+            updateTimer.Start();
+
+            playPauseBtn.Image = Resource1.pause;
+
+            int totalDuration = (int)audioFileReader.TotalTime.TotalSeconds;
+            trackProgressBar.Maximum = totalDuration;
+        }
+
+        // Play an online track
+        private void PlayOnlineTrack(string previewUrl)
+        {
+            audioFileReader = new AudioFileReader(previewUrl);
+            waveOutEvent.Init(audioFileReader);
+
+            waveOutEvent.Play();
+            updateTimer.Start();
+
+            playPauseBtn.Image = Resource1.pause;
+
+            int totalDuration = (int)audioFileReader.TotalTime.TotalSeconds;
+            trackProgressBar.Maximum = totalDuration;
+        }
+
         // Cleanup resources when the form is closed
         private void MediaPlayerControlForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -201,17 +285,10 @@ namespace MusicPlayer
                 // Dispose of the WaveOutEvent
                 waveOutEvent.Dispose();
                 updateTimer.Stop();
-                updateTimer.Dispose();
             }
 
             // If the AudioFileReader exists
-            if (audioFileReader != null)
-            {
-                // Dispose of the AudioFileReader
-                audioFileReader.Dispose();
-                updateTimer.Stop();
-                updateTimer.Dispose();
-            }
+            audioFileReader?.Dispose();
         }
     }
 }
