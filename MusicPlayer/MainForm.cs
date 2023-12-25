@@ -23,7 +23,8 @@ namespace MusicPlayer
             this.userEmail = userEmail;
 
             // Set the default active form to HomeForm and initialize it
-            activeForm = InitializeForm(new HomeForm(this, userEmail), homeFormSelectBtn, splitContainer3.Panel1);
+            HomeForm homeFormInstance = HomeForm.GetInstance(this, userEmail);
+            activeForm = InitializeForm(homeFormInstance, homeFormSelectBtn, splitContainer3.Panel1);
             ActivateForm(activeForm, homeFormSelectBtn, splitContainer3.Panel1);
 
             // Initialize the MediaPlayerControlForm and set it up
@@ -111,7 +112,8 @@ namespace MusicPlayer
         // Event handler for the homeFromSelectBtn button click event
         private void homeFromSelectBtn_Click(object sender, EventArgs e)
         {
-            ActivateForm(new HomeForm(this, userEmail), homeFormSelectBtn, splitContainer3.Panel1);
+            HomeForm homeFormInstance = HomeForm.GetInstance(this, userEmail);
+            activeForm = InitializeForm(homeFormInstance, homeFormSelectBtn, splitContainer3.Panel1);
         }
 
         // Event handler for the localMuiscFormSelectBtn button click event

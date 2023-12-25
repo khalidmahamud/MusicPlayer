@@ -77,7 +77,6 @@
             emailTextBox.Name = "emailTextBox";
             emailTextBox.Size = new Size(180, 21);
             emailTextBox.TabIndex = 3;
-            emailTextBox.TextChanged += emailTextBox_TextChanged;
             // 
             // label1
             // 
@@ -100,7 +99,6 @@
             genderTextBox.Name = "genderTextBox";
             genderTextBox.Size = new Size(180, 21);
             genderTextBox.TabIndex = 7;
-            genderTextBox.TextChanged += genderTextBox_TextChanged;
             // 
             // label2
             // 
@@ -123,7 +121,6 @@
             birthdateTextBox.Name = "birthdateTextBox";
             birthdateTextBox.Size = new Size(180, 21);
             birthdateTextBox.TabIndex = 5;
-            birthdateTextBox.TextChanged += birthdateTextBox_TextChanged;
             // 
             // label3
             // 

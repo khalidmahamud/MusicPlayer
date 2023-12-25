@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             customPanel1 = new CustomComponents.CustomPanel();
             userNameTextBox = new TextBox();
-            homeFormSelectBtn = new Button();
+            userSelectBtn = new Button();
             label1 = new Label();
             customPanel2 = new CustomComponents.CustomPanel();
             label3 = new Label();
@@ -46,7 +46,7 @@
             customPanel1.BackColor = Color.Black;
             customPanel1.BorderRadius = 30;
             customPanel1.Controls.Add(userNameTextBox);
-            customPanel1.Controls.Add(homeFormSelectBtn);
+            customPanel1.Controls.Add(userSelectBtn);
             customPanel1.Controls.Add(label1);
             customPanel1.Dock = DockStyle.Top;
             customPanel1.ForeColor = Color.Black;
@@ -70,27 +70,26 @@
             userNameTextBox.TabIndex = 5;
             userNameTextBox.Text = "user";
             userNameTextBox.TextAlign = HorizontalAlignment.Right;
-            userNameTextBox.TextChanged += textBox1_TextChanged;
             // 
-            // homeFormSelectBtn
+            // userSelectBtn
             // 
-            homeFormSelectBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            homeFormSelectBtn.BackColor = SystemColors.ActiveCaptionText;
-            homeFormSelectBtn.Cursor = Cursors.Hand;
-            homeFormSelectBtn.FlatAppearance.BorderSize = 0;
-            homeFormSelectBtn.FlatStyle = FlatStyle.Flat;
-            homeFormSelectBtn.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            homeFormSelectBtn.ForeColor = Color.Transparent;
-            homeFormSelectBtn.Image = (Image)resources.GetObject("homeFormSelectBtn.Image");
-            homeFormSelectBtn.Location = new Point(624, 20);
-            homeFormSelectBtn.Margin = new Padding(0);
-            homeFormSelectBtn.Name = "homeFormSelectBtn";
-            homeFormSelectBtn.Size = new Size(52, 49);
-            homeFormSelectBtn.TabIndex = 4;
-            homeFormSelectBtn.TextAlign = ContentAlignment.MiddleLeft;
-            toolTip1.SetToolTip(homeFormSelectBtn, "view your profile");
-            homeFormSelectBtn.UseVisualStyleBackColor = false;
-            homeFormSelectBtn.Click += homeFormSelectBtn_Click;
+            userSelectBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            userSelectBtn.BackColor = SystemColors.ActiveCaptionText;
+            userSelectBtn.Cursor = Cursors.Hand;
+            userSelectBtn.FlatAppearance.BorderSize = 0;
+            userSelectBtn.FlatStyle = FlatStyle.Flat;
+            userSelectBtn.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            userSelectBtn.ForeColor = Color.Transparent;
+            userSelectBtn.Image = (Image)resources.GetObject("userSelectBtn.Image");
+            userSelectBtn.Location = new Point(624, 20);
+            userSelectBtn.Margin = new Padding(0);
+            userSelectBtn.Name = "userSelectBtn";
+            userSelectBtn.Size = new Size(52, 49);
+            userSelectBtn.TabIndex = 4;
+            userSelectBtn.TextAlign = ContentAlignment.MiddleLeft;
+            toolTip1.SetToolTip(userSelectBtn, "View profile");
+            userSelectBtn.UseVisualStyleBackColor = false;
+            userSelectBtn.Click += UserSelectBtn_Click;
             // 
             // label1
             // 
@@ -130,10 +129,6 @@
             label3.TabIndex = 0;
             label3.Text = "Popular Now";
             // 
-            // toolTip1
-            // 
-            toolTip1.Popup += toolTip1_Popup;
-            // 
             // HomeForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -157,7 +152,7 @@
         private CustomComponents.CustomPanel customPanel1;
         private Label label1;
         private CustomComponents.CustomPanel customPanel2;
-        private Button homeFormSelectBtn;
+        private Button userSelectBtn;
         private Label label3;
         private TextBox userNameTextBox;
         private ToolTip toolTip1;

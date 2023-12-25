@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             splitContainer1 = new SplitContainer();
             splitContainer2 = new SplitContainer();
-            exitButton = new Button();
             localMusicFormSelectBtn = new Button();
+            exitButton = new Button();
             searchFormSelectBtn = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             searchPageSelectPanel = new Panel();
@@ -84,8 +84,8 @@
             // splitContainer2.Panel1
             // 
             splitContainer2.Panel1.BackColor = Color.FromArgb(18, 18, 18);
-            splitContainer2.Panel1.Controls.Add(exitButton);
             splitContainer2.Panel1.Controls.Add(localMusicFormSelectBtn);
+            splitContainer2.Panel1.Controls.Add(exitButton);
             splitContainer2.Panel1.Controls.Add(searchFormSelectBtn);
             splitContainer2.Panel1.Controls.Add(tableLayoutPanel1);
             // 
@@ -119,7 +119,7 @@
             localMusicFormSelectBtn.UseVisualStyleBackColor = false;
             localMusicFormSelectBtn.Click += localMusicFormSelectBtn_Click;
             // 
-            // button1
+            // exitButton
             // 
             exitButton.BackColor = Color.FromArgb(18, 18, 18);
             exitButton.Cursor = Cursors.Hand;
@@ -317,7 +317,7 @@
         private Panel searchPageSelectPanel;
         private PictureBox pictureBox1;
         private Button searchFormSelectBtn;
-        private Button exitButton;
         private Button localMusicFormSelectBtn;
+        private Button exitButton;
     }
 }

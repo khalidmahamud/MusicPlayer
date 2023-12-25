@@ -12,6 +12,8 @@ namespace MusicPlayer
 {
     public partial class UpdateUserInfoForm : Form
     {
+        public readonly MainForm mainForm;
+
         public string name;
         public string email;
         public string gender;
@@ -39,14 +41,13 @@ namespace MusicPlayer
             SqlDatabase.UpdateData(nameTextBox.Text, emailTextBox.Text, genderComboBox.Text, dobDateTimePicker.Value);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void backButton_Click(object sender, EventArgs e)
         {
-            
-        }
+            this.Close();
+            this.Dispose();
 
-        private void clearButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
+            HomeForm homeFormInstance = HomeForm.GetInstance(mainForm, email);
+            homeFormInstance.LoadUserName();
         }
     }
 }
