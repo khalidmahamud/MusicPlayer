@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MusicPlayer
 {
@@ -125,8 +126,19 @@ namespace MusicPlayer
             if (userProfileForm == null)
             {
                 userProfileForm = new UserProfileForm(userEmail);
+                userProfileForm.Owner = this; // Set the owner form
                 ActivateForm(userProfileForm, null, splitContainer3.Panel2);
             }
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Are you sure you want to exit application?", "Exit message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
+            {
+                SqlDatabase.InsertData("LoggedinTable", userEmail);
+                System.Windows.Forms.Application.Exit();
+            }
+            
         }
     }
 }

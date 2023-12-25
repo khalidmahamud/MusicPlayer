@@ -8,9 +8,17 @@ namespace MusicPlayer
         public static void Main()
         {
             ApplicationConfiguration.Initialize();
-
-            // Opens MainForm at Start UP
-            Application.Run(new logInForm());
+            string email = SqlDatabase.CheckLoggedin("LoggedinTable");
+            if(email != null) 
+            {
+                SqlDatabase.DeleteData("LoggedinTable", email);
+                Application.Run(new MainForm(email));
+            }
+            else
+            {
+                Application.Run(new logInForm());
+            }
+            
         }
     }
 }

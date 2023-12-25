@@ -48,25 +48,16 @@ namespace MusicPlayer
             else
             {
                 //insert data into database
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C# Projects\Music Player\MusicPlayer\Data\MusicPlayerUserDB.mdf;Integrated Security=True;Connect Timeout=30");
-                con.Open();
+                SqlDatabase.InsertData(userNameTextBox.Text, gmailTextBox.Text, genderComboBox.Text,
+                    dateTimePicker1.Value.Date, passwordTextBox.Text);
 
-                SqlCommand sql = new SqlCommand("insert into MusicPlayerUserTable(name,email,gender,dateOfBirth,password) values (@name,@email,@gender,@dateOfBirth,@password)", con);
-
-                sql.Parameters.AddWithValue("@name", userNameTextBox.Text);
-                sql.Parameters.AddWithValue("@email", gmailTextBox.Text);
-                sql.Parameters.AddWithValue("@gender", genderComboBox.Text);
-                sql.Parameters.Add("@dateOfBirth", SqlDbType.Date).Value = dateTimePicker1.Value.Date;
-                sql.Parameters.AddWithValue("@password", passwordTextBox.Text);
-                sql.ExecuteNonQuery();
-                con.Close();
                 //open mainform
                 MessageBox.Show("Successfully Signed in.");
                 MainForm obj = new MainForm(gmailTextBox.Text);
                 obj.Show();
                 this.Hide();
             }
-            
+
 
 
         }
@@ -147,9 +138,6 @@ namespace MusicPlayer
             this.Hide();
         }
 
-        private void gmailTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

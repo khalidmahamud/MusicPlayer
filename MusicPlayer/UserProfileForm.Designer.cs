@@ -40,19 +40,19 @@
             signOutButton = new Button();
             editLinkLabel = new LinkLabel();
             changePasswordLinkLabel = new LinkLabel();
-            pictureBox1 = new PictureBox();
+            userProfilepictureBox = new PictureBox();
             changePhotoLinkLabel = new LinkLabel();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)userProfilepictureBox).BeginInit();
             SuspendLayout();
             // 
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            nameLabel.Font = new Font("Microsoft Sans Serif", 10.8F);
             nameLabel.ForeColor = Color.White;
-            nameLabel.Location = new Point(24, 234);
+            nameLabel.Location = new Point(24, 237);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new Size(117, 28);
+            nameLabel.Size = new Size(110, 22);
             nameLabel.TabIndex = 0;
             nameLabel.Text = "Your Name: ";
             // 
@@ -60,33 +60,33 @@
             // 
             nameTextBox.BackColor = Color.FromArgb(38, 38, 38);
             nameTextBox.BorderStyle = BorderStyle.None;
-            nameTextBox.Font = new Font("Segoe UI", 13.2000008F);
+            nameTextBox.Font = new Font("Microsoft Sans Serif", 10.8F);
             nameTextBox.ForeColor = Color.White;
-            nameTextBox.Location = new Point(150, 228);
+            nameTextBox.Location = new Point(149, 236);
             nameTextBox.Name = "nameTextBox";
-            nameTextBox.Size = new Size(180, 30);
+            nameTextBox.Size = new Size(180, 21);
             nameTextBox.TabIndex = 1;
             // 
             // emailTextBox
             // 
             emailTextBox.BackColor = Color.FromArgb(38, 38, 38);
             emailTextBox.BorderStyle = BorderStyle.None;
-            emailTextBox.Font = new Font("Segoe UI", 13.2000008F);
+            emailTextBox.Font = new Font("Microsoft Sans Serif", 10.8F);
             emailTextBox.ForeColor = Color.White;
-            emailTextBox.Location = new Point(97, 271);
+            emailTextBox.Location = new Point(149, 279);
             emailTextBox.Name = "emailTextBox";
-            emailTextBox.Size = new Size(180, 30);
+            emailTextBox.Size = new Size(180, 21);
             emailTextBox.TabIndex = 3;
             emailTextBox.TextChanged += emailTextBox_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 10.8F);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(24, 277);
+            label1.Location = new Point(24, 280);
             label1.Name = "label1";
-            label1.Size = new Size(68, 28);
+            label1.Size = new Size(64, 22);
             label1.TabIndex = 2;
             label1.Text = "Email: ";
             // 
@@ -94,22 +94,22 @@
             // 
             genderTextBox.BackColor = Color.FromArgb(38, 38, 38);
             genderTextBox.BorderStyle = BorderStyle.None;
-            genderTextBox.Font = new Font("Segoe UI", 13.2000008F);
+            genderTextBox.Font = new Font("Microsoft Sans Serif", 10.8F);
             genderTextBox.ForeColor = Color.White;
-            genderTextBox.Location = new Point(110, 353);
+            genderTextBox.Location = new Point(149, 361);
             genderTextBox.Name = "genderTextBox";
-            genderTextBox.Size = new Size(180, 30);
+            genderTextBox.Size = new Size(180, 21);
             genderTextBox.TabIndex = 7;
             genderTextBox.TextChanged += genderTextBox_TextChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Microsoft Sans Serif", 10.8F);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(24, 359);
+            label2.Location = new Point(24, 362);
             label2.Name = "label2";
-            label2.Size = new Size(80, 28);
+            label2.Size = new Size(75, 22);
             label2.TabIndex = 6;
             label2.Text = "Gender:";
             // 
@@ -117,22 +117,22 @@
             // 
             birthdateTextBox.BackColor = Color.FromArgb(38, 38, 38);
             birthdateTextBox.BorderStyle = BorderStyle.None;
-            birthdateTextBox.Font = new Font("Segoe UI", 13.2000008F);
+            birthdateTextBox.Font = new Font("Microsoft Sans Serif", 10.8F);
             birthdateTextBox.ForeColor = Color.White;
-            birthdateTextBox.Location = new Point(158, 310);
+            birthdateTextBox.Location = new Point(149, 317);
             birthdateTextBox.Name = "birthdateTextBox";
-            birthdateTextBox.Size = new Size(180, 30);
+            birthdateTextBox.Size = new Size(180, 21);
             birthdateTextBox.TabIndex = 5;
             birthdateTextBox.TextChanged += birthdateTextBox_TextChanged;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 10.8F);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(24, 316);
+            label3.Location = new Point(24, 319);
             label3.Name = "label3";
-            label3.Size = new Size(126, 28);
+            label3.Size = new Size(115, 22);
             label3.TabIndex = 4;
             label3.Text = "Date of Birth:";
             // 
@@ -150,7 +150,7 @@
             signOutButton.Name = "signOutButton";
             signOutButton.Size = new Size(105, 45);
             signOutButton.TabIndex = 9;
-            signOutButton.Text = "Sign out";
+            signOutButton.Text = "sign out";
             signOutButton.TextAlign = ContentAlignment.MiddleLeft;
             signOutButton.UseVisualStyleBackColor = false;
             signOutButton.Click += homeFormSelectBtn_Click;
@@ -166,6 +166,7 @@
             editLinkLabel.TabIndex = 10;
             editLinkLabel.TabStop = true;
             editLinkLabel.Text = "Edit profile";
+            editLinkLabel.LinkClicked += editLinkLabel_LinkClicked;
             // 
             // changePasswordLinkLabel
             // 
@@ -180,15 +181,15 @@
             changePasswordLinkLabel.Text = "Change password";
             changePasswordLinkLabel.LinkClicked += changePasswordLinkLabel_LinkClicked;
             // 
-            // pictureBox1
+            // userProfilepictureBox
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(97, 23);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(146, 146);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 12;
-            pictureBox1.TabStop = false;
+            userProfilepictureBox.Image = (Image)resources.GetObject("userProfilepictureBox.Image");
+            userProfilepictureBox.Location = new Point(97, 23);
+            userProfilepictureBox.Name = "userProfilepictureBox";
+            userProfilepictureBox.Size = new Size(146, 146);
+            userProfilepictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            userProfilepictureBox.TabIndex = 12;
+            userProfilepictureBox.TabStop = false;
             // 
             // changePhotoLinkLabel
             // 
@@ -201,6 +202,7 @@
             changePhotoLinkLabel.TabIndex = 13;
             changePhotoLinkLabel.TabStop = true;
             changePhotoLinkLabel.Text = "Change/upload photo";
+            changePhotoLinkLabel.LinkClicked += changePhotoLinkLabel_LinkClicked;
             // 
             // UserProfileForm
             // 
@@ -209,7 +211,7 @@
             BackColor = Color.FromArgb(38, 38, 38);
             ClientSize = new Size(364, 581);
             Controls.Add(changePhotoLinkLabel);
-            Controls.Add(pictureBox1);
+            Controls.Add(userProfilepictureBox);
             Controls.Add(changePasswordLinkLabel);
             Controls.Add(editLinkLabel);
             Controls.Add(signOutButton);
@@ -224,7 +226,7 @@
             Name = "UserProfileForm";
             Text = " ";
             Load += UserProfileForm_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)userProfilepictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -242,7 +244,7 @@
         private Button signOutButton;
         private LinkLabel editLinkLabel;
         private LinkLabel changePasswordLinkLabel;
-        private PictureBox pictureBox1;
+        private PictureBox userProfilepictureBox;
         private LinkLabel changePhotoLinkLabel;
     }
 }

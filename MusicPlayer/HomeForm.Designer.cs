@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             customPanel1 = new CustomComponents.CustomPanel();
             userNameTextBox = new TextBox();
@@ -35,6 +36,7 @@
             label1 = new Label();
             customPanel2 = new CustomComponents.CustomPanel();
             label3 = new Label();
+            toolTip1 = new ToolTip(components);
             customPanel1.SuspendLayout();
             customPanel2.SuspendLayout();
             SuspendLayout();
@@ -86,6 +88,7 @@
             homeFormSelectBtn.Size = new Size(52, 49);
             homeFormSelectBtn.TabIndex = 4;
             homeFormSelectBtn.TextAlign = ContentAlignment.MiddleLeft;
+            toolTip1.SetToolTip(homeFormSelectBtn, "view your profile");
             homeFormSelectBtn.UseVisualStyleBackColor = false;
             homeFormSelectBtn.Click += homeFormSelectBtn_Click;
             // 
@@ -127,6 +130,10 @@
             label3.TabIndex = 0;
             label3.Text = "Popular Now";
             // 
+            // toolTip1
+            // 
+            toolTip1.Popup += toolTip1_Popup;
+            // 
             // HomeForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -153,5 +160,6 @@
         private Button homeFormSelectBtn;
         private Label label3;
         private TextBox userNameTextBox;
+        private ToolTip toolTip1;
     }
 }
