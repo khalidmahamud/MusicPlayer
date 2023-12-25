@@ -50,6 +50,16 @@ namespace MusicPlayer
                     totalMilliSeconds = resultTrack.DurationMs;
                     trackPreviewURL = resultTrack.PreviewUrl;
                 }
+
+                var result = await spotify.Playlists.GetItems("37i9dQZF1EQnqst5TRi17F", new PlaylistGetItemsRequest()
+                {
+                    Market = "BD", // Example: set the market
+                });
+
+                await foreach (var item in spotify.Paginate(result))
+                {
+                    Console.WriteLine(item.Track);
+                }
             }
             catch (Exception ex)
             {
