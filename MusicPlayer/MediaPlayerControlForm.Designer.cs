@@ -138,6 +138,7 @@
             // 
             // forwardBtn
             // 
+            forwardBtn.Cursor = Cursors.Hand;
             forwardBtn.Dock = DockStyle.Fill;
             forwardBtn.FlatAppearance.BorderSize = 0;
             forwardBtn.FlatStyle = FlatStyle.Flat;
@@ -151,6 +152,7 @@
             // 
             // playPauseBtn
             // 
+            playPauseBtn.Cursor = Cursors.Hand;
             playPauseBtn.Dock = DockStyle.Fill;
             playPauseBtn.FlatAppearance.BorderSize = 0;
             playPauseBtn.FlatStyle = FlatStyle.Flat;
@@ -164,6 +166,7 @@
             // 
             // backwardBtn
             // 
+            backwardBtn.Cursor = Cursors.Hand;
             backwardBtn.Dock = DockStyle.Fill;
             backwardBtn.FlatAppearance.BorderSize = 0;
             backwardBtn.FlatStyle = FlatStyle.Flat;

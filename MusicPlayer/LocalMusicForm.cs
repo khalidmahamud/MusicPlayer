@@ -39,7 +39,7 @@ namespace MusicPlayer
 
                     foreach (var filePath in musicFiles)
                     {
-    
+
                         TrackMetadata trackInfo = new TrackMetadata(filePath, true);
                         trackInfo.SetLocalTrackMetadata();
 
@@ -185,6 +185,37 @@ namespace MusicPlayer
             {
                 localMusicFilesPanel.Controls.Remove(panel);
                 panel.Dispose();
+            }
+        }
+
+        private void openFolderBtn_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+            {
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // User selected a folder
+                    string selectedFolderPath = folderBrowserDialog.SelectedPath;
+
+                    // Update MusicInfoForm
+                    LoadMusicFiles(selectedFolderPath);
+                }
+            }
+        }
+
+
+        private void openFileBtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog { Filter = "Audio Files|*.mp3;*.wav|All Files|*.*" };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // User selected a local file
+                string selectedFilePath = openFileDialog.FileName;
+
+                // Update MusicInfoForm
+                mainform.OpenMusicInfoForm(selectedFilePath, true);
+                mainform.OpenMediaPlayerControlForm(selectedFilePath, true);
             }
         }
     }

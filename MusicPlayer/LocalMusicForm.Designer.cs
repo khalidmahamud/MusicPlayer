@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LocalMusicForm));
             panel1 = new Panel();
+            openFileBtn = new Button();
+            openFolderBtn = new Button();
             localMusicFilesPanel = new FlowLayoutPanel();
             label1 = new Label();
             panel1.SuspendLayout();
@@ -36,6 +39,8 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(openFileBtn);
+            panel1.Controls.Add(openFolderBtn);
             panel1.Controls.Add(localMusicFilesPanel);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Fill;
@@ -44,6 +49,42 @@
             panel1.Padding = new Padding(20);
             panel1.Size = new Size(705, 581);
             panel1.TabIndex = 0;
+            // 
+            // openFileBtn
+            // 
+            openFileBtn.Cursor = Cursors.Hand;
+            openFileBtn.FlatAppearance.BorderSize = 0;
+            openFileBtn.FlatStyle = FlatStyle.Flat;
+            openFileBtn.Font = new Font("Segoe UI", 12F);
+            openFileBtn.ForeColor = Color.White;
+            openFileBtn.Image = (Image)resources.GetObject("openFileBtn.Image");
+            openFileBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            openFileBtn.Location = new Point(572, 27);
+            openFileBtn.Name = "openFileBtn";
+            openFileBtn.Size = new Size(113, 47);
+            openFileBtn.TabIndex = 4;
+            openFileBtn.Text = "      File";
+            openFileBtn.TextAlign = ContentAlignment.MiddleLeft;
+            openFileBtn.UseVisualStyleBackColor = true;
+            openFileBtn.Click += openFileBtn_Click;
+            // 
+            // openFolderBtn
+            // 
+            openFolderBtn.Cursor = Cursors.Hand;
+            openFolderBtn.FlatAppearance.BorderSize = 0;
+            openFolderBtn.FlatStyle = FlatStyle.Flat;
+            openFolderBtn.Font = new Font("Segoe UI", 12F);
+            openFolderBtn.ForeColor = Color.White;
+            openFolderBtn.Image = (Image)resources.GetObject("openFolderBtn.Image");
+            openFolderBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            openFolderBtn.Location = new Point(457, 27);
+            openFolderBtn.Name = "openFolderBtn";
+            openFolderBtn.Size = new Size(109, 47);
+            openFolderBtn.TabIndex = 3;
+            openFolderBtn.Text = "      Folder";
+            openFolderBtn.TextAlign = ContentAlignment.MiddleLeft;
+            openFolderBtn.UseVisualStyleBackColor = true;
+            openFolderBtn.Click += openFolderBtn_Click;
             // 
             // localMusicFilesPanel
             // 
@@ -86,5 +127,7 @@
         private Panel panel1;
         private FlowLayoutPanel localMusicFilesPanel;
         private Label label1;
+        private Button openFileBtn;
+        private Button openFolderBtn;
     }
 }
