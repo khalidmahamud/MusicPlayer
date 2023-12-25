@@ -66,8 +66,13 @@ namespace MusicPlayer
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
-            
+
+
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
         }
     }
 }

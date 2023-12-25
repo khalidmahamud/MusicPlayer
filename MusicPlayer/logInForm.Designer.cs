@@ -42,10 +42,10 @@
             passwordLabel = new Label();
             label7 = new Label();
             customPanel2 = new CustomComponents.CustomPanel();
+            pictureBox1 = new PictureBox();
             label5 = new Label();
             label4 = new Label();
             button1 = new Button();
-            pictureBox1 = new PictureBox();
             customPanel1.SuspendLayout();
             customPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -246,6 +246,16 @@
             customPanel2.Size = new Size(640, 500);
             customPanel2.TabIndex = 46;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(407, 90);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(134, 71);
+            pictureBox1.TabIndex = 49;
+            pictureBox1.TabStop = false;
+            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -285,16 +295,6 @@
             button1.Text = "SIGN UP";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
-            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(407, 90);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(134, 71);
-            pictureBox1.TabIndex = 49;
-            pictureBox1.TabStop = false;
             // 
             // logInForm
             // 

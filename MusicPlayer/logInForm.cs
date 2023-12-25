@@ -38,47 +38,26 @@ namespace MusicPlayer
         }
         private void logInButton_Click(object sender, EventArgs e)
         {
+
             if (emailTextBox.Text == "" && passwordTextBox.Text == "")
             {
                 MessageBox.Show("Username and Password are empty, login failed!");
                 passwordTextBox.Focus();
             }
-
-            //verify admin login
             else
             {
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C# Projects\Music Player\MusicPlayer\Data\MusicPlayerUserDB.mdf;Integrated Security=True;Connect Timeout=30");
-                con.Open();
-                SqlCommand sql = new SqlCommand("select COUNT(*) from adminTable where email=@email AND password=@password", con);
-
-                sql.Parameters.AddWithValue("@email", emailTextBox.Text);
-                sql.Parameters.AddWithValue("@password", passwordTextBox.Text);
-
-                int result = (int)sql.ExecuteScalar(); //executes the query and return a result
-                con.Close();
-
-                if (result == 1)
+                //verify admin login
+                if (SqlDatabase.VerifyLogin("adminTable", emailTextBox.Text, passwordTextBox.Text))
                 {
                     MessageBox.Show("Admin Login successful");
                     AdminForm obj = new AdminForm();
                     obj.Show();
                     this.Hide();
                 }
-
                 //verify user login
                 else
                 {
-                    SqlConnection con1 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C# Projects\Music Player\MusicPlayer\Data\MusicPlayerUserDB.mdf;Integrated Security=True;Connect Timeout=30");
-                    con1.Open();
-                    SqlCommand sql1 = new SqlCommand("select COUNT(*) from MusicPlayerUserTable where email=@email AND password=@password", con1);
-
-                    sql1.Parameters.AddWithValue("@email", emailTextBox.Text);
-                    sql1.Parameters.AddWithValue("@password", passwordTextBox.Text);
-
-                    int result1 = (int)sql1.ExecuteScalar(); //executes the query and return a result
-                    con1.Close();
-
-                    if (result1 == 1)
+                    if (SqlDatabase.VerifyLogin("MusicPlayerUserTable", emailTextBox.Text, passwordTextBox.Text))
                     {
                         MessageBox.Show("user Login successful");
                         MainForm obj = new MainForm(emailTextBox.Text);
@@ -135,22 +114,13 @@ namespace MusicPlayer
 
         private void logInForm_Load(object sender, EventArgs e)
         {
-            //insert admin information in adminTable
-            /*SqlConnection con1 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C# Projects\Music Player\MusicPlayer\Data\MusicPlayerUserDB.mdf;Integrated Security=True;Connect Timeout=30");
-            con1.Open();
-
-            SqlCommand sql1 = new SqlCommand("insert into adminTable(email,password) values (@email,@password)", con1);
-
-
-            sql1.Parameters.AddWithValue("@email", "ashfaqhoq27@gmail.com");
-            sql1.Parameters.AddWithValue("@password", "hello*M123");
-            sql1.ExecuteNonQuery();
-            con1.Close();*/
+            
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-            
+            ResetPasswordForm rs = new ResetPasswordForm();
+            rs.Show();
         }
         
 

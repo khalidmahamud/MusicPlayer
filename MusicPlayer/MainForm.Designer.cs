@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             splitContainer1 = new SplitContainer();
             splitContainer2 = new SplitContainer();
-            button1 = new Button();
+            exitButton = new Button();
             searchFormSelectBtn = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             searchPageSelectPanel = new Panel();
@@ -83,7 +83,7 @@
             // splitContainer2.Panel1
             // 
             splitContainer2.Panel1.BackColor = Color.FromArgb(18, 18, 18);
-            splitContainer2.Panel1.Controls.Add(button1);
+            splitContainer2.Panel1.Controls.Add(exitButton);
             splitContainer2.Panel1.Controls.Add(searchFormSelectBtn);
             splitContainer2.Panel1.Controls.Add(tableLayoutPanel1);
             // 
@@ -95,25 +95,26 @@
             splitContainer2.SplitterWidth = 5;
             splitContainer2.TabIndex = 0;
             // 
-            // button1
+            // exitButton
             // 
-            button1.BackColor = Color.FromArgb(18, 18, 18);
-            button1.Cursor = Cursors.Hand;
-            button1.Dock = DockStyle.Bottom;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 15F);
-            button1.ForeColor = Color.White;
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(0, 549);
-            button1.Margin = new Padding(0);
-            button1.Name = "button1";
-            button1.Padding = new Padding(30, 0, 0, 0);
-            button1.Size = new Size(268, 77);
-            button1.TabIndex = 1;
-            button1.Text = "     Exit";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = false;
+            exitButton.BackColor = Color.FromArgb(18, 18, 18);
+            exitButton.Cursor = Cursors.Hand;
+            exitButton.Dock = DockStyle.Bottom;
+            exitButton.FlatAppearance.BorderSize = 0;
+            exitButton.FlatStyle = FlatStyle.Flat;
+            exitButton.Font = new Font("Segoe UI", 15F);
+            exitButton.ForeColor = Color.White;
+            exitButton.ImageAlign = ContentAlignment.MiddleLeft;
+            exitButton.Location = new Point(0, 549);
+            exitButton.Margin = new Padding(0);
+            exitButton.Name = "exitButton";
+            exitButton.Padding = new Padding(30, 0, 0, 0);
+            exitButton.Size = new Size(268, 77);
+            exitButton.TabIndex = 1;
+            exitButton.Text = "     Exit";
+            exitButton.TextAlign = ContentAlignment.MiddleLeft;
+            exitButton.UseVisualStyleBackColor = false;
+            exitButton.Click += exitButton_Click;
             // 
             // searchFormSelectBtn
             // 
@@ -259,6 +260,7 @@
             MinimumSize = new Size(949, 667);
             Name = "MainForm";
             SizeGripStyle = SizeGripStyle.Hide;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Vibe";
             splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
@@ -291,6 +293,6 @@
         private Panel searchPageSelectPanel;
         private PictureBox pictureBox1;
         private Button searchFormSelectBtn;
-        private Button button1;
+        private Button exitButton;
     }
 }
