@@ -48,6 +48,12 @@ namespace MusicPlayer
             int seconds = trackDuration % 60;
             string formattedTime = $"{minutes}:{seconds:D2}";
 
+
+            trackNameLabel.Text = trackName;
+            artistNameLabel.Text = artistName;
+            trackDurationLabel.Text = formattedTime;
+
+            trackNameLabel.Font = new Font("Segoe UI", trackName.Length > 25 ? 13 : 16);
             // Sets the ImageLocation property after metadata has been retrieved
             if (trackPoster is string imageUrl)
             {
@@ -58,11 +64,6 @@ namespace MusicPlayer
                 trackPosterBox.Image = (Image)trackPoster;
             }
             trackPosterBox.SizeMode = PictureBoxSizeMode.Zoom;
-            trackNameLabel.Text = trackName;
-            artistNameLabel.Text = artistName;
-            trackDurationLabel.Text = formattedTime;
-
-            trackNameLabel.Font = new Font("Segoe UI", trackName.Length > 25 ? 13 : 16);
         }
 
         private void UpdateLocalTrackMetadata(string localFilePath)

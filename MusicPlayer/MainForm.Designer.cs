@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             splitContainer1 = new SplitContainer();
             splitContainer2 = new SplitContainer();
+            localMusicFormSelectBtn = new Button();
             button1 = new Button();
             searchFormSelectBtn = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -83,6 +84,7 @@
             // splitContainer2.Panel1
             // 
             splitContainer2.Panel1.BackColor = Color.FromArgb(18, 18, 18);
+            splitContainer2.Panel1.Controls.Add(localMusicFormSelectBtn);
             splitContainer2.Panel1.Controls.Add(button1);
             splitContainer2.Panel1.Controls.Add(searchFormSelectBtn);
             splitContainer2.Panel1.Controls.Add(tableLayoutPanel1);
@@ -94,6 +96,28 @@
             splitContainer2.SplitterDistance = 268;
             splitContainer2.SplitterWidth = 5;
             splitContainer2.TabIndex = 0;
+            // 
+            // localMusicFormSelectBtn
+            // 
+            localMusicFormSelectBtn.BackColor = Color.FromArgb(18, 18, 18);
+            localMusicFormSelectBtn.Cursor = Cursors.Hand;
+            localMusicFormSelectBtn.Dock = DockStyle.Top;
+            localMusicFormSelectBtn.FlatAppearance.BorderSize = 0;
+            localMusicFormSelectBtn.FlatStyle = FlatStyle.Flat;
+            localMusicFormSelectBtn.Font = new Font("Segoe UI", 15F);
+            localMusicFormSelectBtn.ForeColor = Color.White;
+            localMusicFormSelectBtn.Image = (Image)resources.GetObject("localMusicFormSelectBtn.Image");
+            localMusicFormSelectBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            localMusicFormSelectBtn.Location = new Point(0, 232);
+            localMusicFormSelectBtn.Margin = new Padding(0);
+            localMusicFormSelectBtn.Name = "localMusicFormSelectBtn";
+            localMusicFormSelectBtn.Padding = new Padding(30, 0, 0, 0);
+            localMusicFormSelectBtn.Size = new Size(268, 77);
+            localMusicFormSelectBtn.TabIndex = 2;
+            localMusicFormSelectBtn.Text = "     Local Files";
+            localMusicFormSelectBtn.TextAlign = ContentAlignment.MiddleLeft;
+            localMusicFormSelectBtn.UseVisualStyleBackColor = false;
+            localMusicFormSelectBtn.Click += localMusicFormSelectBtn_Click;
             // 
             // button1
             // 
@@ -292,5 +316,6 @@
         private PictureBox pictureBox1;
         private Button searchFormSelectBtn;
         private Button button1;
+        private Button localMusicFormSelectBtn;
     }
 }

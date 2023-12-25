@@ -1,97 +1,71 @@
+﻿using SpotifyAPI.Web;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
-using SpotifyAPI.Web;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Button = System.Windows.Forms.Button;
+using Image = System.Drawing.Image;
 
 namespace MusicPlayer
 {
-    public partial class SearchForm : Form
+    public partial class LocalMusicForm : Form
     {
-        private readonly MainForm mainForm;
+        private readonly MainForm mainform;
+        private const string MusicDirectory = @"C:\Users\DELL\Music";
+        string[] musicFiles;
 
-        public SearchForm(MainForm mainForm)
+        public LocalMusicForm(MainForm mainform)
         {
             InitializeComponent();
-            this.mainForm = mainForm;
+            LoadLocalMusic();
 
-            ConfigureSearchResultPanel();
+            this.mainform = mainform;
         }
 
-        private void ConfigureSearchResultPanel()
+        private void LoadLocalMusic()
         {
-            searchResultPanel.HorizontalScroll.Maximum = 0;
-            searchResultPanel.AutoScroll = false;
-            searchResultPanel.VerticalScroll.Visible = false;
-            searchResultPanel.AutoScroll = true;
+            LoadMusicFiles(MusicDirectory);
         }
 
-        private async void SearchBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                await PerformSearch();
-            }
-        }
-
-        private async void Search_Btn_Click(object sender, EventArgs e)
-        {
-            await PerformSearch();
-        }
-
-        private async Task PerformSearch()
+        private void LoadMusicFiles(string path)
         {
             try
             {
-                var config = await StartAuthentication();
-                var spotify = new SpotifyClient(config);
-
-                var result = await spotify.Search.Item(new SearchRequest(SearchRequest.Types.Track, searchBox.Text));
+                string[] musicFiles = Directory.GetFiles(path, "*.mp3");
 
                 ClearPanels();
 
-                if (result != null)
+                if (musicFiles != null)
                 {
                     int panelIndex = 1;
 
-                    await foreach (var item in spotify.Paginate(result.Tracks, (t) => t.Tracks))
+                    foreach (var filePath in musicFiles)
                     {
-                        if (item.PreviewUrl == null)
-                            continue;
+    
+                        TrackMetadata trackInfo = new TrackMetadata(filePath, true);
+                        trackInfo.SetLocalTrackMetadata();
 
-                        TrackMetadata trackInfo = new TrackMetadata(item.Id, false);
-                        await trackInfo.SetOnlineTrackMetadata();
-
-                        string trackId = item.Id;
+                        string trackId = filePath;
                         string trackName = TrackMetadata.trackName;
                         string artistName = TrackMetadata.artistName;
                         object trackPoster = TrackMetadata.trackPoster;
 
-                        Panel newPanel = CreateResultPanel(trackId, trackName, artistName, trackPoster, panelIndex, ResultPanel_Click);
-                        searchResultPanel.Controls.Add(newPanel);
+                        Panel newPanel = CreateLocalFilePanel(filePath, trackId, trackName, artistName, trackPoster, panelIndex, localMusicFile_Click);
+                        localMusicFilesPanel.Controls.Add(newPanel);
 
                         panelIndex++;
-
-                        if (panelIndex == 20) break;
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-                // Handle exception as needed (e.g., show an error message)
+                MessageBox.Show("Directory does not exist");
             }
         }
 
-        private void ResultPanel_Click(object sender, EventArgs e)
+        private void localMusicFile_Click(object sender, EventArgs e)
         {
-            string trackId = GetTrackIdFromSender(sender);
-            mainForm.OpenMusicInfoForm(trackId, false);
-            mainForm.OpenMediaPlayerControlForm(trackId, false);
+            string trackPath = GetTrackIdFromSender(sender);
+            mainform.OpenMusicInfoForm(trackPath, true);
+            mainform.OpenMediaPlayerControlForm(trackPath, true);
         }
 
         private string GetTrackIdFromSender(object sender)
@@ -107,18 +81,18 @@ namespace MusicPlayer
         }
 
 
-        private Panel CreateResultPanel(string trackId, string trackName, string artistName, object trackPoster, int index, EventHandler panelClickEvent)
+        private Panel CreateLocalFilePanel(string trackPath, string trackId, string trackName, string artistName, object trackPoster, int index, EventHandler panelClickEvent)
         {
             Panel newPanel = new Panel
             {
                 Name = $"panelResult{index}",
                 Height = 100,
-                Width = searchResultPanel.Width - 20,
+                Width = localMusicFilesPanel.Width - 20,
                 AutoSize = false,
                 AutoScroll = false,
                 BackColor = Color.FromArgb(18, 18, 18),
                 Cursor = Cursors.Hand,
-                Tag = trackId,
+                Tag = trackPath,
                 Location = new Point(0, (index - 1) * 100)
             };
 
@@ -140,10 +114,10 @@ namespace MusicPlayer
             // PictureBox for the image on the left
             PictureBox imageBox = new PictureBox();
             imageBox.Name = $"pictureBoxResult{index}";
-            imageBox.ImageLocation = trackPoster.ToString();
+            imageBox.Image = (Image)trackPoster;
             imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
             imageBox.Dock = DockStyle.Fill;
-            imageBox.Tag = trackId;
+            imageBox.Tag = trackPath;
             // Adds controls to the table layout panel
             tableLayout.Controls.Add(imageBox, 0, 0);
             tableLayout.SetRowSpan(imageBox, 4);
@@ -158,7 +132,7 @@ namespace MusicPlayer
             trackLabel.Dock = DockStyle.Fill;
             trackLabel.TextAlign = ContentAlignment.BottomLeft;
             trackLabel.Padding = new Padding(5, 5, 5, 5);
-            trackLabel.Tag = trackId;
+            trackLabel.Tag = trackPath;
             // Adds controls to the table layout panel
             tableLayout.Controls.Add(trackLabel, 1, 1);
 
@@ -172,7 +146,7 @@ namespace MusicPlayer
             artistLabel.Dock = DockStyle.Fill;
             artistLabel.TextAlign = ContentAlignment.TopLeft;
             artistLabel.Padding = new Padding(7, 5, 5, 5);
-            artistLabel.Tag = trackId;
+            artistLabel.Tag = trackPath;
             // Adds controls to the table layout panel
             tableLayout.Controls.Add(artistLabel, 1, 2);
 
@@ -194,33 +168,24 @@ namespace MusicPlayer
             // Adds table layout panel to the main panel
             newPanel.Controls.Add(tableLayout);
 
-            newPanel.Controls.Add(tableLayout);
-            
             // Attaches the click event handler
             newPanel.Click += panelClickEvent;
             trackLabel.Click += panelClickEvent;
             artistLabel.Click += panelClickEvent;
             imageBox.Click += panelClickEvent;
             playButton.Click += panelClickEvent;
-            
+
             return newPanel;
         }
 
         private void ClearPanels()
         {
-            var panelsToRemove = searchResultPanel.Controls.OfType<Panel>().Where(p => p.Name.StartsWith("panelResult")).ToList();
+            var panelsToRemove = localMusicFilesPanel.Controls.OfType<Panel>().Where(p => p.Name.StartsWith("panelResult")).ToList();
             foreach (var panel in panelsToRemove)
             {
-                searchResultPanel.Controls.Remove(panel);
+                localMusicFilesPanel.Controls.Remove(panel);
                 panel.Dispose();
             }
-        }
-
-        public static async Task<SpotifyClientConfig> StartAuthentication()
-        {
-            return SpotifyClientConfig
-                .CreateDefault()
-                .WithAuthenticator(new ClientCredentialsAuthenticator("600ba51cf6464b29b90edc07050e54d9", "9a6802e6a09248808dce71025df7ae97"));
         }
     }
 }

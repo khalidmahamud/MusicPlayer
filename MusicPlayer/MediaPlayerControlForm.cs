@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using NAudio.Wave;
-using TagLib;
 using Timer = System.Windows.Forms.Timer;
 
 namespace MusicPlayer
@@ -11,9 +11,11 @@ namespace MusicPlayer
     public partial class MediaPlayerControlForm : Form
     {
         private readonly MainForm mainForm;
+        private bool isMusicLoaded = false;
+        private bool isLocal = true;
 
         // Fields for track information
-        private string trackId;
+        private string track;
         private string trackName;
         private string artistName;
         private object trackPoster;
@@ -44,30 +46,28 @@ namespace MusicPlayer
             waveOutEvent.PlaybackStopped += WaveOutEvent_PlaybackStopped;
 
             // Initialize Timer for updating the progress bar
-            updateTimer = new Timer();
-            updateTimer.Interval = 1000;
+            updateTimer = new Timer { Interval = 1000 };
             updateTimer.Tick += UpdateProgressBar;
         }
 
         // Event handler for the form load event
         private async void MediaPlayerControlForm_Load(object sender, EventArgs e)
         {
-            // Load the track information when the form is loaded
-            await LoadNewTrack(trackId);
+            // Code for form load event
         }
 
         // Load new track information based on the provided track ID
-        public async Task LoadNewTrack(string trackId)
+        public async Task LoadNewTrack(string track, bool isLocal)
         {
             // Dispose of existing audio resources
             DisposeAudioResources();
-
-            // Update the track ID
-            this.trackId = trackId;
+            isMusicLoaded = true;
+            this.isLocal = isLocal;
+            this.track = track;
             playPauseBtn.Image = Resource1.play;
 
             // Check if the track ID is empty
-            if (string.IsNullOrEmpty(trackId))
+            if (string.IsNullOrEmpty(track))
                 return;
 
             // Stop playback if currently playing
@@ -86,8 +86,20 @@ namespace MusicPlayer
             try
             {
                 // Instantiate and asynchronously set track metadata
-                TrackMetadata trackInfo = new TrackMetadata(trackId, false);
-                await trackInfo.SetOnlineTrackMetadata();
+                TrackMetadata trackInfo;
+
+                if (isLocal)
+                {
+                    // Load metadata for a local track
+                    trackInfo = new TrackMetadata(track, true);
+                    trackInfo.SetLocalTrackMetadata();
+                }
+                else
+                {
+                    // Load metadata for an online track
+                    trackInfo = new TrackMetadata(track, false);
+                    await trackInfo.SetOnlineTrackMetadata();
+                }
 
                 // Assign metadata values
                 AssignMetadataValues();
@@ -171,11 +183,11 @@ namespace MusicPlayer
         // Event handler for the playPauseBtn click event
         private void playPauseBtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(trackPreviewUrl) && (audioFileReader == null || waveOutEvent.PlaybackState == PlaybackState.Stopped))
+            if (string.IsNullOrEmpty(trackPreviewUrl) && !isMusicLoaded && (audioFileReader == null || waveOutEvent.PlaybackState == PlaybackState.Stopped))
             {
                 // If no URL is provided, open a dialog to choose a local music file
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "Audio Files|*.mp3;*.wav|All Files|*.*";
+                isLocal = true;
+                OpenFileDialog openFileDialog = new OpenFileDialog { Filter = "Audio Files|*.mp3;*.wav|All Files|*.*" };
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -184,34 +196,32 @@ namespace MusicPlayer
 
                     // Update MusicInfoForm
                     mainForm.OpenMusicInfoForm(selectedFilePath, true);
-
-                    // Retrieve metadata for the local file
-                    TrackMetadata trackInfo = new TrackMetadata(selectedFilePath, true);
-                    trackInfo.SetLocalTrackMetadata();
-
-                    AssignMetadataValues();
-
-                    // Set UI elements based on metadata values
-                    SetMetadataUI();
+                    LoadNewTrack(selectedFilePath, true);
 
                     // Initialize and play the local file
                     PlayLocalTrack(selectedFilePath);
                 }
-
-                return;
             }
-
-            // If an audio file reader exists
-            if (audioFileReader != null)
-            {
-                // If currently playing, pause; otherwise, play
-                TogglePlayback();
-            }
-            // If no audio file reader exists, create one and start playback
             else
             {
-                // Initialize and play the Spotify preview URL
-                PlayOnlineTrack(trackPreviewUrl);
+                // If an audio file reader exists
+                if (audioFileReader != null)
+                {
+                    // If currently playing, pause; otherwise, play
+                    TogglePlayback();
+                }
+                // If no audio file reader exists, create one and start playback
+                else
+                {
+                    if (isLocal)
+                    {
+                        PlayLocalTrack(track);
+                    }
+                    else
+                    {
+                        PlayOnlineTrack(trackPreviewUrl);
+                    }
+                }
             }
         }
 
@@ -225,7 +235,14 @@ namespace MusicPlayer
             }
             else if (waveOutEvent.PlaybackState == PlaybackState.Stopped)
             {
-                PlayOnlineTrack(trackPreviewUrl);
+                if (isLocal)
+                {
+                    PlayLocalTrack(track);
+                }
+                else
+                {
+                    PlayOnlineTrack(trackPreviewUrl);
+                }
             }
             else
             {

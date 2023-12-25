@@ -19,10 +19,10 @@ namespace MusicPlayer
         public MainForm(string userEmail)
         {
             InitializeComponent();
-            this.userEmail = userEmail; 
+            this.userEmail = userEmail;
 
             // Set the default active form to HomeForm and initialize it
-            activeForm = InitializeForm(new HomeForm(this,userEmail), homeFormSelectBtn, splitContainer3.Panel1);
+            activeForm = InitializeForm(new HomeForm(this, userEmail), homeFormSelectBtn, splitContainer3.Panel1);
             ActivateForm(activeForm, homeFormSelectBtn, splitContainer3.Panel1);
 
             // Initialize the MediaPlayerControlForm and set it up
@@ -67,21 +67,21 @@ namespace MusicPlayer
         }
 
         // Opens the MusicInfoForm for a specified trackId
-        public void OpenMusicInfoForm(string trackId, bool isLocal)
+        public void OpenMusicInfoForm(string track, bool isLocal)
         {
             if (musicInfoForm == null)
             {
-                musicInfoForm = new MusicInfoForm(trackId, isLocal);
+                musicInfoForm = new MusicInfoForm(track, isLocal);
                 ActivateForm(musicInfoForm, null, splitContainer3.Panel2);
             }
             else
             {
-                musicInfoForm.UpdateMusicInfo(trackId, isLocal);
+                musicInfoForm.UpdateMusicInfo(track, isLocal);
             }
         }
 
         // Opens the MediaPlayerControlForm for a specified trackId
-        public void OpenMediaPlayerControlForm(string trackId)
+        public void OpenMediaPlayerControlForm(string track, bool isLocal)
         {
             if (mediaPlayerControlForm == null)
             {
@@ -90,14 +90,14 @@ namespace MusicPlayer
             }
             else
             {
-                mediaPlayerControlForm.LoadNewTrack(trackId);
+                mediaPlayerControlForm.LoadNewTrack(track, isLocal);
             }
         }
 
         // Highlights the active button and resets the appearance of other buttons
         private void HighlightActiveButton(Button activeButton)
         {
-            searchFormSelectBtn.BackColor = homeFormSelectBtn.BackColor = Color.FromArgb(18, 18, 18);
+            searchFormSelectBtn.BackColor = homeFormSelectBtn.BackColor = localMusicFormSelectBtn.BackColor = Color.FromArgb(18, 18, 18);
             activeButton.BackColor = Color.FromArgb(40, 40, 40);
         }
 
@@ -111,6 +111,12 @@ namespace MusicPlayer
         private void homeFromSelectBtn_Click(object sender, EventArgs e)
         {
             ActivateForm(new HomeForm(this, userEmail), homeFormSelectBtn, splitContainer3.Panel1);
+        }
+
+        // Event handler for the localMuiscFormSelectBtn button click event
+        private void localMusicFormSelectBtn_Click(object sender, EventArgs e)
+        {
+            ActivateForm(new LocalMusicForm(this), localMusicFormSelectBtn, splitContainer3.Panel1);
         }
 
         // Opens the MusicInfoForm for a specified trackId
