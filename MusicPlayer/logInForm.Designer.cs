@@ -101,7 +101,6 @@
             label2.Size = new Size(149, 17);
             label2.TabIndex = 44;
             label2.Text = "Forgot your password?";
-            label2.Click += label2_Click;
             // 
             // emailTextBox
             // 
@@ -114,7 +113,6 @@
             emailTextBox.Name = "emailTextBox";
             emailTextBox.Size = new Size(247, 30);
             emailTextBox.TabIndex = 45;
-            emailTextBox.TextChanged += userNameTextBox_TextChanged;
             // 
             // userNameLabel
             // 
@@ -167,8 +165,7 @@
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.PasswordChar = '*';
             passwordTextBox.Size = new Size(247, 30);
-            passwordTextBox.TabIndex = 36;
-            passwordTextBox.TextChanged += passwordTextBox_TextChanged;
+            passwordTextBox.TabIndex = 45;
             // 
             // logInButton
             // 
@@ -267,7 +264,6 @@
             label5.Size = new Size(175, 38);
             label5.TabIndex = 48;
             label5.Text = "VIBE MUSIC";
-            label5.Click += label5_Click;
             // 
             // label4
             // 

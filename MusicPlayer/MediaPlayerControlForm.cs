@@ -13,6 +13,7 @@ namespace MusicPlayer
         private readonly MainForm mainForm;
         private bool isMusicLoaded = false;
         private bool isLocal = true;
+        List<string> trackQueue = new List<string>(); 
 
         // Fields for track information
         private string track;
@@ -65,6 +66,16 @@ namespace MusicPlayer
             this.isLocal = isLocal;
             this.track = track;
             playPauseBtn.Image = Resource1.play;
+
+            if (!trackQueue.Contains(track))
+            {
+                trackQueue.Add(track);
+            }
+            if (trackQueue.Count == 2)
+            {
+                backwardBtn.Enabled = true;
+                backwardBtn.Image = Resource1.backward;
+            }
 
             // Check if the track ID is empty
             if (string.IsNullOrEmpty(track))
@@ -280,6 +291,65 @@ namespace MusicPlayer
             int totalDuration = (int)audioFileReader.TotalTime.TotalSeconds;
             trackProgressBar.Maximum = totalDuration;
         }
+
+        private void backwardBtn_Click(object sender, EventArgs e)
+        {
+            // Check if there are tracks in the queue
+            if (trackQueue.Count > 0)
+            {
+                // Change backwardBtn Icon color
+                forwardBtn.Image = Resource1.forward;
+                forwardBtn.Enabled = true;
+
+                // Get the index of the current track in the queue
+                int currentIndex = trackQueue.IndexOf(track);
+
+                // Check if the current track is not the first track in the queue
+                if (currentIndex > 0)
+                {
+                    // Load the previous track from the queue
+                    mainForm.OpenMusicInfoForm(trackQueue[currentIndex - 1], isLocal);
+                    LoadNewTrack(trackQueue[currentIndex - 1], isLocal);
+                }
+
+                if (trackQueue.IndexOf(track) == 0)
+                {
+                    backwardBtn.Image = Resource1.backwardDisabled;
+                    backwardBtn.Enabled = false;
+                }
+            }
+        }
+
+        private void forwardBtn_Click(object sender, EventArgs e)
+        {
+            // Check if there are tracks in the queue
+            if (trackQueue.Count > 0)
+            {
+                // Change backwardBtn Icon color
+                backwardBtn.Image = Resource1.backward;
+                backwardBtn.Enabled = true;
+
+                // Get the index of the current track in the queue
+                int currentIndex = trackQueue.IndexOf(track);
+
+                // Check if the current track is not the last track in the queue
+                if (currentIndex < trackQueue.Count - 1)
+                {
+                    // Load the next track from the queue
+                    mainForm.OpenMusicInfoForm(trackQueue[currentIndex + 1], isLocal);
+                    LoadNewTrack(trackQueue[currentIndex + 1], isLocal);
+                }
+
+                // Check if moving to the last track in the queue
+                if (trackQueue.IndexOf(track) + 1 == trackQueue.Count)
+                {
+                    forwardBtn.Image = Resource1.forwardDisabled;
+                    forwardBtn.Enabled = false;
+                }
+            }
+        }
+
+
 
         // Cleanup resources when the form is closed
         private void MediaPlayerControlForm_FormClosed(object sender, FormClosedEventArgs e)

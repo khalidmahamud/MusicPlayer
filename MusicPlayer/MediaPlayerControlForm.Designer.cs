@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MediaPlayerControlForm));
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             artistNameLabel = new Label();
@@ -140,15 +141,17 @@
             // 
             forwardBtn.Cursor = Cursors.Hand;
             forwardBtn.Dock = DockStyle.Fill;
+            forwardBtn.Enabled = false;
             forwardBtn.FlatAppearance.BorderSize = 0;
             forwardBtn.FlatStyle = FlatStyle.Flat;
-            forwardBtn.Image = Properties.Resources.forward;
+            forwardBtn.Image = (Image)resources.GetObject("forwardBtn.Image");
             forwardBtn.ImageAlign = ContentAlignment.MiddleRight;
             forwardBtn.Location = new Point(323, 7);
             forwardBtn.Name = "forwardBtn";
             forwardBtn.Size = new Size(54, 44);
             forwardBtn.TabIndex = 3;
             forwardBtn.UseVisualStyleBackColor = true;
+            forwardBtn.Click += forwardBtn_Click;
             // 
             // playPauseBtn
             // 
@@ -168,15 +171,17 @@
             // 
             backwardBtn.Cursor = Cursors.Hand;
             backwardBtn.Dock = DockStyle.Fill;
+            backwardBtn.Enabled = false;
             backwardBtn.FlatAppearance.BorderSize = 0;
             backwardBtn.FlatStyle = FlatStyle.Flat;
-            backwardBtn.Image = Properties.Resources.backward;
+            backwardBtn.Image = (Image)resources.GetObject("backwardBtn.Image");
             backwardBtn.ImageAlign = ContentAlignment.MiddleLeft;
             backwardBtn.Location = new Point(203, 7);
             backwardBtn.Name = "backwardBtn";
             backwardBtn.Size = new Size(54, 44);
             backwardBtn.TabIndex = 1;
             backwardBtn.UseVisualStyleBackColor = true;
+            backwardBtn.Click += backwardBtn_Click;
             // 
             // trackProgressBar
             // 

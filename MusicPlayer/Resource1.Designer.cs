@@ -73,9 +73,29 @@ namespace MusicPlayer {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap backwardDisabled {
+            get {
+                object obj = ResourceManager.GetObject("backwardDisabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap forward {
             get {
                 object obj = ResourceManager.GetObject("forward", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap forwardDisabled {
+            get {
+                object obj = ResourceManager.GetObject("forwardDisabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

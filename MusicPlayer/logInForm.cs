@@ -27,10 +27,6 @@ namespace MusicPlayer
         {
             InitializeComponent();
         }
-        private void userNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void clearButton_Click(object sender, EventArgs e)
         {
             emailTextBox.Text = "";
@@ -74,8 +70,6 @@ namespace MusicPlayer
         }
 
 
-
-
         private void showPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (showPasswordCheckBox.Checked)
@@ -89,17 +83,6 @@ namespace MusicPlayer
         }
 
 
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             SignUpForm s1 = new SignUpForm();
@@ -107,15 +90,11 @@ namespace MusicPlayer
             this.Hide();
         }
 
-        private void passwordTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void logInForm_Load(object sender, EventArgs e)
         {
-            
+
         }
+
 
         private void label3_Click(object sender, EventArgs e)
         {
