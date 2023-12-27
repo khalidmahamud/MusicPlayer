@@ -16,7 +16,7 @@ namespace MusicPlayer
             }
             else
             {
-                Application.Run(new logInForm());
+                Application.Run(new logInForm ());
             }
             
         }

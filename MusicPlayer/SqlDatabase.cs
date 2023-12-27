@@ -106,12 +106,12 @@ namespace MusicPlayer
                 return null;
             }
         }
-        public static void UpdateProfilePicture(string email, byte[] imageData)
+        public static void UpdateProfilePicture(string tableName, string email, byte[] imageData)
         {
             SqlConnection con = Connection();
             con.Open();
 
-            SqlCommand sql = new SqlCommand("update MusicPlayerUserTable set photo=@photo where email=@email", con);
+            SqlCommand sql = new SqlCommand("update "+tableName+" set photo=@photo where email=@email", con);
             sql.Parameters.AddWithValue("@email", email);
             sql.Parameters.AddWithValue("@photo", imageData);
             int result = sql.ExecuteNonQuery();
