@@ -114,6 +114,7 @@
             emailTextBox.Name = "emailTextBox";
             emailTextBox.Size = new Size(247, 30);
             emailTextBox.TabIndex = 45;
+            emailTextBox.Text = "saudhoq@gmail.com";
             emailTextBox.TextChanged += userNameTextBox_TextChanged;
             // 
             // userNameLabel
@@ -168,6 +169,7 @@
             passwordTextBox.PasswordChar = '*';
             passwordTextBox.Size = new Size(247, 30);
             passwordTextBox.TabIndex = 36;
+            passwordTextBox.Text = "hello*M123";
             passwordTextBox.TextChanged += passwordTextBox_TextChanged;
             // 
             // logInButton

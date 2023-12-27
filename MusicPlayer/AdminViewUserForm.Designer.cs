@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             userDataGridView = new DataGridView();
+            archiveButton = new Button();
             ((System.ComponentModel.ISupportInitialize)userDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -41,11 +42,22 @@
             userDataGridView.Size = new Size(1113, 634);
             userDataGridView.TabIndex = 1;
             // 
+            // archiveButton
+            // 
+            archiveButton.Location = new Point(12, 29);
+            archiveButton.Name = "archiveButton";
+            archiveButton.Size = new Size(201, 63);
+            archiveButton.TabIndex = 2;
+            archiveButton.Text = "view archived users";
+            archiveButton.UseVisualStyleBackColor = true;
+            archiveButton.Click += archiveButton_Click;
+            // 
             // AdminViewUserForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1116, 743);
+            Controls.Add(archiveButton);
             Controls.Add(userDataGridView);
             Name = "AdminViewUserForm";
             Text = "AdminViewUserForm";
@@ -57,5 +69,6 @@
         #endregion
 
         private DataGridView userDataGridView;
+        private Button archiveButton;
     }
 }

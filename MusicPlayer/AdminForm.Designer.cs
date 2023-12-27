@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
+            loginButton = new Button();
             exitButton = new Button();
-            updateUserButton = new Button();
             dashboardButton = new Button();
             removeUser = new Button();
-            addUserButton = new Button();
             viewUserButton = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -48,19 +47,33 @@
             // 
             // splitContainer1.Panel1
             // 
+            splitContainer1.Panel1.Controls.Add(loginButton);
             splitContainer1.Panel1.Controls.Add(exitButton);
-            splitContainer1.Panel1.Controls.Add(updateUserButton);
             splitContainer1.Panel1.Controls.Add(dashboardButton);
             splitContainer1.Panel1.Controls.Add(removeUser);
-            splitContainer1.Panel1.Controls.Add(addUserButton);
             splitContainer1.Panel1.Controls.Add(viewUserButton);
             splitContainer1.Size = new Size(1370, 743);
             splitContainer1.SplitterDistance = 257;
             splitContainer1.TabIndex = 0;
             // 
+            // loginButton
+            // 
+            loginButton.BackColor = Color.FromArgb(25, 28, 36);
+            loginButton.Cursor = Cursors.Hand;
+            loginButton.Font = new Font("Segoe UI", 13.8F);
+            loginButton.ForeColor = Color.White;
+            loginButton.Location = new Point(0, 371);
+            loginButton.Name = "loginButton";
+            loginButton.Size = new Size(254, 68);
+            loginButton.TabIndex = 7;
+            loginButton.Text = "go to login page";
+            loginButton.UseVisualStyleBackColor = false;
+            loginButton.Click += loginButton_Click;
+            // 
             // exitButton
             // 
             exitButton.BackColor = Color.Maroon;
+            exitButton.Cursor = Cursors.Hand;
             exitButton.Font = new Font("Segoe UI", 13.8F);
             exitButton.ForeColor = Color.White;
             exitButton.Location = new Point(0, 663);
@@ -69,22 +82,12 @@
             exitButton.TabIndex = 6;
             exitButton.Text = "Exit";
             exitButton.UseVisualStyleBackColor = false;
-            // 
-            // updateUserButton
-            // 
-            updateUserButton.BackColor = Color.FromArgb(25, 28, 36);
-            updateUserButton.Font = new Font("Segoe UI", 13.8F);
-            updateUserButton.ForeColor = Color.White;
-            updateUserButton.Location = new Point(0, 445);
-            updateUserButton.Name = "updateUserButton";
-            updateUserButton.Size = new Size(254, 68);
-            updateUserButton.TabIndex = 5;
-            updateUserButton.Text = "update user";
-            updateUserButton.UseVisualStyleBackColor = false;
+            exitButton.Click += exitButton_Click;
             // 
             // dashboardButton
             // 
             dashboardButton.BackColor = Color.FromArgb(25, 28, 36);
+            dashboardButton.Cursor = Cursors.Hand;
             dashboardButton.Font = new Font("Segoe UI", 13.8F);
             dashboardButton.ForeColor = Color.White;
             dashboardButton.Location = new Point(0, 149);
@@ -98,31 +101,21 @@
             // removeUser
             // 
             removeUser.BackColor = Color.Maroon;
+            removeUser.Cursor = Cursors.Hand;
             removeUser.Font = new Font("Segoe UI", 13.8F);
             removeUser.ForeColor = Color.White;
-            removeUser.Location = new Point(0, 371);
+            removeUser.Location = new Point(0, 297);
             removeUser.Name = "removeUser";
             removeUser.Size = new Size(254, 68);
             removeUser.TabIndex = 3;
             removeUser.Text = "  remove user";
             removeUser.UseVisualStyleBackColor = false;
-            // 
-            // addUserButton
-            // 
-            addUserButton.BackColor = Color.FromArgb(25, 28, 36);
-            addUserButton.Font = new Font("Segoe UI", 13.8F);
-            addUserButton.ForeColor = Color.White;
-            addUserButton.Location = new Point(0, 297);
-            addUserButton.Name = "addUserButton";
-            addUserButton.Size = new Size(254, 68);
-            addUserButton.TabIndex = 2;
-            addUserButton.Text = "add user";
-            addUserButton.UseVisualStyleBackColor = false;
-            addUserButton.Click += addUserButton_Click;
+            removeUser.Click += removeUser_Click;
             // 
             // viewUserButton
             // 
             viewUserButton.BackColor = Color.FromArgb(25, 28, 36);
+            viewUserButton.Cursor = Cursors.Hand;
             viewUserButton.Font = new Font("Segoe UI", 13.8F);
             viewUserButton.ForeColor = Color.White;
             viewUserButton.Location = new Point(0, 223);
@@ -152,10 +145,9 @@
         #endregion
         private SplitContainer splitContainer1;
         private Button viewUserButton;
-        private Button addUserButton;
         private Button removeUser;
         private Button dashboardButton;
-        private Button updateUserButton;
         private Button exitButton;
+        private Button loginButton;
     }
 }

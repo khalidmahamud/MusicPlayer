@@ -121,7 +121,7 @@
   <data name="messageButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        6gAAAOoB+Ss1JgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFzSURBVFhH7ZbL
+        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFzSURBVFhH7ZbL
         LgRBGIVbwqMQIi4J4QW8Bw/jFnHbztJrIFbegZ2la1ja4Xyd/5dCdXUx3T0LfZIvqTlVM+fMTHd1Fb16
         mSbEoljrCLLILDUlrsV7x5A5KYpzM+BSDFqGDM87FcWreDPjSfDztCU+mwyyyCS7fHEjNm38IpZF01oQ
         Hr4vyGT8WQC1VYLwR+HhKFoAbQm8Z7GEMaTC8AMMU2UB1FSJeRELR8kCaNgSqXBUWwBtC+YfxBxGpmbE
@@ -612,6 +612,21 @@
         nngRiydexOKJF/EJ814uAKY0DHe+Yr5m/teZ8e+vcJOQkGNevAohx7x4FUKOefEqhBzz4lUIOebFqxBy
         zItXIeSYB+dfmb/Kh8riRhvmQ1UST7yIxBMvIvHEi0i8mYUEHjR/NXPVqiNJPPEiEk+8iMQTLyLxwPub
         v/n/ARcNp/NNbboYAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="composeButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        5gAAAOYBIly6UQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIESURBVFhH5ZfN
+        S1VBGIdvRmkfJLh158I/QaKtbYMwFPcuEleB7QJXfYFalCIUuRbc+RGlC6MWQuA6EHFh1DZXQqSlz2/O
+        HTp3mLn3ntejCD7wwMxwnN975oznzK2cF3pwCh/gZQ2cJn34B3fxEFfxCp4KPvwDtuF9/Icr2IonisL3
+        8SMq3DOMWokx18vRgS9xA7ebdAFj+PC/+FgDAVu4lDUzbqAm/I3vcb5JH2GIX3Y967eou32OnheosSHX
+        q6LlOMBbrmcnH66NdgFn0BfxrNqewBq0HN+yppkw3NOC71DB0XDxCfXsrfjwz3hNAwG6+2S4OE4B97Be
+        uF/2SddLYC3Ah3/B6xoIaCpcWAooLVwULaAXFb6GVzUQoFCFj7teExQt4CtuYr3w5IaLUaSATtT7fNT1
+        anmKCtfLJs8l1L9jkiIFjKBCul3vP6lwsYxvsmacIgXM4U7WdC+cO7iIqXChuXVNkiIFPEF9ZLT791DB
+        v/Ahpii1AN21vprr+ApvY6NTTqkFWDAVcBP7c6pvxVTAd9Tz9fqNZ8FUQDt25dShxYqpgDIxFaA/CM+A
+        oakzYYipAJ33YufAvLEzYYyGBWiyH6gzXNlozp8463oJ9INBO13v89gXzorm8sexQQ2kuIj6YOhCnef1
+        ai1DzaU59f1ouLq6YACnMXzWVl/jXTyrVCpHiH3SytSLHGIAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

@@ -15,12 +15,29 @@ namespace MusicPlayer
         public AdminViewUserForm()
         {
             InitializeComponent();
+            //show datagridview
+            userDataGridView.DataSource = SqlDatabase.CreateDataGridTable("MusicPlayerUserTable");
         }
 
         private void AdminViewUserForm_Load(object sender, EventArgs e)
         {
-            //show datagridview
-            userDataGridView.DataSource = SqlDatabase.CreateDataGridTable("MusicPlayerUserTable");
+            
+        }
+
+        private void archiveButton_Click(object sender, EventArgs e)
+        {
+            if(archiveButton.Text == "view current users")
+            {
+                userDataGridView.DataSource = SqlDatabase.CreateDataGridTable("MusicPlayerUserTable");
+                archiveButton.Text = "view archived users";
+            }
+            else
+            {
+                userDataGridView.DataSource = SqlDatabase.CreateDataGridTable("ArchivedTable");
+                archiveButton.Text = "view current users";
+
+            }
+            
         }
     }
 }

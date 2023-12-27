@@ -70,7 +70,7 @@ namespace MusicPlayer
             MainForm mainForm = this.Owner as MainForm;
             if (mainForm != null)
             {
-                mainForm.Close(); // Close the MainForm
+                mainForm.Hide(); // Close the MainForm
             }
 
             // Show the LoginForm

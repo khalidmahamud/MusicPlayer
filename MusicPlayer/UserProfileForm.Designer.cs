@@ -67,7 +67,6 @@
             nameTextBox.Name = "nameTextBox";
             nameTextBox.Size = new Size(180, 21);
             nameTextBox.TabIndex = 1;
-            //nameTextBox.TextChanged += this.nameTextBox_TextChanged;
             // 
             // emailTextBox
             // 
@@ -79,7 +78,6 @@
             emailTextBox.Name = "emailTextBox";
             emailTextBox.Size = new Size(180, 21);
             emailTextBox.TabIndex = 3;
-            //emailTextBox.TextChanged += this.emailTextBox_TextChanged;
             // 
             // label1
             // 
@@ -91,7 +89,6 @@
             label1.Size = new Size(64, 22);
             label1.TabIndex = 2;
             label1.Text = "Email: ";
-            //label1.Click += this.label1_Click;
             // 
             // genderTextBox
             // 
@@ -103,7 +100,6 @@
             genderTextBox.Name = "genderTextBox";
             genderTextBox.Size = new Size(180, 21);
             genderTextBox.TabIndex = 7;
-            //genderTextBox.TextChanged += this.genderTextBox_TextChanged;
             // 
             // label2
             // 
@@ -115,7 +111,6 @@
             label2.Size = new Size(75, 22);
             label2.TabIndex = 6;
             label2.Text = "Gender:";
-            //label2.Click += this.label2_Click;
             // 
             // birthdateTextBox
             // 
@@ -127,7 +122,6 @@
             birthdateTextBox.Name = "birthdateTextBox";
             birthdateTextBox.Size = new Size(180, 21);
             birthdateTextBox.TabIndex = 5;
-            //birthdateTextBox.TextChanged += this.birthdateTextBox_TextChanged;
             // 
             // label3
             // 
@@ -139,7 +133,6 @@
             label3.Size = new Size(115, 22);
             label3.TabIndex = 4;
             label3.Text = "Date of Birth:";
-            //label3.Click += this.label3_Click;
             // 
             // signOutButton
             // 
@@ -195,7 +188,7 @@
             userProfilepictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             userProfilepictureBox.TabIndex = 12;
             userProfilepictureBox.TabStop = false;
-            //userProfilepictureBox.Click += this.userProfilepictureBox_Click;
+            //userProfilepictureBox.Click += userProfilepictureBox_Click;
             // 
             // changePhotoLinkLabel
             // 

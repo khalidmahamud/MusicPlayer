@@ -18,6 +18,7 @@ namespace MusicPlayer
         public AdminForm()
         {
             InitializeComponent();
+            ActivateForm(new AdminDashboardForm(), dashboardButton, splitContainer1.Panel2);
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
@@ -51,10 +52,6 @@ namespace MusicPlayer
             activeButton.BackColor = Color.FromArgb(40, 40, 40);
         }
 
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void viewUserButton_Click(object sender, EventArgs e)
         {
@@ -66,10 +63,21 @@ namespace MusicPlayer
             ActivateForm(new AdminDashboardForm(), dashboardButton, splitContainer1.Panel2);
         }
 
-        private void addUserButton_Click(object sender, EventArgs e)
+        private void removeUser_Click(object sender, EventArgs e)
         {
-            
+            ActivateForm(new AdminRemoveUserForm(), dashboardButton, splitContainer1.Panel2);
+        }
 
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            logInForm logInForm = new logInForm();
+            logInForm.Show();
+            this.Hide();
         }
     }
 }
