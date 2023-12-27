@@ -52,30 +52,30 @@
             nameLabel.ForeColor = Color.White;
             nameLabel.Location = new Point(24, 237);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new Size(110, 22);
+            nameLabel.Size = new Size(67, 22);
             nameLabel.TabIndex = 0;
-            nameLabel.Text = "Your Name: ";
+            nameLabel.Text = "Name: ";
             // 
             // nameTextBox
             // 
-            nameTextBox.BackColor = Color.FromArgb(38, 38, 38);
+            nameTextBox.BackColor = Color.FromArgb(18, 18, 18);
             nameTextBox.BorderStyle = BorderStyle.None;
             nameTextBox.Font = new Font("Microsoft Sans Serif", 10.8F);
             nameTextBox.ForeColor = Color.White;
-            nameTextBox.Location = new Point(149, 236);
+            nameTextBox.Location = new Point(128, 237);
             nameTextBox.Name = "nameTextBox";
-            nameTextBox.Size = new Size(180, 21);
+            nameTextBox.Size = new Size(208, 21);
             nameTextBox.TabIndex = 1;
             // 
             // emailTextBox
             // 
-            emailTextBox.BackColor = Color.FromArgb(38, 38, 38);
+            emailTextBox.BackColor = Color.FromArgb(18, 18, 18);
             emailTextBox.BorderStyle = BorderStyle.None;
             emailTextBox.Font = new Font("Microsoft Sans Serif", 10.8F);
             emailTextBox.ForeColor = Color.White;
-            emailTextBox.Location = new Point(149, 279);
+            emailTextBox.Location = new Point(128, 279);
             emailTextBox.Name = "emailTextBox";
-            emailTextBox.Size = new Size(180, 21);
+            emailTextBox.Size = new Size(208, 21);
             emailTextBox.TabIndex = 3;
             emailTextBox.TextChanged += emailTextBox_TextChanged;
             // 
@@ -84,7 +84,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10.8F);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(24, 280);
+            label1.Location = new Point(24, 279);
             label1.Name = "label1";
             label1.Size = new Size(64, 22);
             label1.TabIndex = 2;
@@ -92,13 +92,13 @@
             // 
             // genderTextBox
             // 
-            genderTextBox.BackColor = Color.FromArgb(38, 38, 38);
+            genderTextBox.BackColor = Color.FromArgb(18, 18, 18);
             genderTextBox.BorderStyle = BorderStyle.None;
             genderTextBox.Font = new Font("Microsoft Sans Serif", 10.8F);
             genderTextBox.ForeColor = Color.White;
-            genderTextBox.Location = new Point(149, 361);
+            genderTextBox.Location = new Point(128, 363);
             genderTextBox.Name = "genderTextBox";
-            genderTextBox.Size = new Size(180, 21);
+            genderTextBox.Size = new Size(115, 21);
             genderTextBox.TabIndex = 7;
             genderTextBox.TextChanged += genderTextBox_TextChanged;
             // 
@@ -115,13 +115,13 @@
             // 
             // birthdateTextBox
             // 
-            birthdateTextBox.BackColor = Color.FromArgb(38, 38, 38);
+            birthdateTextBox.BackColor = Color.FromArgb(18, 18, 18);
             birthdateTextBox.BorderStyle = BorderStyle.None;
             birthdateTextBox.Font = new Font("Microsoft Sans Serif", 10.8F);
             birthdateTextBox.ForeColor = Color.White;
-            birthdateTextBox.Location = new Point(149, 317);
+            birthdateTextBox.Location = new Point(128, 319);
             birthdateTextBox.Name = "birthdateTextBox";
-            birthdateTextBox.Size = new Size(180, 21);
+            birthdateTextBox.Size = new Size(115, 21);
             birthdateTextBox.TabIndex = 5;
             birthdateTextBox.TextChanged += birthdateTextBox_TextChanged;
             // 
@@ -132,59 +132,61 @@
             label3.ForeColor = Color.White;
             label3.Location = new Point(24, 319);
             label3.Name = "label3";
-            label3.Size = new Size(115, 22);
+            label3.Size = new Size(95, 22);
             label3.TabIndex = 4;
-            label3.Text = "Date of Birth:";
+            label3.Text = "Birth Date:";
             // 
             // signOutButton
             // 
             signOutButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            signOutButton.BackColor = Color.FromArgb(255, 40, 16);
+            signOutButton.BackColor = Color.FromArgb(247, 40, 57);
             signOutButton.Cursor = Cursors.Hand;
             signOutButton.FlatAppearance.BorderSize = 0;
             signOutButton.FlatStyle = FlatStyle.Flat;
-            signOutButton.Font = new Font("Sitka Display", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            signOutButton.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             signOutButton.ForeColor = Color.White;
-            signOutButton.Location = new Point(131, 467);
+            signOutButton.Location = new Point(128, 487);
             signOutButton.Margin = new Padding(0);
             signOutButton.Name = "signOutButton";
-            signOutButton.Size = new Size(105, 45);
+            signOutButton.Size = new Size(100, 37);
             signOutButton.TabIndex = 9;
-            signOutButton.Text = "sign out";
+            signOutButton.Text = "SIGN OUT";
             signOutButton.TextAlign = ContentAlignment.MiddleLeft;
             signOutButton.UseVisualStyleBackColor = false;
             signOutButton.Click += homeFormSelectBtn_Click;
             // 
             // editLinkLabel
             // 
+            editLinkLabel.ActiveLinkColor = Color.FromArgb(247, 40, 57);
             editLinkLabel.AutoSize = true;
             editLinkLabel.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            editLinkLabel.LinkColor = Color.FromArgb(255, 23, 0);
+            editLinkLabel.LinkColor = Color.FromArgb(247, 40, 57);
             editLinkLabel.Location = new Point(52, 431);
             editLinkLabel.Name = "editLinkLabel";
-            editLinkLabel.Size = new Size(98, 25);
+            editLinkLabel.Size = new Size(97, 25);
             editLinkLabel.TabIndex = 10;
             editLinkLabel.TabStop = true;
-            editLinkLabel.Text = "Edit profile";
+            editLinkLabel.Text = "Edit Profile";
             editLinkLabel.LinkClicked += editLinkLabel_LinkClicked;
             // 
             // changePasswordLinkLabel
             // 
+            changePasswordLinkLabel.ActiveLinkColor = Color.FromArgb(247, 40, 57);
             changePasswordLinkLabel.AutoSize = true;
             changePasswordLinkLabel.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            changePasswordLinkLabel.LinkColor = Color.FromArgb(255, 23, 0);
+            changePasswordLinkLabel.LinkColor = Color.FromArgb(247, 40, 57);
             changePasswordLinkLabel.Location = new Point(156, 431);
             changePasswordLinkLabel.Name = "changePasswordLinkLabel";
-            changePasswordLinkLabel.Size = new Size(154, 25);
+            changePasswordLinkLabel.Size = new Size(152, 25);
             changePasswordLinkLabel.TabIndex = 11;
             changePasswordLinkLabel.TabStop = true;
-            changePasswordLinkLabel.Text = "Change password";
+            changePasswordLinkLabel.Text = "Change Password";
             changePasswordLinkLabel.LinkClicked += changePasswordLinkLabel_LinkClicked;
             // 
             // userProfilepictureBox
             // 
             userProfilepictureBox.Image = (Image)resources.GetObject("userProfilepictureBox.Image");
-            userProfilepictureBox.Location = new Point(97, 23);
+            userProfilepictureBox.Location = new Point(101, 28);
             userProfilepictureBox.Name = "userProfilepictureBox";
             userProfilepictureBox.Size = new Size(146, 146);
             userProfilepictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -193,22 +195,23 @@
             // 
             // changePhotoLinkLabel
             // 
+            changePhotoLinkLabel.ActiveLinkColor = Color.FromArgb(247, 40, 57);
             changePhotoLinkLabel.AutoSize = true;
-            changePhotoLinkLabel.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            changePhotoLinkLabel.LinkColor = Color.FromArgb(255, 23, 0);
-            changePhotoLinkLabel.Location = new Point(79, 177);
+            changePhotoLinkLabel.Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            changePhotoLinkLabel.LinkColor = Color.FromArgb(247, 40, 57);
+            changePhotoLinkLabel.Location = new Point(85, 177);
             changePhotoLinkLabel.Name = "changePhotoLinkLabel";
-            changePhotoLinkLabel.Size = new Size(186, 25);
+            changePhotoLinkLabel.Size = new Size(182, 23);
             changePhotoLinkLabel.TabIndex = 13;
             changePhotoLinkLabel.TabStop = true;
-            changePhotoLinkLabel.Text = "Change/upload photo";
+            changePhotoLinkLabel.Text = "Change/Upload Photo";
             changePhotoLinkLabel.LinkClicked += changePhotoLinkLabel_LinkClicked;
             // 
             // UserProfileForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(38, 38, 38);
+            BackColor = Color.FromArgb(18, 18, 18);
             ClientSize = new Size(364, 581);
             Controls.Add(changePhotoLinkLabel);
             Controls.Add(userProfilepictureBox);

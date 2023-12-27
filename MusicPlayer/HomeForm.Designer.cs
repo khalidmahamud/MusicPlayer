@@ -64,9 +64,9 @@
             userNameTextBox.BorderStyle = BorderStyle.None;
             userNameTextBox.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             userNameTextBox.ForeColor = SystemColors.Window;
-            userNameTextBox.Location = new Point(507, 28);
+            userNameTextBox.Location = new Point(368, 28);
             userNameTextBox.Name = "userNameTextBox";
-            userNameTextBox.Size = new Size(114, 31);
+            userNameTextBox.Size = new Size(253, 31);
             userNameTextBox.TabIndex = 5;
             userNameTextBox.Text = "user";
             userNameTextBox.TextAlign = HorizontalAlignment.Right;

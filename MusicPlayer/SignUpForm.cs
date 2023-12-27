@@ -37,7 +37,7 @@ namespace MusicPlayer
             }
             else if (!IsStrongPassword(passwordTextBox.Text))
             {
-                MessageBox.Show("Use strong password.");
+                MessageBox.Show("Use strong password.\nMust have uppercase and lowercase character.\r\nMust have digits and special characters.\r\nAt least 6 character.");
                 passwordTextBox.Focus();
             }
             else if (passwordTextBox.Text != confirmPasswordTextBox.Text)

@@ -306,10 +306,11 @@
             Controls.Add(customPanel2);
             DoubleBuffered = true;
             HelpButton = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "logInForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "logIn";
+            Text = "Login";
             Load += logInForm_Load;
             customPanel1.ResumeLayout(false);
             customPanel1.PerformLayout();

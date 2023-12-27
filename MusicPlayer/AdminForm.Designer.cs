@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             userInfoDataGridView = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)userInfoDataGridView).BeginInit();
             SuspendLayout();
@@ -49,6 +50,7 @@
             BackColor = Color.FromArgb(25, 28, 36);
             ClientSize = new Size(800, 450);
             Controls.Add(userInfoDataGridView);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AdminForm";
             Text = "AdminForm";
             Load += AdminForm_Load;

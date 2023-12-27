@@ -36,8 +36,7 @@
             searchBox = new TextBox();
             searchBtn = new Button();
             genreListPanel = new Panel();
-            metalPanel = new Panel();
-            metalBtn = new Button();
+            loadingTrackIconBox = new PictureBox();
             popPanel = new Panel();
             popBtn = new Button();
             rapPanel = new Panel();
@@ -52,7 +51,8 @@
             classicBtn = new Button();
             rockPanel = new Panel();
             rockBtn = new Button();
-            loadingTrackIconBox = new PictureBox();
+            metalBtn = new Button();
+            metalPanel = new Panel();
             searchResultPanel = new Panel();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -62,7 +62,7 @@
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             genreListPanel.SuspendLayout();
-            metalPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)loadingTrackIconBox).BeginInit();
             popPanel.SuspendLayout();
             rapPanel.SuspendLayout();
             folkPanel.SuspendLayout();
@@ -70,7 +70,7 @@
             countryPanel.SuspendLayout();
             classicPanel.SuspendLayout();
             rockPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)loadingTrackIconBox).BeginInit();
+            metalPanel.SuspendLayout();
             searchResultPanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -192,31 +192,17 @@
             genreListPanel.Size = new Size(683, 507);
             genreListPanel.TabIndex = 0;
             // 
-            // metalPanel
+            // loadingTrackIconBox
             // 
-            metalPanel.Controls.Add(metalBtn);
-            metalPanel.Location = new Point(524, 200);
-            metalPanel.Name = "metalPanel";
-            metalPanel.Size = new Size(156, 144);
-            metalPanel.TabIndex = 8;
-            // 
-            // metalBtn
-            // 
-            metalBtn.Dock = DockStyle.Fill;
-            metalBtn.FlatAppearance.BorderSize = 0;
-            metalBtn.FlatStyle = FlatStyle.Flat;
-            metalBtn.Font = new Font("Segoe UI", 15F);
-            metalBtn.ForeColor = Color.White;
-            metalBtn.Location = new Point(0, 0);
-            metalBtn.Name = "metalBtn";
-            metalBtn.Padding = new Padding(0, 0, 0, 5);
-            metalBtn.Size = new Size(156, 144);
-            metalBtn.TabIndex = 1;
-            metalBtn.Tag = "metal";
-            metalBtn.Text = "Metal";
-            metalBtn.TextAlign = ContentAlignment.BottomCenter;
-            metalBtn.UseVisualStyleBackColor = true;
-            metalBtn.Click += metalBtn_Click;
+            loadingTrackIconBox.Image = (Image)resources.GetObject("loadingTrackIconBox.Image");
+            loadingTrackIconBox.Location = new Point(-3, 0);
+            loadingTrackIconBox.Margin = new Padding(0);
+            loadingTrackIconBox.Name = "loadingTrackIconBox";
+            loadingTrackIconBox.Size = new Size(683, 177);
+            loadingTrackIconBox.SizeMode = PictureBoxSizeMode.CenterImage;
+            loadingTrackIconBox.TabIndex = 2;
+            loadingTrackIconBox.TabStop = false;
+            loadingTrackIconBox.Visible = false;
             // 
             // popPanel
             // 
@@ -228,6 +214,8 @@
             // 
             // popBtn
             // 
+            popBtn.BackgroundImage = (Image)resources.GetObject("popBtn.BackgroundImage");
+            popBtn.BackgroundImageLayout = ImageLayout.Zoom;
             popBtn.Dock = DockStyle.Fill;
             popBtn.FlatAppearance.BorderSize = 0;
             popBtn.FlatStyle = FlatStyle.Flat;
@@ -254,6 +242,8 @@
             // 
             // rapBtn
             // 
+            rapBtn.BackgroundImage = (Image)resources.GetObject("rapBtn.BackgroundImage");
+            rapBtn.BackgroundImageLayout = ImageLayout.Zoom;
             rapBtn.Dock = DockStyle.Fill;
             rapBtn.FlatAppearance.BorderSize = 0;
             rapBtn.FlatStyle = FlatStyle.Flat;
@@ -280,6 +270,8 @@
             // 
             // folkBtn
             // 
+            folkBtn.BackgroundImage = (Image)resources.GetObject("folkBtn.BackgroundImage");
+            folkBtn.BackgroundImageLayout = ImageLayout.Zoom;
             folkBtn.Dock = DockStyle.Fill;
             folkBtn.FlatAppearance.BorderSize = 0;
             folkBtn.FlatStyle = FlatStyle.Flat;
@@ -306,6 +298,8 @@
             // 
             // jazzBtn
             // 
+            jazzBtn.BackgroundImage = (Image)resources.GetObject("jazzBtn.BackgroundImage");
+            jazzBtn.BackgroundImageLayout = ImageLayout.Zoom;
             jazzBtn.Dock = DockStyle.Fill;
             jazzBtn.FlatAppearance.BorderSize = 0;
             jazzBtn.FlatStyle = FlatStyle.Flat;
@@ -332,6 +326,8 @@
             // 
             // countryBtn
             // 
+            countryBtn.BackgroundImage = (Image)resources.GetObject("countryBtn.BackgroundImage");
+            countryBtn.BackgroundImageLayout = ImageLayout.Zoom;
             countryBtn.Dock = DockStyle.Fill;
             countryBtn.FlatAppearance.BorderSize = 0;
             countryBtn.FlatStyle = FlatStyle.Flat;
@@ -358,6 +354,8 @@
             // 
             // classicBtn
             // 
+            classicBtn.BackgroundImage = (Image)resources.GetObject("classicBtn.BackgroundImage");
+            classicBtn.BackgroundImageLayout = ImageLayout.Zoom;
             classicBtn.Dock = DockStyle.Fill;
             classicBtn.FlatAppearance.BorderSize = 0;
             classicBtn.FlatStyle = FlatStyle.Flat;
@@ -384,6 +382,8 @@
             // 
             // rockBtn
             // 
+            rockBtn.BackgroundImage = (Image)resources.GetObject("rockBtn.BackgroundImage");
+            rockBtn.BackgroundImageLayout = ImageLayout.Zoom;
             rockBtn.Dock = DockStyle.Fill;
             rockBtn.FlatAppearance.BorderSize = 0;
             rockBtn.FlatStyle = FlatStyle.Flat;
@@ -400,17 +400,33 @@
             rockBtn.UseVisualStyleBackColor = true;
             rockBtn.Click += rockBtn_Click;
             // 
-            // loadingTrackIconBox
+            // metalBtn
             // 
-            loadingTrackIconBox.Image = (Image)resources.GetObject("loadingTrackIconBox.Image");
-            loadingTrackIconBox.Location = new Point(-3, 0);
-            loadingTrackIconBox.Margin = new Padding(0);
-            loadingTrackIconBox.Name = "loadingTrackIconBox";
-            loadingTrackIconBox.Size = new Size(683, 177);
-            loadingTrackIconBox.SizeMode = PictureBoxSizeMode.CenterImage;
-            loadingTrackIconBox.TabIndex = 2;
-            loadingTrackIconBox.TabStop = false;
-            loadingTrackIconBox.Visible = false;
+            metalBtn.BackgroundImage = (Image)resources.GetObject("metalBtn.BackgroundImage");
+            metalBtn.BackgroundImageLayout = ImageLayout.Zoom;
+            metalBtn.Dock = DockStyle.Fill;
+            metalBtn.FlatAppearance.BorderSize = 0;
+            metalBtn.FlatStyle = FlatStyle.Flat;
+            metalBtn.Font = new Font("Segoe UI", 15F);
+            metalBtn.ForeColor = Color.White;
+            metalBtn.Location = new Point(0, 0);
+            metalBtn.Name = "metalBtn";
+            metalBtn.Padding = new Padding(0, 0, 0, 5);
+            metalBtn.Size = new Size(156, 144);
+            metalBtn.TabIndex = 1;
+            metalBtn.Tag = "metal";
+            metalBtn.Text = "Metal";
+            metalBtn.TextAlign = ContentAlignment.BottomCenter;
+            metalBtn.UseVisualStyleBackColor = true;
+            metalBtn.Click += metalBtn_Click;
+            // 
+            // metalPanel
+            // 
+            metalPanel.Controls.Add(metalBtn);
+            metalPanel.Location = new Point(524, 200);
+            metalPanel.Name = "metalPanel";
+            metalPanel.Size = new Size(156, 144);
+            metalPanel.TabIndex = 8;
             // 
             // searchResultPanel
             // 
@@ -445,7 +461,7 @@
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             genreListPanel.ResumeLayout(false);
-            metalPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)loadingTrackIconBox).EndInit();
             popPanel.ResumeLayout(false);
             rapPanel.ResumeLayout(false);
             folkPanel.ResumeLayout(false);
@@ -453,7 +469,7 @@
             countryPanel.ResumeLayout(false);
             classicPanel.ResumeLayout(false);
             rockPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)loadingTrackIconBox).EndInit();
+            metalPanel.ResumeLayout(false);
             searchResultPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -467,14 +483,12 @@
         private TableLayoutPanel tableLayoutPanel2;
         private TextBox searchBox;
         private CustomComponents.RoundedPanel roundedPanel1;
-        private Panel metalPanel;
         private Panel popPanel;
         private Panel rapPanel;
         private Panel folkPanel;
         private Panel jazzPanel;
         private Panel countryPanel;
         private Panel classicPanel;
-        private Button metalBtn;
         private Button popBtn;
         private Button rapBtn;
         private Button folkBtn;
@@ -485,5 +499,7 @@
         private Button rockBtn;
         private PictureBox loadingTrackIconBox;
         private Panel searchResultPanel;
+        private Panel metalPanel;
+        private Button metalBtn;
     }
 }
