@@ -32,6 +32,8 @@
             splitContainer1 = new SplitContainer();
             customPanel1 = new CustomComponents.CustomPanel();
             trackPosterBox = new PictureBox();
+            addToPlaylistBtn = new Button();
+            addLoveBtn = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             trackDurationLabel = new Label();
             artistNameLabel = new Label();
@@ -59,6 +61,8 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = Color.FromArgb(18, 18, 18);
+            splitContainer1.Panel2.Controls.Add(addToPlaylistBtn);
+            splitContainer1.Panel2.Controls.Add(addLoveBtn);
             splitContainer1.Panel2.Controls.Add(tableLayoutPanel1);
             splitContainer1.Size = new Size(362, 588);
             splitContainer1.SplitterDistance = 299;
@@ -92,6 +96,32 @@
             trackPosterBox.SizeMode = PictureBoxSizeMode.Zoom;
             trackPosterBox.TabIndex = 0;
             trackPosterBox.TabStop = false;
+            // 
+            // addToPlaylistBtn
+            // 
+            addToPlaylistBtn.Cursor = Cursors.Hand;
+            addToPlaylistBtn.FlatAppearance.BorderSize = 0;
+            addToPlaylistBtn.FlatStyle = FlatStyle.Flat;
+            addToPlaylistBtn.Image = (Image)resources.GetObject("addToPlaylistBtn.Image");
+            addToPlaylistBtn.Location = new Point(167, 148);
+            addToPlaylistBtn.Name = "addToPlaylistBtn";
+            addToPlaylistBtn.Size = new Size(94, 29);
+            addToPlaylistBtn.TabIndex = 2;
+            addToPlaylistBtn.UseVisualStyleBackColor = true;
+            addToPlaylistBtn.Click += addToPlaylistBtn_Click;
+            // 
+            // addLoveBtn
+            // 
+            addLoveBtn.Cursor = Cursors.Hand;
+            addLoveBtn.FlatAppearance.BorderSize = 0;
+            addLoveBtn.FlatStyle = FlatStyle.Flat;
+            addLoveBtn.Image = (Image)resources.GetObject("addLoveBtn.Image");
+            addLoveBtn.Location = new Point(87, 148);
+            addLoveBtn.Name = "addLoveBtn";
+            addLoveBtn.Size = new Size(94, 29);
+            addLoveBtn.TabIndex = 1;
+            addLoveBtn.UseVisualStyleBackColor = true;
+            addLoveBtn.Click += addLoveBtn_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -180,5 +210,7 @@
         private Label trackNameLabel;
         private Label artistNameLabel;
         private Label trackDurationLabel;
+        private Button addToPlaylistBtn;
+        private Button addLoveBtn;
     }
 }

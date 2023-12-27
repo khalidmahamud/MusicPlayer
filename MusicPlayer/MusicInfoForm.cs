@@ -8,8 +8,9 @@ namespace MusicPlayer
 {
     public partial class MusicInfoForm : Form
     {
-        private readonly string track;
+        private string track;
         private bool isLocal;
+        private bool isInFavourite = false;
         private string trackName = "";
         private string artistName = "";
         private object trackPoster;
@@ -29,6 +30,8 @@ namespace MusicPlayer
 
         public async Task UpdateMusicInfo(string track, bool isLocal)
         {
+            this.track = track;
+            this.isLocal = isLocal;
             trackPosterBox.Image = Resource1.loading;
 
             if (isLocal)
@@ -89,6 +92,43 @@ namespace MusicPlayer
             artistName = TrackMetadata.artistName;
             trackPoster = TrackMetadata.trackPoster;
             totalMilliSeconds = TrackMetadata.totalMilliSeconds;
+        }
+
+        private void addLoveBtn_Click(object sender, EventArgs e)
+        {
+            // Not applicable if local track
+            if (!isLocal)
+            {
+                if (!isInFavourite)
+                {
+                    isInFavourite = true;
+                    addLoveBtn.Image = Resource1.heartFilled;
+                }
+                else
+                {
+                    isInFavourite = false;
+                    addLoveBtn.Image = Resource1.heart;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Not availble for local files.");
+            }
+        }
+
+        private void addToPlaylistBtn_Click(object sender, EventArgs e)
+        {
+            // Not applicable if local track
+            if (!isLocal)
+            {
+                // Open a new panel or form
+                // User can select existing playlist or create a new one
+                // Add track to the playlist table
+            }
+            else
+            {
+                MessageBox.Show("Not available for local files");
+            }
         }
     }
 }
