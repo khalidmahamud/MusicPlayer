@@ -55,6 +55,7 @@
             nameLabel.Size = new Size(110, 22);
             nameLabel.TabIndex = 0;
             nameLabel.Text = "Your Name: ";
+            nameLabel.Click += nameLabel_Click;
             // 
             // nameTextBox
             // 
@@ -187,6 +188,7 @@
             userProfilepictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             userProfilepictureBox.TabIndex = 12;
             userProfilepictureBox.TabStop = false;
+            //userProfilepictureBox.Click += userProfilepictureBox_Click;
             // 
             // changePhotoLinkLabel
             // 

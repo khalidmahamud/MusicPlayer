@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
@@ -157,6 +158,13 @@ namespace MusicPlayer
                 SqlDatabase.InsertData("LoggedinTable", userEmail);
                 System.Windows.Forms.Application.Exit();
             }
+
+        }
+
+        private void supportButton_Click(object sender, EventArgs e)
+        {
+            SupportForm form = new SupportForm();
+            form.Show();
 
         }
 

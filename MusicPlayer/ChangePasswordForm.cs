@@ -39,7 +39,7 @@ namespace MusicPlayer
             }
             else
             {
-                SqlDatabase.UpdatePassword(userEmail, newPasswordTextBox.Text);
+                SqlDatabase.UpdatePassword("MusicPlayerUserTable",userEmail, newPasswordTextBox.Text);
                 this.Hide();
             }         
         }

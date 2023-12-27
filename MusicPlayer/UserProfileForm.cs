@@ -118,7 +118,7 @@ namespace MusicPlayer
                 }
 
                 // Upload the profile picture to the database
-                SqlDatabase.UpdateProfilePicture(userEmail, imageData);
+                SqlDatabase.UpdateProfilePicture("MusicPlayerUserTable",userEmail, imageData);
 
                 // Update the user profile data
                 LoadUserProfile();
@@ -134,6 +134,11 @@ namespace MusicPlayer
             form.Show();
 
             form.FormClosed += (s, args) => LoadUserProfile();
+        }
+
+        private void nameLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -59,7 +59,7 @@ namespace MusicPlayer
         {
             SqlConnection con = Connection();
             con.Open();
-            SqlCommand sql = new SqlCommand("select * from MusicPlayerUserTable", con);
+            SqlCommand sql = new SqlCommand($"select * from {tableName}", con);
             DataTable dt = new DataTable();
             SqlDataReader sdr = sql.ExecuteReader();
             dt.Load(sdr);
@@ -106,12 +106,12 @@ namespace MusicPlayer
                 return null;
             }
         }
-        public static void UpdateProfilePicture(string email, byte[] imageData)
+        public static void UpdateProfilePicture(string tableName, string email, byte[] imageData)
         {
             SqlConnection con = Connection();
             con.Open();
 
-            SqlCommand sql = new SqlCommand("update MusicPlayerUserTable set photo=@photo where email=@email", con);
+            SqlCommand sql = new SqlCommand("update "+tableName+" set photo=@photo where email=@email", con);
             sql.Parameters.AddWithValue("@email", email);
             sql.Parameters.AddWithValue("@photo", imageData);
             int result = sql.ExecuteNonQuery();
@@ -125,12 +125,12 @@ namespace MusicPlayer
             }
             con.Close();
         }
-        public static void UpdatePassword(string email, string newPassword)
+        public static void UpdatePassword(string tableName, string email, string newPassword)
         {
             SqlConnection con = Connection();
             con.Open();
 
-            SqlCommand sq3 = new SqlCommand("update MusicPlayerUserTable set password=@password where email=@email", con);
+            SqlCommand sq3 = new SqlCommand("update "+tableName+" set password=@password where email=@email", con);
 
             sq3.Parameters.AddWithValue("@email", email);
             sq3.Parameters.AddWithValue("@password", newPassword);
@@ -163,7 +163,21 @@ namespace MusicPlayer
             sql.Parameters.Add("@dateOfBirth", SqlDbType.Date).Value = value;
             sql.ExecuteNonQuery();
             con.Close();
-            MessageBox.Show("your information has been changed!");
+            MessageBox.Show("information has been changed!");
+        }
+        public static void InsertDataArchived(string name, string email, string gender, DateTime value, string password)
+        {
+            SqlConnection con = Connection();
+            con.Open();
+            SqlCommand sql = new SqlCommand("insert into ArchivedTable(name,email,gender,dateOfBirth,password) values (@name,@email,@gender,@dateOfBirth,@password)", con);
+
+            sql.Parameters.AddWithValue("@name", name);
+            sql.Parameters.AddWithValue("@email", email);
+            sql.Parameters.AddWithValue("@gender", gender);
+            sql.Parameters.Add("@dateOfBirth", SqlDbType.Date).Value = value;
+            sql.Parameters.AddWithValue("@password", password);
+            sql.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

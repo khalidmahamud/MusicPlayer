@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             splitContainer1 = new SplitContainer();
             splitContainer2 = new SplitContainer();
+            supportButton = new Button();
             playlistFormSelectBtn = new Button();
             localMusicFormSelectBtn = new Button();
             exitButton = new Button();
@@ -85,6 +86,7 @@
             // splitContainer2.Panel1
             // 
             splitContainer2.Panel1.BackColor = Color.FromArgb(18, 18, 18);
+            splitContainer2.Panel1.Controls.Add(supportButton);
             splitContainer2.Panel1.Controls.Add(playlistFormSelectBtn);
             splitContainer2.Panel1.Controls.Add(localMusicFormSelectBtn);
             splitContainer2.Panel1.Controls.Add(exitButton);
@@ -98,6 +100,28 @@
             splitContainer2.SplitterDistance = 268;
             splitContainer2.SplitterWidth = 5;
             splitContainer2.TabIndex = 0;
+            // 
+            // supportButton
+            // 
+            supportButton.BackColor = Color.FromArgb(18, 18, 18);
+            supportButton.Cursor = Cursors.Hand;
+            supportButton.Dock = DockStyle.Top;
+            supportButton.FlatAppearance.BorderSize = 0;
+            supportButton.FlatStyle = FlatStyle.Flat;
+            supportButton.Font = new Font("Segoe UI", 15F);
+            supportButton.ForeColor = Color.White;
+            supportButton.Image = (Image)resources.GetObject("supportButton.Image");
+            supportButton.ImageAlign = ContentAlignment.MiddleLeft;
+            supportButton.Location = new Point(0, 309);
+            supportButton.Margin = new Padding(0);
+            supportButton.Name = "supportButton";
+            supportButton.Padding = new Padding(30, 0, 0, 0);
+            supportButton.Size = new Size(268, 77);
+            supportButton.TabIndex = 3;
+            supportButton.Text = "     Support";
+            supportButton.TextAlign = ContentAlignment.MiddleLeft;
+            supportButton.UseVisualStyleBackColor = false;
+            supportButton.Click += supportButton_Click;
             // 
             // playlistFormSelectBtn
             // 
@@ -344,6 +368,7 @@
         private Button searchFormSelectBtn;
         private Button localMusicFormSelectBtn;
         private Button exitButton;
+        private Button supportButton;
         private Button playlistFormSelectBtn;
     }
 }
