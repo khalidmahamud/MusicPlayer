@@ -15,6 +15,7 @@ namespace MusicPlayer
         private static MediaPlayerControlForm mediaPlayerControlForm;
         private static MusicInfoForm musicInfoForm;
         private static UserProfileForm userProfileForm;
+        private static PlaylistForm playlistForm;
 
         // Constructor for the MainForm class
         public MainForm(string userEmail)
@@ -74,11 +75,13 @@ namespace MusicPlayer
             if (musicInfoForm == null)
             {
                 musicInfoForm = new MusicInfoForm(track, isLocal);
+                musicInfoForm.SetEmail(userEmail);
                 ActivateForm(musicInfoForm, null, splitContainer3.Panel2);
             }
             else
             {
                 musicInfoForm.UpdateMusicInfo(track, isLocal);
+                musicInfoForm.SetEmail(userEmail);
             }
         }
 
@@ -113,7 +116,7 @@ namespace MusicPlayer
         private void homeFromSelectBtn_Click(object sender, EventArgs e)
         {
             HomeForm homeFormInstance = HomeForm.GetInstance(this, userEmail);
-            activeForm = InitializeForm(homeFormInstance, homeFormSelectBtn, splitContainer3.Panel1);
+            ActivateForm(homeFormInstance, homeFormSelectBtn, splitContainer3.Panel1);
         }
 
         // Event handler for the localMuiscFormSelectBtn button click event
@@ -122,25 +125,44 @@ namespace MusicPlayer
             ActivateForm(new LocalMusicForm(this), localMusicFormSelectBtn, splitContainer3.Panel1);
         }
 
+        private void playlistFormSelectBtn_Click(object sender, EventArgs e)
+        {
+            ActivateForm(new PlaylistForm(this, userEmail), playlistFormSelectBtn, splitContainer3.Panel1);
+        }
+
         // Opens the MusicInfoForm for a specified trackId
         public void OpenUserProfileForm()
         {
-            if (userProfileForm == null)
+            UserProfileForm userProfileFormInstance = UserProfileForm.GetInstance(this, userEmail);
+            ActivateForm(userProfileFormInstance, null, splitContainer3.Panel2);
+        }
+
+        public void ReloadPlaylistForm()
+        {
+            if (playlistForm == null)
             {
-                userProfileForm = new UserProfileForm(userEmail);
-                userProfileForm.Owner = this; // Set the owner form
-                ActivateForm(userProfileForm, null, splitContainer3.Panel2);
+                playlistForm = new PlaylistForm(this, userEmail);
+                ActivateForm(playlistForm, null, splitContainer3.Panel1);
+            }
+            else
+            {
+                playlistForm.DisplayPlaylists();
             }
         }
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to exit application?", "Exit message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to exit application?", "Exit message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 SqlDatabase.InsertData("LoggedinTable", userEmail);
                 System.Windows.Forms.Application.Exit();
             }
-            
+
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

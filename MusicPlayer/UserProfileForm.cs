@@ -9,12 +9,30 @@ namespace MusicPlayer
 {
     public partial class UserProfileForm : Form
     {
+        private MainForm mainForm;
         private string userEmail;
 
-        public UserProfileForm(string userEmail)
+        private static UserProfileForm instance;
+
+
+        private UserProfileForm(MainForm mainform, string userEmail)
         {
             InitializeComponent();
             this.userEmail = userEmail;
+            this.mainForm = mainform;
+        }
+
+        // Define a public method to get the instance (singleton pattern)
+        public static UserProfileForm GetInstance(MainForm mainForm, string userEmail)
+        {
+            // If the instance is null, create a new instance
+            if (instance == null)
+            {
+                instance = new UserProfileForm(mainForm, userEmail);
+            }
+
+            // Return the instance
+            return instance;
         }
 
         private void UserProfileForm_Load(object sender, EventArgs e)
@@ -65,13 +83,7 @@ namespace MusicPlayer
         private void homeFormSelectBtn_Click(object sender, EventArgs e)
         {
             // Hide the UserProfileForm
-            this.Hide();
-
-            MainForm mainForm = this.Owner as MainForm;
-            if (mainForm != null)
-            {
-                mainForm.Close(); // Close the MainForm
-            }
+            mainForm.Hide();
 
             // Show the LoginForm
             logInForm obj = new logInForm();

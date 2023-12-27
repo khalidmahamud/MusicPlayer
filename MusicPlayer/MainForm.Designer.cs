@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             splitContainer1 = new SplitContainer();
             splitContainer2 = new SplitContainer();
+            playlistFormSelectBtn = new Button();
             localMusicFormSelectBtn = new Button();
             exitButton = new Button();
             searchFormSelectBtn = new Button();
@@ -84,6 +85,7 @@
             // splitContainer2.Panel1
             // 
             splitContainer2.Panel1.BackColor = Color.FromArgb(18, 18, 18);
+            splitContainer2.Panel1.Controls.Add(playlistFormSelectBtn);
             splitContainer2.Panel1.Controls.Add(localMusicFormSelectBtn);
             splitContainer2.Panel1.Controls.Add(exitButton);
             splitContainer2.Panel1.Controls.Add(searchFormSelectBtn);
@@ -96,6 +98,28 @@
             splitContainer2.SplitterDistance = 268;
             splitContainer2.SplitterWidth = 5;
             splitContainer2.TabIndex = 0;
+            // 
+            // playlistFormSelectBtn
+            // 
+            playlistFormSelectBtn.BackColor = Color.FromArgb(18, 18, 18);
+            playlistFormSelectBtn.Cursor = Cursors.Hand;
+            playlistFormSelectBtn.Dock = DockStyle.Top;
+            playlistFormSelectBtn.FlatAppearance.BorderSize = 0;
+            playlistFormSelectBtn.FlatStyle = FlatStyle.Flat;
+            playlistFormSelectBtn.Font = new Font("Segoe UI", 15F);
+            playlistFormSelectBtn.ForeColor = Color.White;
+            playlistFormSelectBtn.Image = (Image)resources.GetObject("playlistFormSelectBtn.Image");
+            playlistFormSelectBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            playlistFormSelectBtn.Location = new Point(0, 309);
+            playlistFormSelectBtn.Margin = new Padding(0);
+            playlistFormSelectBtn.Name = "playlistFormSelectBtn";
+            playlistFormSelectBtn.Padding = new Padding(30, 0, 0, 0);
+            playlistFormSelectBtn.Size = new Size(268, 77);
+            playlistFormSelectBtn.TabIndex = 3;
+            playlistFormSelectBtn.Text = "     Playlist";
+            playlistFormSelectBtn.TextAlign = ContentAlignment.MiddleLeft;
+            playlistFormSelectBtn.UseVisualStyleBackColor = false;
+            playlistFormSelectBtn.Click += playlistFormSelectBtn_Click;
             // 
             // localMusicFormSelectBtn
             // 
@@ -286,6 +310,7 @@
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Vibe";
+            FormClosed += MainForm_FormClosed;
             splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
@@ -319,5 +344,6 @@
         private Button searchFormSelectBtn;
         private Button localMusicFormSelectBtn;
         private Button exitButton;
+        private Button playlistFormSelectBtn;
     }
 }

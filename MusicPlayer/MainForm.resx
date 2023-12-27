@@ -118,6 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="playlistFormSelectBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
+        MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnDBsMIg1VZH/8AAABVElEQVRIS2OgOfihbtn/Xd1yNy0w
+        yGyG7xqWc39oWJ6hBQaZDfXHKBhI8F3T0g4YIWm0wCCzgcnU4iEwtv/TAoPMZvivYsb3Q9VGiRYYZDY0
+        oEYBjcBPDVO17+oWV35oWmb9ZwhlhgqjAmChdBVbCsCFgQXYO1jkAVOJB5L42W+a1hZgQ5HBN3XLkO8a
+        VuXE4h8aVqlQrXALgHQHMN0/BrL/AfHczyo2olAllAGYBSCX/zc25gKGRsN3DYsfwGB7/1PdMh9nsBEL
+        kC2ACjH8VLPUAFqyD+wzDcvDUGHyADYLvmlaBAJ98gAoDgqu6VBh8gCyBT+0LFSAQbMVxAfii9/VzG3A
+        ikDhBvTKKmIxMKKn/be3Z0G24IeGxRpw2GtYfvipbpUHkwcDqORdYjHQkiOgCAXrhVoAxP+AyXThFx1z
+        cbCh1AJfNWwlgRYugwcH/QEDAwBZnc99/QmgSAAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="localMusicFormSelectBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1

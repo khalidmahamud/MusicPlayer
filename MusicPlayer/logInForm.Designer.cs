@@ -113,6 +113,7 @@
             emailTextBox.Name = "emailTextBox";
             emailTextBox.Size = new Size(247, 30);
             emailTextBox.TabIndex = 45;
+            emailTextBox.Text = "exf";
             // 
             // userNameLabel
             // 
@@ -166,6 +167,7 @@
             passwordTextBox.PasswordChar = '*';
             passwordTextBox.Size = new Size(247, 30);
             passwordTextBox.TabIndex = 45;
+            passwordTextBox.Text = "er5";
             // 
             // logInButton
             // 

@@ -55,14 +55,14 @@ namespace MusicPlayer
                 {
                     if (SqlDatabase.VerifyLogin("MusicPlayerUserTable", emailTextBox.Text, passwordTextBox.Text))
                     {
-                        MessageBox.Show("user Login successful");
+                        MessageBox.Show("User Login successful");
                         MainForm obj = new MainForm(emailTextBox.Text);
                         obj.Show();
                         this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show("invalid login");
+                        MessageBox.Show("Invalid login");
                     }
                 }
             }

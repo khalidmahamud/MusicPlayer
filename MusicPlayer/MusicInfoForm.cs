@@ -1,8 +1,11 @@
-﻿using Org.BouncyCastle.Tls.Crypto;
+﻿using Microsoft.Data.SqlClient;
+using Org.BouncyCastle.Tls.Crypto;
 using System;
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 using TagLib;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace MusicPlayer
 {
@@ -15,17 +18,25 @@ namespace MusicPlayer
         private string artistName = "";
         private object trackPoster;
         private int totalMilliSeconds;
+        private List<string> playlistNames;
+        private string email;
 
         public MusicInfoForm(string track, bool isLocal)
         {
             InitializeComponent();
             this.track = track;
             this.isLocal = isLocal;
+            this.playlistNames = new List<string>();
         }
 
         private async void MusicInfoForm_Load(object sender, EventArgs e)
         {
             await UpdateMusicInfo(track, isLocal);
+        }
+
+        public void SetEmail(string email)
+        {
+            this.email = email;
         }
 
         public async Task UpdateMusicInfo(string track, bool isLocal)
@@ -121,9 +132,8 @@ namespace MusicPlayer
             // Not applicable if local track
             if (!isLocal)
             {
-                // Open a new panel or form
-                // User can select existing playlist or create a new one
-                // Add track to the playlist table
+                AddToPlaylistForm addToPlaylistForm = new AddToPlaylistForm(track, email);
+                addToPlaylistForm.Show();
             }
             else
             {
