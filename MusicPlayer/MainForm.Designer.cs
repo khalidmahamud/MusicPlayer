@@ -112,7 +112,7 @@
             supportButton.ForeColor = Color.White;
             supportButton.Image = (Image)resources.GetObject("supportButton.Image");
             supportButton.ImageAlign = ContentAlignment.MiddleLeft;
-            supportButton.Location = new Point(0, 309);
+            supportButton.Location = new Point(0, 386);
             supportButton.Margin = new Padding(0);
             supportButton.Name = "supportButton";
             supportButton.Padding = new Padding(30, 0, 0, 0);
