@@ -81,6 +81,7 @@ namespace MusicPlayer
             else
             {
                 musicInfoForm.UpdateMusicInfo(track, isLocal);
+                ActivateForm(musicInfoForm, null, splitContainer3.Panel2);
                 musicInfoForm.SetEmail(userEmail);
             }
         }
