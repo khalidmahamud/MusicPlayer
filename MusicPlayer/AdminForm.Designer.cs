@@ -37,6 +37,9 @@
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
+            userInfoDataGridView = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)userInfoDataGridView).BeginInit();
             SuspendLayout();
             // 
             // splitContainer1
@@ -131,8 +134,9 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(25, 28, 36);
-            ClientSize = new Size(1370, 743);
-            Controls.Add(splitContainer1);
+            ClientSize = new Size(800, 450);
+            Controls.Add(userInfoDataGridView);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AdminForm";
             Text = "AdminForm";
             Load += AdminForm_Load;

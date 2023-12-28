@@ -48,11 +48,13 @@
             label1 = new Label();
             alreadyLabel = new Label();
             customPanel2 = new CustomComponents.CustomPanel();
+            pictureBoxSignup = new PictureBox();
             vibeMusicLabel = new Label();
             exploreMusicLabel = new Label();
             signinButton = new Button();
             customPanel1.SuspendLayout();
             customPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSignup).BeginInit();
             SuspendLayout();
             // 
             // customPanel1
@@ -304,6 +306,7 @@
             customPanel2.BackColor = Color.FromArgb(247, 40, 57);
             customPanel2.BackgroundImageLayout = ImageLayout.Stretch;
             customPanel2.BorderRadius = 30;
+            customPanel2.Controls.Add(pictureBoxSignup);
             customPanel2.Controls.Add(vibeMusicLabel);
             customPanel2.Controls.Add(exploreMusicLabel);
             customPanel2.Controls.Add(signinButton);
@@ -319,6 +322,17 @@
             customPanel2.Name = "customPanel2";
             customPanel2.Size = new Size(640, 500);
             customPanel2.TabIndex = 66;
+            customPanel2.Tag = "SignUp";
+            // 
+            // pictureBoxSignup
+            // 
+            pictureBoxSignup.BackgroundImage = (Image)resources.GetObject("pictureBoxSignup.BackgroundImage");
+            pictureBoxSignup.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBoxSignup.Location = new Point(89, 84);
+            pictureBoxSignup.Name = "pictureBoxSignup";
+            pictureBoxSignup.Size = new Size(134, 71);
+            pictureBoxSignup.TabIndex = 67;
+            pictureBoxSignup.TabStop = false;
             // 
             // vibeMusicLabel
             // 
@@ -368,13 +382,16 @@
             ClientSize = new Size(1101, 674);
             Controls.Add(customPanel2);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "SignUpForm";
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "SignUp";
             customPanel1.ResumeLayout(false);
             customPanel1.PerformLayout();
             customPanel2.ResumeLayout(false);
             customPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSignup).EndInit();
             ResumeLayout(false);
         }
 
@@ -402,5 +419,6 @@
         private Button signinButton;
         private Label exploreMusicLabel;
         private Label vibeMusicLabel;
+        private PictureBox pictureBoxSignup;
     }
 }
