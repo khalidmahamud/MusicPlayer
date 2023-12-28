@@ -27,7 +27,7 @@ namespace MusicPlayer
 
         private void CreateNewPlaylistBtn_Click(object sender, EventArgs e)
         {
-            createPlaylistForm = new CreatePlaylistForm(mainForm, email);
+            createPlaylistForm = new CreatePlaylistForm(email);
             createPlaylistForm.Show(mainForm);
             mainForm.Enabled = false;
         }

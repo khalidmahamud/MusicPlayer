@@ -139,19 +139,6 @@ namespace MusicPlayer
             ActivateForm(userProfileFormInstance, null, splitContainer3.Panel2);
         }
 
-        public void ReloadPlaylistForm()
-        {
-            if (playlistForm == null)
-            {
-                playlistForm = new PlaylistForm(this, userEmail);
-                ActivateForm(playlistForm, null, splitContainer3.Panel1);
-            }
-            else
-            {
-                playlistForm.DisplayPlaylists();
-            }
-        }
-
         private void exitButton_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to exit application?", "Exit message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

@@ -15,12 +15,17 @@ namespace MusicPlayer
 {
     public partial class AddToPlaylistForm : Form
     {
+        private static AddToPlaylistForm instance;
+
+        private CreatePlaylistForm createPlaylistForm;
+        private readonly MainForm mainForm;
+
         private static readonly Random random = new Random();
         private List<string> playlistNames;
         private List<string> playlistIDs;
         private string email;
-        private string trackID; 
-        public AddToPlaylistForm(string trackID, string email)
+        private string trackID;
+        private AddToPlaylistForm(string trackID, string email)
         {
             InitializeComponent();
             this.playlistNames = new List<string>();
@@ -30,8 +35,22 @@ namespace MusicPlayer
             ShowPlayList();
         }
 
-        private void ShowPlayList()
+        // Define a public method to get the instance (singleton pattern)
+        public static AddToPlaylistForm GetInstance(string trackID, string email)
         {
+            // If the instance is null, create a new instance
+            if (instance == null)
+            {
+                instance = new AddToPlaylistForm(trackID, email);
+            }
+
+            // Return the instance
+            return instance;
+        }
+
+        public void ShowPlayList()
+        {
+            ClearPanels();
             using (SqlConnection connection = Connection())
             {
                 connection.Open();
@@ -60,9 +79,6 @@ namespace MusicPlayer
 
         public void DisplayPlaylists()
         {
-            // Clear existing panels from the playlistLIstPanel
-            playlistPanel.Controls.Clear();
-
             // Iterate through playlist names and create panels dynamically
             for (int i = 0; i < playlistNames.Count; i++)
             {
@@ -162,6 +178,27 @@ namespace MusicPlayer
             }
 
             return new string(playlistId);
+        }
+
+        private void CreateNewPlaylistBtn_Click(object sender, EventArgs e)
+        {
+            createPlaylistForm = new CreatePlaylistForm(email);
+            createPlaylistForm.Show();
+        }
+
+        private void ClearPanels()
+        {
+            playlistNames.Clear();
+            playlistIDs.Clear();
+            // Get panels to remove
+            var panelsToRemove = playlistPanel.Controls.OfType<Panel>().Where(p => p.Name.StartsWith("panelResult")).ToList();
+
+            // Remove each panel and dispose of it
+            foreach (var panel in panelsToRemove)
+            {
+                playlistPanel.Controls.Remove(panel);
+                panel.Dispose();
+            }
         }
     }
 }

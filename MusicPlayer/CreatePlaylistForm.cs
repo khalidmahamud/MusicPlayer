@@ -13,24 +13,20 @@ namespace MusicPlayer
 {
     public partial class CreatePlaylistForm : Form
     {
-        private readonly MainForm mainForm;
         private string newPlaylistName;
         private string playlistID;
         private string email;
 
         private static readonly Random random = new Random();
-        public CreatePlaylistForm(MainForm mainForm, string email)
+        public CreatePlaylistForm(string email)
         {
             InitializeComponent();
-            this.mainForm = mainForm;
             this.email = email;
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            mainForm.Enabled = true;
             this.Hide();
-            this.Dispose();
         }
 
         private void confirmBtn_Click(object sender, EventArgs e)
@@ -46,10 +42,11 @@ namespace MusicPlayer
                 playlistID = GenerateRandomPlaylistId();
                 InsertData(playlistID, newPlaylistName, email);
                 MessageBox.Show($"Successfully created {newPlaylistName}");
-                mainForm.Enabled = true;
-                mainForm.ReloadPlaylistForm();
+
+                AddToPlaylistForm addToPlaylistFormInstance = AddToPlaylistForm.GetInstance("", email);
+                addToPlaylistFormInstance.ShowPlayList();
+
                 this.Hide();
-                this.Dispose();
             }
         }
 
@@ -72,7 +69,7 @@ namespace MusicPlayer
             return con;
         }
 
-            
+
         public static string GenerateRandomPlaylistId()
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

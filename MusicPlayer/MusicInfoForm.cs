@@ -132,7 +132,7 @@ namespace MusicPlayer
             // Not applicable if local track
             if (!isLocal)
             {
-                AddToPlaylistForm addToPlaylistForm = new AddToPlaylistForm(track, email);
+                AddToPlaylistForm addToPlaylistForm = AddToPlaylistForm.GetInstance(track, email);
                 addToPlaylistForm.Show();
             }
             else
