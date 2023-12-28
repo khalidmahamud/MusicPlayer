@@ -107,11 +107,11 @@
             emailTextBox.BackColor = Color.White;
             emailTextBox.Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             emailTextBox.ForeColor = SystemColors.ActiveCaptionText;
-            emailTextBox.Location = new Point(41, 152);
+            emailTextBox.Location = new Point(22, 152);
             emailTextBox.Margin = new Padding(3, 4, 3, 4);
             emailTextBox.Multiline = true;
             emailTextBox.Name = "emailTextBox";
-            emailTextBox.Size = new Size(247, 30);
+            emailTextBox.Size = new Size(290, 30);
             emailTextBox.TabIndex = 45;
             // 
             // userNameLabel
@@ -120,7 +120,7 @@
             userNameLabel.BackColor = Color.White;
             userNameLabel.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold);
             userNameLabel.ForeColor = Color.FromArgb(0, 0, 64);
-            userNameLabel.Location = new Point(41, 125);
+            userNameLabel.Location = new Point(22, 125);
             userNameLabel.Name = "userNameLabel";
             userNameLabel.Size = new Size(54, 23);
             userNameLabel.TabIndex = 44;
@@ -132,7 +132,7 @@
             label1.BackColor = Color.White;
             label1.Font = new Font("Nirmala UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(247, 40, 57);
-            label1.Location = new Point(41, 57);
+            label1.Location = new Point(21, 56);
             label1.Name = "label1";
             label1.Size = new Size(220, 38);
             label1.TabIndex = 34;
@@ -146,7 +146,7 @@
             clearButton.FlatStyle = FlatStyle.Popup;
             clearButton.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold);
             clearButton.ForeColor = Color.FromArgb(247, 40, 57);
-            clearButton.Location = new Point(41, 303);
+            clearButton.Location = new Point(22, 303);
             clearButton.Margin = new Padding(3, 4, 3, 4);
             clearButton.Name = "clearButton";
             clearButton.Size = new Size(114, 40);
@@ -159,12 +159,12 @@
             // 
             passwordTextBox.BackColor = Color.White;
             passwordTextBox.Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            passwordTextBox.Location = new Point(41, 223);
+            passwordTextBox.Location = new Point(22, 223);
             passwordTextBox.Margin = new Padding(3, 4, 3, 4);
             passwordTextBox.Multiline = true;
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.PasswordChar = '*';
-            passwordTextBox.Size = new Size(247, 30);
+            passwordTextBox.Size = new Size(290, 30);
             passwordTextBox.TabIndex = 45;
             // 
             // logInButton
@@ -175,7 +175,7 @@
             logInButton.FlatStyle = FlatStyle.Flat;
             logInButton.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold);
             logInButton.ForeColor = Color.FromArgb(230, 231, 233);
-            logInButton.Location = new Point(174, 303);
+            logInButton.Location = new Point(198, 303);
             logInButton.Margin = new Padding(3, 4, 3, 4);
             logInButton.Name = "logInButton";
             logInButton.Size = new Size(114, 40);
@@ -189,7 +189,7 @@
             showPasswordCheckBox.AutoSize = true;
             showPasswordCheckBox.BackColor = Color.White;
             showPasswordCheckBox.Font = new Font("Nirmala UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            showPasswordCheckBox.Location = new Point(163, 265);
+            showPasswordCheckBox.Location = new Point(187, 261);
             showPasswordCheckBox.Margin = new Padding(3, 4, 3, 4);
             showPasswordCheckBox.Name = "showPasswordCheckBox";
             showPasswordCheckBox.Size = new Size(125, 21);
@@ -204,11 +204,12 @@
             passwordLabel.BackColor = Color.White;
             passwordLabel.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold);
             passwordLabel.ForeColor = Color.FromArgb(0, 0, 64);
-            passwordLabel.Location = new Point(41, 196);
+            passwordLabel.Location = new Point(22, 196);
             passwordLabel.Name = "passwordLabel";
             passwordLabel.Size = new Size(84, 23);
             passwordLabel.TabIndex = 35;
             passwordLabel.Text = "Password";
+            passwordLabel.Click += passwordLabel_Click;
             // 
             // label7
             // 

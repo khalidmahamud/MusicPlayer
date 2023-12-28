@@ -145,28 +145,6 @@
             playlistFormSelectBtn.UseVisualStyleBackColor = false;
             playlistFormSelectBtn.Click += playlistFormSelectBtn_Click;
             // 
-            // exitButton
-            // 
-            exitButton.BackColor = Color.FromArgb(18, 18, 18);
-            exitButton.Cursor = Cursors.Hand;
-            exitButton.Dock = DockStyle.Bottom;
-            exitButton.FlatAppearance.BorderSize = 0;
-            exitButton.FlatStyle = FlatStyle.Flat;
-            exitButton.Font = new Font("Segoe UI", 15F);
-            exitButton.ForeColor = Color.White;
-            exitButton.Image = (Image)resources.GetObject("exitButton.Image");
-            exitButton.ImageAlign = ContentAlignment.MiddleLeft;
-            exitButton.Location = new Point(0, 549);
-            exitButton.Margin = new Padding(0);
-            exitButton.Name = "exitButton";
-            exitButton.Padding = new Padding(30, 0, 0, 0);
-            exitButton.Size = new Size(268, 77);
-            exitButton.TabIndex = 1;
-            exitButton.Text = "     Exit";
-            exitButton.TextAlign = ContentAlignment.MiddleLeft;
-            exitButton.UseVisualStyleBackColor = false;
-            exitButton.Click += exitButton_Click;
-            // 
             // localMusicFormSelectBtn
             // 
             localMusicFormSelectBtn.BackColor = Color.FromArgb(18, 18, 18);
@@ -189,7 +167,7 @@
             localMusicFormSelectBtn.UseVisualStyleBackColor = false;
             localMusicFormSelectBtn.Click += localMusicFormSelectBtn_Click;
             // 
-            // button1
+            // exitButton
             // 
             exitButton.BackColor = Color.FromArgb(18, 18, 18);
             exitButton.Cursor = Cursors.Hand;
@@ -198,6 +176,7 @@
             exitButton.FlatStyle = FlatStyle.Flat;
             exitButton.Font = new Font("Segoe UI", 15F);
             exitButton.ForeColor = Color.White;
+            exitButton.Image = (Image)resources.GetObject("exitButton.Image");
             exitButton.ImageAlign = ContentAlignment.MiddleLeft;
             exitButton.Location = new Point(0, 549);
             exitButton.Margin = new Padding(0);

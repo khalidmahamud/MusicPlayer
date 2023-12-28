@@ -153,17 +153,6 @@
         cbCh1AJfNWwlgRYugwcH/QEDAwBZnc99/QmgSAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="exitButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
-        MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnDBcDHwl5awveAAAA/0lEQVRIS2MYfuCnprnqD00LFwys
-        bu34Xt9eAKqMPPBdw2radw3L/zixusUVqFLSAcjlWA1FxZehykkH39XNHZAMKsYWRP+VjPmhykkHKBYA
-        2VBhvOC7hoX9L01rbSgXPyDVAoR6ix8/Nay8ocK4AakWgFwOMpxoS0i1AAR+qFt4ANV/h+r7+VPd3A8q
-        hQlwWQBK+6AIxoh0GFa37Ifrw+cTXBZ8V7e8ijCAKPz9m4qZDFQ7AgyYBaC0T9MgwgeoEsm4AM2TKUI9
-        jTIaCHzXtLT7qWWmBeXiBygW4CjsKKoPiCquKakPQABowFSsBiMw+fUBDOCrMimqD4YoYGAAAGbvnIdb
-        HXtoAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="localMusicFormSelectBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
@@ -177,6 +166,17 @@
         5zY4DnQp6G+L+g9ODFKRZoCHvg7NH/Ta/hcDbMgFXN+ERTWS22CrXLsav2a1iGIR8hiEheo15O8ZHoxi
         x+7ieLn3zyDGDcuDi25KPgPafHjv5+1A5TIdipuFem/M4C1Mn7a84JZLbwOB1KPiuKRvBhnseP59J5kE
         ql91FXRPrraofU4yCTrjqaf0gLplpvgJOoOxfQrCS93ZoxLvAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="exitButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
+        MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnDBcDHwl5awveAAAA/0lEQVRIS2MYfuCnprnqD00LFwys
+        bu34Xt9eAKqMPPBdw2radw3L/zixusUVqFLSAcjlWA1FxZehykkH39XNHZAMKsYWRP+VjPmhykkHKBYA
+        2VBhvOC7hoX9L01rbSgXPyDVAoR6ix8/Nay8ocK4AakWgFwOMpxoS0i1AAR+qFt4ANV/h+r7+VPd3A8q
+        hQlwWQBK+6AIxoh0GFa37Ifrw+cTXBZ8V7e8ijCAKPz9m4qZDFQ7AgyYBaC0T9MgwgeoEsm4AM2TKUI9
+        jTIaCHzXtLT7qWWmBeXiBygW4CjsKKoPiCquKakPQABowFSsBiMw+fUBDOCrMimqD4YoYGAAAGbvnIdb
+        HXtoAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="searchFormSelectBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

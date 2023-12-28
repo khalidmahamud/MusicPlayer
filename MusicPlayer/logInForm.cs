@@ -23,6 +23,7 @@ namespace MusicPlayer
     public partial class logInForm : Form
 
     {
+        private MainForm mainForm;
         public logInForm()
         {
             InitializeComponent();
@@ -56,8 +57,8 @@ namespace MusicPlayer
                     if (SqlDatabase.VerifyLogin("MusicPlayerUserTable", emailTextBox.Text, passwordTextBox.Text))
                     {
                         MessageBox.Show("User Login successful");
-                        MainForm obj = new MainForm(emailTextBox.Text);
-                        obj.Show();
+                        mainForm = new MainForm(emailTextBox.Text);
+                        mainForm.Show();
                         this.Hide();
                     }
                     else
@@ -101,7 +102,10 @@ namespace MusicPlayer
             ResetPasswordForm rs = new ResetPasswordForm();
             rs.Show();
         }
-        
 
+        private void passwordLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

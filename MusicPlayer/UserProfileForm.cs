@@ -82,12 +82,19 @@ namespace MusicPlayer
 
         private void homeFormSelectBtn_Click(object sender, EventArgs e)
         {
-            // Hide the UserProfileForm
-            mainForm.Hide();
+            this.Close();
+            mainForm.Close();
+        }
 
-            // Show the LoginForm
-            logInForm obj = new logInForm();
-            obj.Show();
+        private void CloseFormsOfType(Type formType)
+        {
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm.GetType() == formType)
+                {
+                    openForm.Close();
+                }
+            }
         }
 
         private void changePasswordLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
