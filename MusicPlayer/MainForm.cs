@@ -104,7 +104,7 @@ namespace MusicPlayer
         // Highlights the active button and resets the appearance of other buttons
         private void HighlightActiveButton(Button activeButton)
         {
-            searchFormSelectBtn.BackColor = homeFormSelectBtn.BackColor = localMusicFormSelectBtn.BackColor = Color.FromArgb(18, 18, 18);
+            searchFormSelectBtn.BackColor = homeFormSelectBtn.BackColor = localMusicFormSelectBtn.BackColor = playlistFormSelectBtn.BackColor = Color.FromArgb(18, 18, 18);
             activeButton.BackColor = Color.FromArgb(40, 40, 40);
         }
 

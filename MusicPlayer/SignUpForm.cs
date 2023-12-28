@@ -35,6 +35,10 @@ namespace MusicPlayer
                 MessageBox.Show("Enter correct gmail.");
                 gmailTextBox.Focus();
             }
+            else if (SqlDatabase.IsExistingEmail("MusicPlayerUserTable", gmailTextBox.Text))
+            {
+                MessageBox.Show("An accound with this email already exists.");
+            }
             else if (!IsStrongPassword(passwordTextBox.Text))
             {
                 MessageBox.Show("Use strong password.\nMust have uppercase and lowercase character.\r\nMust have digits and special characters.\r\nAt least 6 character.");
@@ -57,9 +61,6 @@ namespace MusicPlayer
                 obj.Show();
                 this.Hide();
             }
-
-
-
         }
         static bool IsGmailAddress(string email)
         {
@@ -110,7 +111,6 @@ namespace MusicPlayer
             {
                 passwordTextBox.PasswordChar = '\0';
                 confirmPasswordTextBox.PasswordChar = '\0';
-
             }
             else
             {
