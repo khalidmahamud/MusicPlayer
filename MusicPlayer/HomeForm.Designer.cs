@@ -33,29 +33,29 @@
             customPanel1 = new CustomComponents.CustomPanel();
             userNameTextBox = new TextBox();
             userSelectBtn = new Button();
-            label1 = new Label();
+            greetingLabel = new Label();
             customPanel2 = new CustomComponents.CustomPanel();
-            label2 = new Label();
-            label3 = new Label();
-            toolTip1 = new ToolTip(components);
-            recommendedBox4 = new PictureBox();
-            recommendedBox3 = new PictureBox();
-            recommendedBox2 = new PictureBox();
-            recommendedBox1 = new PictureBox();
             popularNowBox4 = new PictureBox();
             popularNowBox3 = new PictureBox();
             popularNowBox2 = new PictureBox();
             popularNowBox1 = new PictureBox();
+            recommendedBox4 = new PictureBox();
+            recommendedBox3 = new PictureBox();
+            recommendedBox2 = new PictureBox();
+            recommendedBox1 = new PictureBox();
+            label2 = new Label();
+            label3 = new Label();
+            toolTip1 = new ToolTip(components);
             customPanel1.SuspendLayout();
             customPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)recommendedBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)recommendedBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)recommendedBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)recommendedBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)popularNowBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)popularNowBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)popularNowBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)popularNowBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)recommendedBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)recommendedBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)recommendedBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)recommendedBox1).BeginInit();
             SuspendLayout();
             // 
             // customPanel1
@@ -64,7 +64,7 @@
             customPanel1.BorderRadius = 30;
             customPanel1.Controls.Add(userNameTextBox);
             customPanel1.Controls.Add(userSelectBtn);
-            customPanel1.Controls.Add(label1);
+            customPanel1.Controls.Add(greetingLabel);
             customPanel1.Dock = DockStyle.Top;
             customPanel1.ForeColor = Color.Black;
             customPanel1.GradientAngle = 90F;
@@ -108,17 +108,17 @@
             userSelectBtn.UseVisualStyleBackColor = false;
             userSelectBtn.Click += UserSelectBtn_Click;
             // 
-            // label1
+            // greetingLabel
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Transparent;
-            label1.Location = new Point(12, 20);
-            label1.Name = "label1";
-            label1.Size = new Size(214, 38);
-            label1.TabIndex = 1;
-            label1.Text = "Good Morning!";
+            greetingLabel.AutoSize = true;
+            greetingLabel.BackColor = Color.Transparent;
+            greetingLabel.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            greetingLabel.ForeColor = Color.Transparent;
+            greetingLabel.Location = new Point(12, 20);
+            greetingLabel.Name = "greetingLabel";
+            greetingLabel.Size = new Size(214, 38);
+            greetingLabel.TabIndex = 1;
+            greetingLabel.Text = "Good Morning!";
             // 
             // customPanel2
             // 
@@ -144,68 +144,6 @@
             customPanel2.Name = "customPanel2";
             customPanel2.Size = new Size(705, 475);
             customPanel2.TabIndex = 1;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label2.ForeColor = Color.Transparent;
-            label2.Location = new Point(12, 250);
-            label2.Name = "label2";
-            label2.Size = new Size(167, 35);
-            label2.TabIndex = 4;
-            label2.Text = "Popular Now";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label3.ForeColor = Color.Transparent;
-            label3.Location = new Point(12, 12);
-            label3.Name = "label3";
-            label3.Size = new Size(190, 35);
-            label3.TabIndex = 0;
-            label3.Text = "Recommended";
-            // 
-            // recommendedBox4
-            // 
-            recommendedBox4.Image = (Image)resources.GetObject("recommendedBox4.Image");
-            recommendedBox4.Location = new Point(548, 65);
-            recommendedBox4.Name = "recommendedBox4";
-            recommendedBox4.Size = new Size(128, 122);
-            recommendedBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            recommendedBox4.TabIndex = 9;
-            recommendedBox4.TabStop = false;
-            // 
-            // recommendedBox3
-            // 
-            recommendedBox3.Image = (Image)resources.GetObject("recommendedBox3.Image");
-            recommendedBox3.Location = new Point(376, 65);
-            recommendedBox3.Name = "recommendedBox3";
-            recommendedBox3.Size = new Size(128, 125);
-            recommendedBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            recommendedBox3.TabIndex = 8;
-            recommendedBox3.TabStop = false;
-            // 
-            // recommendedBox2
-            // 
-            recommendedBox2.Image = (Image)resources.GetObject("recommendedBox2.Image");
-            recommendedBox2.Location = new Point(203, 59);
-            recommendedBox2.Name = "recommendedBox2";
-            recommendedBox2.Size = new Size(128, 128);
-            recommendedBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            recommendedBox2.TabIndex = 7;
-            recommendedBox2.TabStop = false;
-            // 
-            // recommendedBox1
-            // 
-            recommendedBox1.Image = (Image)resources.GetObject("recommendedBox1.Image");
-            recommendedBox1.Location = new Point(25, 62);
-            recommendedBox1.Name = "recommendedBox1";
-            recommendedBox1.Size = new Size(128, 125);
-            recommendedBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            recommendedBox1.TabIndex = 6;
-            recommendedBox1.TabStop = false;
             // 
             // popularNowBox4
             // 
@@ -247,6 +185,68 @@
             popularNowBox1.TabIndex = 10;
             popularNowBox1.TabStop = false;
             // 
+            // recommendedBox4
+            // 
+            recommendedBox4.Image = (Image)resources.GetObject("recommendedBox4.Image");
+            recommendedBox4.Location = new Point(548, 65);
+            recommendedBox4.Name = "recommendedBox4";
+            recommendedBox4.Size = new Size(128, 122);
+            recommendedBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            recommendedBox4.TabIndex = 9;
+            recommendedBox4.TabStop = false;
+            // 
+            // recommendedBox3
+            // 
+            recommendedBox3.Image = (Image)resources.GetObject("recommendedBox3.Image");
+            recommendedBox3.Location = new Point(376, 65);
+            recommendedBox3.Name = "recommendedBox3";
+            recommendedBox3.Size = new Size(128, 125);
+            recommendedBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            recommendedBox3.TabIndex = 8;
+            recommendedBox3.TabStop = false;
+            // 
+            // recommendedBox2
+            // 
+            recommendedBox2.Image = (Image)resources.GetObject("recommendedBox2.Image");
+            recommendedBox2.Location = new Point(203, 59);
+            recommendedBox2.Name = "recommendedBox2";
+            recommendedBox2.Size = new Size(128, 128);
+            recommendedBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            recommendedBox2.TabIndex = 7;
+            recommendedBox2.TabStop = false;
+            // 
+            // recommendedBox1
+            // 
+            recommendedBox1.Image = (Image)resources.GetObject("recommendedBox1.Image");
+            recommendedBox1.Location = new Point(25, 62);
+            recommendedBox1.Name = "recommendedBox1";
+            recommendedBox1.Size = new Size(128, 125);
+            recommendedBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            recommendedBox1.TabIndex = 6;
+            recommendedBox1.TabStop = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            label2.ForeColor = Color.Transparent;
+            label2.Location = new Point(12, 250);
+            label2.Name = "label2";
+            label2.Size = new Size(167, 35);
+            label2.TabIndex = 4;
+            label2.Text = "Popular Now";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            label3.ForeColor = Color.Transparent;
+            label3.Location = new Point(12, 12);
+            label3.Name = "label3";
+            label3.Size = new Size(190, 35);
+            label3.TabIndex = 0;
+            label3.Text = "Recommended";
+            // 
             // HomeForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -262,21 +262,21 @@
             customPanel1.PerformLayout();
             customPanel2.ResumeLayout(false);
             customPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)recommendedBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)recommendedBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)recommendedBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)recommendedBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)popularNowBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)popularNowBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)popularNowBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)popularNowBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)recommendedBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)recommendedBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)recommendedBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)recommendedBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private CustomComponents.CustomPanel customPanel1;
-        private Label label1;
+        private Label greetingLabel;
         private CustomComponents.CustomPanel customPanel2;
         private Button userSelectBtn;
         private Label label3;

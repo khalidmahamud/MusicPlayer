@@ -11,6 +11,8 @@ namespace MusicPlayer
         private string userEmail;
         private readonly MainForm mainForm;
 
+        DateTime currentTime = DateTime.Now;
+
         // Define a private static instance variable
         private static HomeForm instance;
 
@@ -20,6 +22,8 @@ namespace MusicPlayer
             InitializeComponent();
             this.mainForm = mainForm;
             this.userEmail = userEmail;
+
+            greetingLabel.Text = GetGreeting(currentTime);
         }
 
         // Define a public method to get the instance (singleton pattern)
@@ -222,6 +226,28 @@ namespace MusicPlayer
             }
 
             return firstName;
+        }
+
+        static string GetGreeting(DateTime time)
+        {
+            int hour = time.Hour;
+
+            if (hour >= 5 && hour < 12)
+            {
+                return "Good Morning";
+            }
+            else if (hour >= 12 && hour < 17)
+            {
+                return "Good Afternoon";
+            }
+            else if (hour >= 17 && hour < 21)
+            {
+                return "Good Evening";
+            }
+            else
+            {
+                return "Good Night";
+            }
         }
     }
 }
