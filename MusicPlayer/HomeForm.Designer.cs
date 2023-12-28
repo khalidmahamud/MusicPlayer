@@ -121,13 +121,13 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             label3.ForeColor = Color.Transparent;
             label3.Location = new Point(12, 12);
             label3.Name = "label3";
-            label3.Size = new Size(125, 28);
+            label3.Size = new Size(190, 35);
             label3.TabIndex = 0;
-            label3.Text = "Popular Now";
+            label3.Text = "Recommended";
             // 
             // HomeForm
             // 
