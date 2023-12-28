@@ -127,7 +127,7 @@ namespace MusicPlayer
             string playlistTrackID = GenerateRandomPlaylistId();
             InsertData(playlistTrackID, playlistID, trackID);
             MessageBox.Show($"Successfully added track");
-            this.Dispose();
+            this.Hide();
         }
 
         // Retrieves track ID from the clicked control
@@ -190,15 +190,7 @@ namespace MusicPlayer
         {
             playlistNames.Clear();
             playlistIDs.Clear();
-            // Get panels to remove
-            var panelsToRemove = playlistPanel.Controls.OfType<Panel>().Where(p => p.Name.StartsWith("panelResult")).ToList();
-
-            // Remove each panel and dispose of it
-            foreach (var panel in panelsToRemove)
-            {
-                playlistPanel.Controls.Remove(panel);
-                panel.Dispose();
-            }
+            playlistPanel.Controls.Clear();
         }
     }
 }

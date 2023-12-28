@@ -133,6 +133,7 @@ namespace MusicPlayer
             if (!isLocal)
             {
                 AddToPlaylistForm addToPlaylistForm = AddToPlaylistForm.GetInstance(track, email);
+                addToPlaylistForm.ShowPlayList();
                 addToPlaylistForm.Show();
             }
             else
